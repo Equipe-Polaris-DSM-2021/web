@@ -1,10 +1,12 @@
 import {Map, TileLayer } from 'react-leaflet';
+import Sidebar from '../components/Sidebar';
 
 import "../styles/pages/home.css"
 
 export default function Home() {
   return (
     <div id="page-map">
+      <Sidebar />
       <Map center={[-23.2683,-45.913486]}
         zoom={15} 
         style={{ width: '100%', height: '100%'}}

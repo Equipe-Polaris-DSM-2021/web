@@ -5,3 +5,7 @@
   position: relative;
   display: flex;
 }
+
+.botao {
+  background: red;
+}
