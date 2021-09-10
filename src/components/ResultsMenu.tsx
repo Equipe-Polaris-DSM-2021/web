@@ -5,11 +5,8 @@ import btnVoltar from "../assets/img/Icons/btn-voltar.svg";
 function ResultsMenu() {
   // Controle para verificar se o menu está aberto ou fechado
   const [showResultsMenu, setShowResultsMenu] = useState(false);
-  const handleResultsMenuClose = () => {
-    setShowResultsMenu(false);
-  };
-  const handleResultsMenuOpen = () => {
-    setShowResultsMenu(true);
+  const handleResultsMenu = () => {
+    setShowResultsMenu(!showResultsMenu);
   };
 
   return (
@@ -19,11 +16,7 @@ function ResultsMenu() {
         <header>
           <h1>Resultados</h1>
           <button>
-            <img
-              src={btnVoltar}
-              alt="Voltar"
-              onClick={handleResultsMenuClose}
-            />
+            <img src={btnVoltar} alt="Voltar" onClick={handleResultsMenu} />
           </button>
         </header>
 
