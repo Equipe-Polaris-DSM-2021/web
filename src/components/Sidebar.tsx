@@ -3,6 +3,9 @@ import { useHistory } from 'react-router-dom';
 import { MdClear } from "react-icons/md";
 
 import '../styles/components/sidebar.css';
+import '../styles/components/slider.css';
+
+
 import Button from './Button';
 import Logo from './Logo';
 
@@ -19,7 +22,7 @@ export default function Sidebar() {
   const [initialPeriodDate, setInitialPeriodDate] = useState('');
   const [endPeriodDate, setEndPeriodDate] = useState('');
 
-  const [cloudRange, setCloudRange] = useState('');
+  const [cloudRange, setCloudRange] = useState('0');
 
   const handleFilter = () => {
     const satelliteOptions = {
@@ -103,7 +106,8 @@ export default function Sidebar() {
         <section className="cloud-range">
           <h2>Cobertura de nuvens</h2>
           <p>Selecione a porcentagem de nuvens</p>
-          <input type="range" className="slider" onChange={(event) => {setCloudRange(event.target.value)}}/>
+          <input type="range" step="10"  className="slider" onChange={(event) => {setCloudRange(event.target.value)}}/>
+          <p className="percent-cloud-range">{cloudRange} &#37;</p>
         </section>
       </main>
       <footer>

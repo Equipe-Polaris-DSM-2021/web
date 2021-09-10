@@ -77,64 +77,14 @@ main .cloud-range input {
   margin-top: 1rem;
 }
 
+main .cloud-range .percent-cloud-range {
+  text-align: end;
+}
+
 main p {
   color: #b3c3cb;
 }
 
 main label {
   color: #72787a;
-}
-
-.slider,
-.slider::-webkit-slider-runnable-track,
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
-
-/* The slider itself */
-.slider {
-  width: 100%; /* Full-width */
-  height: 0.5rem; /* Specified height */
-  background: #eef3f3; /* Grey background */
-  border-radius: 5rem;
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
-  transition: opacity 0.2s;
-}
-
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-}
-
-.slider::-moz-range-track {
-  width: 100%;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #3071a9;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  appearance: none;
-  width: 1rem;
-  height: 1rem; /* Slider handle height */
-  border-radius: 50%;
-  background: #ffddaa;
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
-  width: 1rem;
-  height: 1rem;
-  background: #ffddaa;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.slider:focus {
-  outline: none;
 }
