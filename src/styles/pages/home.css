@@ -1,7 +1,268 @@
-#page-map {
-  width: 100vw;
+.grid_home {
+  display: grid;
+  width: 1fr;
   height: 100vh;
+  grid-template-rows: 88px 600px 300px 300px 136px;
+  grid-template-areas:
+    "h"
+    "b1"
+    "b2"
+    "b3"
+    "f";
+}
 
-  position: relative;
-  display: flex;
+/* -------------------------------------------Header-------------------------------------------------*/
+
+.Header {
+  background-color: rgb(255, 255, 255);
+  color: #112233;
+  width: 1fr;
+  height: 88px;
+  font-size: 17px;
+  display: grid;
+  width: 100vw;
+  align-self: center;
+  justify-content: center;
+  grid-area: h;
+  grid-template-columns: 1.5fr 1fr 2fr 10fr 4fr 1fr;
+  grid-template-areas: ". hlg htt . hbt .";
+}
+
+#hlg {
+  grid-area: hlg;
+  align-self: center;
+  justify-content: center;
+}
+
+#logo {
+  width: 40px;
+  height: 40px;
+}
+
+#htt {
+  grid-area: htt;
+  color: #112233;
+  align-self: center;
+  justify-content: center;
+}
+
+#bty {
+  grid-area: hbt;
+  align-self: center;
+  justify-content: center;
+}
+
+#bt_yellow {
+  background-color: #ffbb55;
+  color: white;
+  border-color: #ffbb55;
+  border-radius: 4px;
+  border-style: solid;
+  width: 260px;
+  height: 42px;
+}
+
+/* -------------------------------------------Block 01-------------------------------------------------*/
+
+#b1 {
+  background-color: rgb(70, 43, 226);
+  color: #112233;
+  height: 570px;
+  grid-area: b1;
+  display: grid;
+  grid-template-columns: 1.5fr 7fr 1fr 6fr;
+  grid-template-rows: 100px 100px 100px 50px 100px 100px;
+  grid-template-areas:
+    ".  .  . mp1"
+    ". ts1 . mp1"
+    ". ps1 . mp1"
+    ".  .  . mp1"
+    ". bs1 . mp1"
+    ".  .  . mp1";
+}
+
+#ts1 {
+  grid-area: ts1;
+}
+
+#ps1 {
+  grid-area: ps1;
+}
+
+#bs1 {
+  grid-area: bs1;
+}
+
+#button1 {
+  background-color: rgb(255, 255, 255);
+  color: #112233;
+  height: 45px;
+  width: 87px;
+  border-radius: 4px;
+  font-size: 18px;
+  margin: 2.5em;
+}
+#button2 {
+  background-color: rgb(255, 255, 255);
+  color: #112233;
+  height: 45px;
+  width: 187px;
+  border-radius: 4px;
+  font-size: 18px;
+  margin: 2.5em;
+}
+
+#big_r_side_map {
+  grid-area: mp1;
+}
+
+#big_r_map {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  max-height: 570px;
+  max-width: 400px;
+}
+
+/* -------------------------------------------Block 02-------------------------------------------------*/
+
+#b2 {
+  background-color: rgb(43, 226, 73);
+  color: #112233;
+  display: grid;
+  grid-area: b2;
+  grid-template-columns: 1.5fr 6fr 7fr 1.5fr;
+  grid-template-areas:
+    ". mp2 ts2 ."
+    ". mp2 ps2 ."
+    ". bwy bwy .";
+}
+
+#l_side_map {
+  align-self: center;
+  justify-content: center;
+  grid-area: mp2;
+}
+
+#l_map {
+  align-self: center;
+  justify-content: center;
+  border-radius: 30px;
+  width: 380px;
+  height: 160px;
+  margin-right: 1.5em;
+}
+
+#ts2 {
+  align-self: center;
+  justify-content: center;
+  grid-area: ts2;
+}
+
+#ps2 {
+  align-self: center;
+  justify-content: center;
+  grid-area: ps2;
+}
+
+#sats {
+  grid-area: bwy;
+  align-items: center;
+  justify-content: center;
+}
+
+.bt_whyl {
+  background-color: rgb(255, 255, 255);
+  color: #ffbb55;
+  border-color: #ffbb55;
+  width: 172px;
+  height: 72px;
+  border-radius: 8px;
+  border-width: 3px;
+  border-style: solid;
+  margin: 1em;
+  display: inline-block;
+}
+/* -------------------------------------------Block 03-------------------------------------------------*/
+
+#b3 {
+  background-color: rgb(226, 86, 43);
+  color: #112233;
+  display: grid;
+  align-self: center;
+  justify-content: center;
+  height: 300px;
+  width: 100vw;
+  grid-area: b3;
+  grid-template-columns: 1.5fr 7fr 6fr 1.5fr;
+  grid-template-areas:
+    ". ts3 mp3 ."
+    ". ps3 mp3 .";
+}
+
+#ts3 {
+  align-self: center;
+  justify-content: center;
+  grid-area: ts3;
+}
+
+#ps3 {
+  align-self: center;
+  justify-content: center;
+  grid-area: ps3;
+}
+
+#r_side_map {
+  align-self: center;
+  justify-content: center;
+  grid-area: mp3;
+}
+
+#r_map {
+  align-self: center;
+  justify-content: center;
+  border-radius: 30px;
+  width: 380px;
+  height: 220px;
+}
+
+/* -------------------------------------------Footer-------------------------------------------------*/
+
+.Footer {
+  background-color: #ffbb55;
+  width: 1fr;
+  color: white;
+  display: grid;
+  height: 136px;
+  grid-area: f;
+  flex-direction: row;
+  grid-template-columns: 1fr 1fr 2fr 2fr 4fr 0.8fr 4fr 1fr;
+  grid-template-areas: ". flg ftt . fct . fdr .";
+}
+
+#dicon {
+  align-self: center;
+  justify-content: center;
+  grid-area: flg;
+}
+#logo {
+  width: 72px;
+  height: 72px;
+}
+
+#ftt {
+  align-self: center;
+  justify-content: center;
+  font-size: 15px;
+  grid-area: ftt;
+}
+#fct {
+  align-self: center;
+  justify-content: center;
+  grid-area: fct;
+}
+#fdr {
+  align-self: center;
+  justify-content: center;
+  grid-area: fdr;
 }
