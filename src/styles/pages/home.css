@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+
+* {
+  font-family: Poppins;
+  color: #112233;
+}
+
 .grid_home {
   display: grid;
   width: 1fr;
@@ -15,12 +22,12 @@
 
 .Header {
   background-color: rgb(255, 255, 255);
-  color: #112233;
   width: 1fr;
   height: 88px;
   font-size: 17px;
   display: grid;
   width: 100vw;
+  box-shadow: 0px 10px 20px 5px #69798633;
   align-self: center;
   justify-content: center;
   grid-area: h;
@@ -32,16 +39,16 @@
   grid-area: hlg;
   align-self: center;
   justify-content: center;
+  margin-right: 0;
 }
 
 #logo {
-  width: 40px;
-  height: 40px;
+  max-width: 40px;
+  max-height: 40px;
 }
 
 #htt {
   grid-area: htt;
-  color: #112233;
   align-self: center;
   justify-content: center;
 }
@@ -65,13 +72,11 @@
 /* -------------------------------------------Block 01-------------------------------------------------*/
 
 #b1 {
-  background-color: rgb(70, 43, 226);
-  color: #112233;
   height: 570px;
   grid-area: b1;
   display: grid;
   grid-template-columns: 1.5fr 7fr 1fr 6fr;
-  grid-template-rows: 100px 100px 100px 50px 100px 100px;
+  grid-template-rows: 100px 100px 100px 10px 100px 100px;
   grid-template-areas:
     ".  .  . mp1"
     ". ts1 . mp1"
@@ -93,23 +98,17 @@
   grid-area: bs1;
 }
 
-#button1 {
+#btmm {
   background-color: rgb(255, 255, 255);
-  color: #112233;
-  height: 45px;
-  width: 87px;
-  border-radius: 4px;
-  font-size: 18px;
-  margin: 2.5em;
+  background: transparent;
+  height: 65%;
+  margin: 1.6em;
 }
-#button2 {
+#btms {
   background-color: rgb(255, 255, 255);
-  color: #112233;
-  height: 45px;
-  width: 187px;
-  border-radius: 4px;
-  font-size: 18px;
-  margin: 2.5em;
+  background: transparent;
+  height: 63%;
+  margin: 1.6em;
 }
 
 #big_r_side_map {
@@ -127,8 +126,6 @@
 /* -------------------------------------------Block 02-------------------------------------------------*/
 
 #b2 {
-  background-color: rgb(43, 226, 73);
-  color: #112233;
   display: grid;
   grid-area: b2;
   grid-template-columns: 1.5fr 6fr 7fr 1.5fr;
@@ -150,7 +147,7 @@
   border-radius: 30px;
   width: 380px;
   height: 160px;
-  margin-right: 1.5em;
+  margin: 1.2em;
 }
 
 #ts2 {
@@ -175,24 +172,26 @@
   background-color: rgb(255, 255, 255);
   color: #ffbb55;
   border-color: #ffbb55;
-  width: 172px;
-  height: 72px;
+  max-width: 172px;
+  min-width: 154.8px;
+  max-height: 72px;
+  min-height: 64.8px;
   border-radius: 8px;
   border-width: 3px;
   border-style: solid;
-  margin: 1em;
+  margin: 0.8em;
   display: inline-block;
+  justify-content: center;
 }
 /* -------------------------------------------Block 03-------------------------------------------------*/
 
 #b3 {
-  background-color: rgb(226, 86, 43);
-  color: #112233;
   display: grid;
   align-self: center;
   justify-content: center;
   height: 300px;
   width: 100vw;
+  box-shadow: 10px 10px 8px 5px #8888885e;
   grid-area: b3;
   grid-template-columns: 1.5fr 7fr 6fr 1.5fr;
   grid-template-areas:
@@ -231,12 +230,14 @@
 .Footer {
   background-color: #ffbb55;
   width: 1fr;
-  color: white;
+  color: rgb(255, 255, 254);
+  font-size: 12px;
   display: grid;
   height: 136px;
+  box-shadow: 10px 10px 8px 5px #8888885e;
   grid-area: f;
   flex-direction: row;
-  grid-template-columns: 1fr 1fr 2fr 2fr 4fr 0.8fr 4fr 1fr;
+  grid-template-columns: 1fr 1fr 2fr 2.5fr 4fr 0.5fr 5fr 1fr;
   grid-template-areas: ". flg ftt . fct . fdr .";
 }
 
@@ -245,9 +246,10 @@
   justify-content: center;
   grid-area: flg;
 }
-#logo {
+#flogo {
   width: 72px;
   height: 72px;
+  margin-right: 1.8em;
 }
 
 #ftt {
@@ -261,6 +263,17 @@
   justify-content: center;
   grid-area: fct;
 }
+
+#dgh {
+  align-self: center;
+}
+
+#github {
+  width: 21px;
+  height: 21px;
+  margin-right: 0.5em;
+}
+
 #fdr {
   align-self: center;
   justify-content: center;
