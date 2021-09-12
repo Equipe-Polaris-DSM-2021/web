@@ -9,10 +9,11 @@
   display: grid;
   width: 1fr;
   height: 100vh;
-  grid-template-rows: 88px 600px 300px 300px 136px;
+  grid-template-rows: 88px 600px 80px 300px 300px 136px;
   grid-template-areas:
     "h"
     "b1"
+    "."
     "b2"
     "b3"
     "f";
@@ -27,7 +28,7 @@
   font-size: 17px;
   display: grid;
   width: 100vw;
-  box-shadow: 0px 10px 20px 5px #69798633;
+  box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.25);
   align-self: center;
   justify-content: center;
   grid-area: h;
@@ -211,6 +212,10 @@
   grid-area: ps3;
 }
 
+#ps3 span {
+  color: #ffbb55;
+}
+
 #r_side_map {
   align-self: center;
   justify-content: center;
@@ -226,15 +231,18 @@
 }
 
 /* -------------------------------------------Footer-------------------------------------------------*/
+.Footer * {
+  color: #ffff;
+}
 
 .Footer {
   background-color: #ffbb55;
   width: 1fr;
-  color: rgb(255, 255, 254);
   font-size: 12px;
   display: grid;
   height: 136px;
-  box-shadow: 10px 10px 8px 5px #8888885e;
+  box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.25);
+  padding: 30px;
   grid-area: f;
   flex-direction: row;
   grid-template-columns: 1fr 1fr 2fr 2.5fr 4fr 0.5fr 5fr 1fr;
@@ -259,13 +267,12 @@
   grid-area: ftt;
 }
 #fct {
-  align-self: center;
-  justify-content: center;
   grid-area: fct;
 }
 
 #dgh {
   align-self: center;
+  flex: center;
 }
 
 #github {
@@ -275,7 +282,5 @@
 }
 
 #fdr {
-  align-self: center;
-  justify-content: center;
   grid-area: fdr;
 }
