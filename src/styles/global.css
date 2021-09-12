@@ -2,22 +2,31 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  font-family: "Poppins", sans-serif;
 }
 
 body,
 input,
 button,
 textarea {
-  font: 500 14px "Poppins", sans-serif;
-  color: #112233;
+  font: var(--main-font-sz-regular);
+  color: var(--color-text);
 }
 
 h1 {
-  font: 600 24px "Poppins", sans-serif;
+  font: var(--main-font-sz-title);
 }
 
 h2 {
-  font: 500 18px "Poppins", sans-serif;
+  font: var(--main-font-sz-subtitle);
+}
+
+h3 {
+  font-size: var(--main-font-sz-medium);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-text);
 }
