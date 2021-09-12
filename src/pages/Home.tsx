@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {MapContainer, TileLayer, useMapEvents } from 'react-leaflet';
 
 import Sidebar from '../components/Sidebar';
+import ResultsMenu from "../components/ResultsMenu";
 
-import "../styles/pages/home.css"
+import "../styles/pages/home.css";
 
 export default function Home() {
   const [pageLoaded, setPageloaded] = useState(false)
@@ -92,6 +93,9 @@ export default function Home() {
   return (
     <div id="page-map">
       {pageLoaded ? <Sidebar /> : null}
+
+      {/* Resultados da Busca*/}
+      {/* <ResultsMenu /> */}
       <div className="map-container">
         <MapContainer 
           center={[-23.2683,-45.913486]}
@@ -103,5 +107,5 @@ export default function Home() {
         </MapContainer>
       </div>
     </div>
-  )
+  );
 }
