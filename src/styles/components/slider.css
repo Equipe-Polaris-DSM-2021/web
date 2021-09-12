@@ -67,17 +67,17 @@ input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 0.5rem;
   cursor: pointer;
-  background: #ffbb55;
+  background: var(--color-primary);
   border-radius: 0.5rem;
 }
 
 input[type="range"]::-moz-range-track {
   width: 100%;
   cursor: pointer;
-  background: #eef3f3;
+  background: var(--app-background-container);
   border-radius: 0.5rem;
 }
 
 input[type="range"]::-moz-range-progress {
-  background-color: #ffbb55;
+  background-color: var(--color-primary);
 }

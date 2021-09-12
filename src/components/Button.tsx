@@ -36,6 +36,7 @@ const Button: React.FC<Props> = ({
         height,
         width
      }}
+     className="button-primary"
     >
       {children}
     </button>

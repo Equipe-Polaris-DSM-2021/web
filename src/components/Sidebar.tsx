@@ -1,16 +1,18 @@
 import React, {useState} from	 'react';
 import { useHistory } from 'react-router-dom';
-import { MdClear } from "react-icons/md";
+import { MdClear, MdDehaze } from "react-icons/md";
+import { FaMousePointer } from "react-icons/fa";
 
 import '../styles/components/sidebar.css';
 import '../styles/components/slider.css';
-
 
 import Button from './Button';
 import Logo from './Logo';
 
 export default function Sidebar() {
   const { goBack } = useHistory(); 
+
+  const [toggleFilter, setToggleFilter] = useState(false)
 
   const [landsatChecked, setLandsatChecked] = useState(false);
   const [sentinelOneChecked, setSentinelOneChecked] = useState(false);
@@ -22,7 +24,7 @@ export default function Sidebar() {
   const [initialPeriodDate, setInitialPeriodDate] = useState('');
   const [endPeriodDate, setEndPeriodDate] = useState('');
 
-  const [cloudRange, setCloudRange] = useState('0');
+  const [cloudRange, setCloudRange] = useState('50');
 
   const handleFilter = () => {
     const satelliteOptions = {
@@ -52,11 +54,21 @@ export default function Sidebar() {
     return console.log(payload)
   }
 
+  const handleCloseFilter = () => {
+    setToggleFilter(!toggleFilter)
+    const asideFilter = document.querySelector('aside');
+    asideFilter?.classList.toggle('hidden'); 
+  }
+
   return (
     <aside className="app-sidebar">
       <header>
-        <Logo />        
-        <MdClear size="1.4rem" cursor="pointer" onClick={() => {}}/>
+        <Logo />
+        {!toggleFilter ? (
+          <MdClear size="1.4rem" cursor="pointer" onClick={handleCloseFilter}/>
+        ):(
+          <MdDehaze size="1.4rem" cursor="pointer" onClick={handleCloseFilter}/>
+        )}        
       </header>
       <main>
         <section>
@@ -92,7 +104,9 @@ export default function Sidebar() {
           <h2>Área de interesse</h2>
           <div className="area-interest-wrap">
             <p>Selecione a área de interesse no mapa</p>
-            <div className="select"></div>
+            <button className="button-select" onClick={() => {}}>
+              <FaMousePointer  size="1.3rem" className="icon-select"/>            
+            </button>
           </div>
         </section>
         <section>

@@ -1,7 +1,7 @@
-button:hover {
-  border: 2px solid #ffbb55 !important;
-  color: #ffbb55 !important;
-  background-color: #ffffff !important;
+button:hover.button-primary {
+  border: 2px solid var(--color-primary) !important;
+  color: var(--color-primary) !important;
+  background-color: var(--app-background-color) !important;
 
   transition: 200ms all;
 }
