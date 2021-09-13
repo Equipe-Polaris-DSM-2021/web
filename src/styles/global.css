@@ -3,3 +3,30 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body,
+input,
+button,
+textarea {
+  font: var(--main-font-sz-regular);
+  color: var(--color-text);
+}
+
+h1 {
+  font: var(--main-font-sz-title);
+}
+
+h2 {
+  font: var(--main-font-sz-subtitle);
+}
+
+h3 {
+  font-size: var(--main-font-sz-medium);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-text);
+}
