@@ -4,6 +4,7 @@
   background-color: #fff;
   color: #112233;
   box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 12);
+  overflow: auto;
 }
 
 #results-menu h1 {

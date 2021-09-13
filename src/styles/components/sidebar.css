@@ -4,9 +4,11 @@
   justify-content: space-between;
   flex-direction: column;
 
-  width: 26vw;
-  max-width: 26vw;
+  width: 30%;
+  max-width: 30%;
+  overflow: auto;
   background-color: var(--app-background-color);
+  box-shadow: 0px 8px 28px -6px rgba (24,  39,  75,  12);
 }
 
 aside.hidden {
@@ -16,6 +18,8 @@ aside.hidden {
   top: 0;
   left: 0;
   z-index: 999 !important;
+  border-radius: 4%;
+  box-shadow: 0px 8px 28px -6px rgba (24,  39,  75,  12);
 }
 
 aside.hidden main,
@@ -33,6 +37,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 main h2 {
