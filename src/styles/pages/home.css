@@ -1,0 +1,279 @@
+.grid_home {
+  display: grid;
+  width: 1fr;
+  height: 100vh;
+  grid-template-rows: 88px 600px 80px 300px 300px 136px;
+  grid-template-areas:
+    "h"
+    "b1"
+    "."
+    "b2"
+    "b3"
+    "f";
+}
+
+/* -------------------------------------------Header-------------------------------------------------*/
+
+.Header {
+  background-color: rgb(255, 255, 255);
+  width: 1fr;
+  height: 88px;
+  font-size: 17px;
+  display: grid;
+  width: 100vw;
+  box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.25);
+  align-self: center;
+  justify-content: center;
+  grid-area: h;
+  grid-template-columns: 1.5fr 1fr 2fr 10fr 4fr 1fr;
+  grid-template-areas: ". hlg htt . hbt .";
+}
+
+#hlg {
+  grid-area: hlg;
+  align-self: center;
+  justify-content: center;
+  margin-right: 0;
+}
+
+#logo {
+  max-width: 40px;
+  max-height: 40px;
+}
+
+#htt {
+  grid-area: htt;
+  align-self: center;
+  justify-content: center;
+}
+
+#bty {
+  grid-area: hbt;
+  align-self: center;
+  justify-content: center;
+}
+
+#bt_yellow {
+  background-color: #ffbb55;
+  color: white;
+  border-color: #ffbb55;
+  border-radius: 4px;
+  border-style: solid;
+  width: 260px;
+  height: 42px;
+}
+
+/* -------------------------------------------Block 01-------------------------------------------------*/
+
+#b1 {
+  height: 570px;
+  grid-area: b1;
+  display: grid;
+  grid-template-columns: 1.5fr 7fr 1fr 6fr;
+  grid-template-rows: 100px 100px 100px 10px 100px 100px;
+  grid-template-areas:
+    ".  .  . mp1"
+    ". ts1 . mp1"
+    ". ps1 . mp1"
+    ".  .  . mp1"
+    ". bs1 . mp1"
+    ".  .  . mp1";
+}
+
+#ts1 {
+  grid-area: ts1;
+}
+
+#ps1 {
+  grid-area: ps1;
+}
+
+#bs1 {
+  grid-area: bs1;
+}
+
+#btmm {
+  background-color: rgb(255, 255, 255);
+  background: transparent;
+  height: 65%;
+  margin: 1.6em;
+}
+#btms {
+  background-color: rgb(255, 255, 255);
+  background: transparent;
+  height: 63%;
+  margin: 1.6em;
+}
+
+#big_r_side_map {
+  grid-area: mp1;
+}
+
+#big_r_map {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  max-height: 570px;
+  max-width: 400px;
+}
+
+/* -------------------------------------------Block 02-------------------------------------------------*/
+
+#b2 {
+  display: grid;
+  grid-area: b2;
+  grid-template-columns: 1.5fr 6fr 7fr 1.5fr;
+  grid-template-areas:
+    ". mp2 ts2 ."
+    ". mp2 ps2 ."
+    ". bwy bwy .";
+}
+
+#l_side_map {
+  align-self: center;
+  justify-content: center;
+  grid-area: mp2;
+}
+
+#l_map {
+  align-self: center;
+  justify-content: center;
+  border-radius: 30px;
+  width: 380px;
+  height: 160px;
+  margin: 1.2em;
+}
+
+#ts2 {
+  align-self: center;
+  justify-content: center;
+  grid-area: ts2;
+}
+
+#ps2 {
+  align-self: center;
+  justify-content: center;
+  grid-area: ps2;
+}
+
+#sats {
+  grid-area: bwy;
+  align-items: center;
+  justify-content: center;
+}
+
+.bt_whyl {
+  background-color: rgb(255, 255, 255);
+  color: #ffbb55;
+  border-color: #ffbb55;
+  max-width: 172px;
+  min-width: 154.8px;
+  max-height: 72px;
+  min-height: 64.8px;
+  border-radius: 8px;
+  border-width: 3px;
+  border-style: solid;
+  margin: 0.8em;
+  display: inline-block;
+  justify-content: center;
+}
+/* -------------------------------------------Block 03-------------------------------------------------*/
+
+#b3 {
+  display: grid;
+  align-self: center;
+  justify-content: center;
+  height: 300px;
+  width: 100vw;
+  box-shadow: 10px 10px 8px 5px #8888885e;
+  grid-area: b3;
+  grid-template-columns: 1.5fr 7fr 6fr 1.5fr;
+  grid-template-areas:
+    ". ts3 mp3 ."
+    ". ps3 mp3 .";
+}
+
+#ts3 {
+  align-self: center;
+  justify-content: center;
+  grid-area: ts3;
+}
+
+#ps3 {
+  align-self: center;
+  justify-content: center;
+  grid-area: ps3;
+}
+
+#ps3 span {
+  color: #ffbb55;
+}
+
+#r_side_map {
+  align-self: center;
+  justify-content: center;
+  grid-area: mp3;
+}
+
+#r_map {
+  align-self: center;
+  justify-content: center;
+  border-radius: 30px;
+  width: 380px;
+  height: 220px;
+}
+
+/* -------------------------------------------Footer-------------------------------------------------*/
+.Footer * {
+  color: #ffff;
+}
+
+.Footer {
+  background-color: #ffbb55;
+  width: 1fr;
+  font-size: 12px;
+  display: grid;
+  height: 136px;
+  box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.25);
+  padding: 30px;
+  grid-area: f;
+  flex-direction: row;
+  grid-template-columns: 1fr 1fr 2fr 2.5fr 4fr 0.5fr 5fr 1fr;
+  grid-template-areas: ". flg ftt . fct . fdr .";
+}
+
+#dicon {
+  align-self: center;
+  justify-content: center;
+  grid-area: flg;
+}
+#flogo {
+  width: 72px;
+  height: 72px;
+  margin-right: 1.8em;
+}
+
+#ftt {
+  align-self: center;
+  justify-content: center;
+  font-size: 15px;
+  grid-area: ftt;
+}
+#fct {
+  grid-area: fct;
+}
+
+#dgh {
+  align-self: center;
+  flex: center;
+}
+
+#github {
+  width: 21px;
+  height: 21px;
+  margin-right: 0.5em;
+}
+
+#fdr {
+  grid-area: fdr;
+}
