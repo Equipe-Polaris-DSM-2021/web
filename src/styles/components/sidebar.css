@@ -59,6 +59,24 @@ main .area-interest-wrap {
   justify-content: space-between;
 }
 
+main .area-interest-wrap p b {
+  color: var(--color-text);
+  background-color: #f1f1f1;
+  padding: 0 0.2rem;
+  border: 1px solid black;
+  border-radius: 0.2rem;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+
 main .area-interest-wrap .button-select {
   position: relative;
   width: 2.3rem;
