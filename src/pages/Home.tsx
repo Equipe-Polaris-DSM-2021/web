@@ -1,30 +1,37 @@
 import "../styles/pages/home.css"
-import bigrmap from "./img/big_r_map.png"
-import lmap from "./img/l_map.png"
-import rmap from "./img/r_map.png"
-import logo from "./img/logo_polaris.png"
+import bigrmap from "../img/big_r_map.png"
+import lmap from "../img/l_map.png"
+import rmap from "../img/r_map.png"
+import btmm from "../img/btt_plus_minus.png"
+import btms from "../img/btt_map_sat.png"
+import logo from "../img/logo_polaris.png"
+import github from "../img/logo_github.png"
+
 
 export default function Home() { 
   return ( 
     <div className="grid_home">
       <div className='Header'>
-        <div id="polarLogo">
+        <div id="hlg">
           <img id="logo" src={logo} alt="Logo" />
         </div>
-        <h1>Polaris</h1>
-        <a href="map.tsx"><button id="bt_yellow">Acessar o mapa</button></a>
+        <h1 id='htt'>Polaris</h1>
+        <div id='bty'>
+          <a href="map.tsx"><button id="bt_yellow">Acessar o mapa</button></a>
+        </div>
       </div>
 
       <div id='b1'>
-        <div id="s1">
-          <h1>Um jeito simples e rápido de <br/>consumir imagens de satélites</h1>
-          <p>
-            Com poucos cliques, acesse imagens de diversos satélites disponíveis,
-            definindo as opções de visualização de acordo com sua preferência.
+          <h1 id="ts1">Um jeito simples e rápido de <br/>consumir imagens de satélites</h1>
+          <p id="ps1">
+            Com poucos cliques, acesse imagens de diversos satélites 
+            <br/>disponíveis, definindo as opções de visualização de acordo 
+            <br/>com sua preferência.
           </p>
-          <button id='button1'>+ | -</button>
-          <button id='button2'>Mapa | Satélite</button>
-        </div>
+          <div id='bs1'>
+            <img id="btmm" src={btmm}  alt="Exemplo de Mapa" />
+            <img id="btms" src={btms}  alt="Exemplo de Mapa" />
+          </div>
         <div id="big_r_side_map">
           <img id="big_r_map" src={bigrmap}  alt="Exemplo de Mapa" />
         </div>
@@ -34,13 +41,12 @@ export default function Home() {
         <div id="l_side_map">
           <img id="l_map" src={lmap}  alt="Exemplo de Mapa" />
         </div>
-        <div id="s2">
-          <h1>Satélites disponíveis</h1>
-          <p>
-            Disponibilizamos uma série de satélites para que você selecione de acordo
-            com sua necessidade no momento. Veja abaixo as opções:
+          <h1 id="ts2">Satélites disponíveis</h1>
+          <p id="ps2">
+            Disponibilizamos uma série de satélites para que você 
+            <br/>selecione de acordo com sua necessidade no momento. 
+            <br/>Veja abaixo as opções:
           </p>
-        </div>
         <div id='sats'>
           <button className="bt_whyl">Landsat 8</button>
           <button className="bt_whyl">Sentinel 1 e 2</button>
@@ -51,15 +57,14 @@ export default function Home() {
       </div>
 
       <div id="b3">
-        <div id='s3'>
-          <h1>Download de imagens selecionadas</h1>
-          <p>
-            Selecionando a área de interesse, ainda é possível fazer o download da
-            imagem da região de duas formas: como imagem bruta ou como imagem
-            processada. Basta clicar no ícone da área de interesse, escolher uma das
-            opções e fazer o download.
+          <h1 id="ts3">Download de imagens <br/>selecionadas</h1>
+          <p id="ps3">
+            Selecionando a área de interesse, ainda é possível fazer o 
+            <br/>download da imagem da região de duas formas: como 
+            <br/><span>imagem bruta</span> ou como <span>imagem processada</span>. Basta clicar 
+            <br/>no ícone da área de interesse, escolher uma das opções e 
+            <br/>fazer o download.
           </p>
-        </div>
         <div id="r_side_map">
           <img id="r_map" src={rmap} alt="Exemplo de Mapa" />
         </div>
@@ -67,8 +72,8 @@ export default function Home() {
 
 
       <div className="Footer">
-        <div id="polarLogo">
-          <img id="logo" src={logo} alt="Logo" />
+        <div id="dicon">
+          <img id="flogo" src={logo} alt="Logo" />
         </div>
         <div id='ftt'>
           <h1>Polaris</h1>
@@ -76,8 +81,8 @@ export default function Home() {
         <div id='fct'>
           <p>Sobre o projeto</p>
           <p>Acessar o mapa</p>
-          <p>
-            <img className="logo_github" src="img/github.svg" alt="Icone GitHub" />
+          <p id='dgh'>
+            <img id="github" src={github} alt="Github" />
             Confira o GitHub do projeto
           </p>
         </div>
