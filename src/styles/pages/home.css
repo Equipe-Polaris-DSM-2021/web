@@ -9,19 +9,20 @@
   display: grid;
   width: 1fr;
   height: 100vh;
-  grid-template-rows: 88px 600px 80px 300px 1fr 136px;
+  grid-template-rows: 88px 600px 80px 300px 10vw 1fr 136px;
   grid-template-areas:
     "h"
-    "b1"
+    "block_one"
     "."
-    "b2"
-    "b3"
+    "block_two"
+    "."
+    "block_three"
     "f";
 }
 
-/* -------------------------------------------Header-------------------------------------------------*/
+/* -------------------------------------------header-------------------------------------------------*/
 
-.Header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -37,18 +38,18 @@
   align-self: center;
   justify-content: center;
   grid-area: h;
-  grid-template-columns: 1.5fr 1fr 2fr 10fr 4fr 1fr;
-  grid-template-areas: ". hlg htt . hbt .";
+  grid-template-columns: 2fr 1fr 2fr 6fr 4fr 1.5fr;
+  grid-template-areas: ". div_header_logo header_title . div_header_button .";
 }
 
-#hlg {
-  grid-area: hlg;
+#div_header_logo {
+  grid-area: div_header_logo;
   align-self: center;
   justify-content: center;
   margin-right: 0;
 }
 
-#logo {
+#header_logo {
   min-width: 30px;
   min-height: 30px;
   width: 3.5vw;
@@ -57,70 +58,78 @@
   max-height: 60px;
 }
 
-#htt {
-  grid-area: htt;
+#header_title {
+  grid-area: header_title;
+  align-self: center;
+  justify-content: center;
+  font-size: 2vw;
+  margin-left: 0.2vw;
+}
+
+#div_header_button {
+  grid-area: div_header_button;
   align-self: center;
   justify-content: center;
 }
 
-#bty {
-  grid-area: hbt;
-  align-self: center;
-  justify-content: center;
-}
-
-#bt_yellow {
+#header_button {
   background-color: #ffbb55;
   color: white;
   border-color: #ffbb55;
   border-radius: 4px;
   border-style: solid;
-  width: 260px;
-  height: 42px;
+  width: 22.57vw;
+  height: 3.65vw;
+  font-size: 1.2vw;
 }
 
 /* -------------------------------------------Block 01-------------------------------------------------*/
 
-#b1 {
+#block_one {
   height: 570px;
-  grid-area: b1;
+  grid-area: block_one;
   display: grid;
-  grid-template-columns: 1.5fr 7fr 1fr 6fr;
-  grid-template-rows: 100px 100px 100px 10px 100px 100px;
+  grid-template-columns: 1.5fr 8fr 1fr 6fr;
+  grid-template-rows: 100px auto auto 10px auto 100px;
   grid-template-areas:
-    ".  .  . mp1"
-    ". ts1 . mp1"
-    ". ps1 . mp1"
-    ".  .  . mp1"
-    ". bs1 . mp1"
-    ".  .  . mp1";
+    ".  .  . big_r_side_map"
+    ". block_one_title . big_r_side_map"
+    ". block_one_paragraph . big_r_side_map"
+    ".  .  . big_r_side_map"
+    ". div_buttons_block_one . big_r_side_map"
+    ".  .  . big_r_side_map";
 }
 
-#ts1 {
-  grid-area: ts1;
+#block_one_title {
+  grid-area: block_one_title;
+  font-size: 3vw;
 }
 
-#ps1 {
-  grid-area: ps1;
+#block_one_paragraph {
+  grid-area: block_one_paragraph;
+  font-size: 1.5vw;
 }
 
-#bs1 {
-  grid-area: bs1;
+#div_buttons_block_one {
+  grid-area: div_buttons_block_one;
+  align-items: center;
 }
 
-#btmm {
-  height: 65%;
+#button_plus_minus {
+  background: transparent;
+  height: 75px;
+  width: auto;
   margin: 1.6em;
-  width: 8rem;
 }
-#btms {
-  height: 65%;
+#button_map_satellite {
+  background: transparent;
+  height: 75px;
+  width: auto;
   margin: 1.6em;
-  width: 8rem;
 }
 
 #big_r_side_map {
-  grid-area: mp1;
+  grid-area: big_r_side_map;
 }
 
 #big_r_map {
@@ -135,20 +144,22 @@
 
 /* -------------------------------------------Block 02-------------------------------------------------*/
 
-#b2 {
+#block_two {
   display: grid;
-  grid-area: b2;
-  grid-template-columns: 1.5fr 6fr 7fr 1.5fr;
+  grid-area: block_two;
+  grid-template-columns: 1.5fr 6.5fr 9fr 1.5fr;
+  grid-template-rows: auto auto auto 500vw;
   grid-template-areas:
-    ". mp2 ts2 ."
-    ". mp2 ps2 ."
-    ". bwy bwy .";
+    ". l_side_map block_two_title ."
+    ". l_side_map block_two_paragraph ."
+    ". div_satellites div_satellites ."
+    ". . . .";
 }
 
 #l_side_map {
   align-self: center;
   justify-content: center;
-  grid-area: mp2;
+  grid-area: l_side_map;
 }
 
 #l_map {
@@ -157,78 +168,82 @@
   border-radius: 30px;
   width: 380px;
   height: 160px;
-  margin: 1.2em;
+  margin: 1.5vw;
 }
 
-#ts2 {
+#block_two_title {
   align-self: center;
   justify-content: center;
-  grid-area: ts2;
+  grid-area: block_two_title;
+  font-size: 3vw;
 }
 
-#ps2 {
+#block_two_paragraph {
   align-self: center;
   justify-content: center;
-  grid-area: ps2;
+  grid-area: block_two_paragraph;
+  font-size: 1.5vw;
+  margin-bottom: 3vw;
 }
 
-#sats {
-  grid-area: bwy;
+#div_satellites {
+  grid-area: div_satellites;
   align-items: center;
   justify-content: center;
 }
 
-.bt_whyl {
+.satellite_button {
   background-color: rgb(255, 255, 255);
   color: #ffbb55;
   border-color: #ffbb55;
-  max-width: 172px;
-  min-width: 154.8px;
-  max-height: 72px;
-  min-height: 64.8px;
+  height: 6.26vw;
+  width: 14.94vw;
+  font-size: 1.75vw;
   border-radius: 8px;
   border-width: 3px;
   border-style: solid;
-  margin: 0.8em;
+  margin: 0.9vw;
   display: inline-block;
   justify-content: center;
 }
 /* -------------------------------------------Block 03-------------------------------------------------*/
 
-#b3 {
+#block_three {
   display: grid;
   align-self: center;
   justify-content: center;
   height: 300px;
   width: 100vw;
   box-shadow: 10px 10px 8px 5px #8888885e;
-  grid-area: b3;
-  grid-template-columns: 1.5fr 7fr 6fr 1.5fr;
+  grid-area: block_three;
+  grid-template-columns: 1.5fr 7.5fr 6fr 1.5fr;
   grid-template-areas:
-    ". ts3 mp3 ."
-    ". ps3 mp3 .";
+    ". block_three_title r_side_map ."
+    ". block_three_paragraph r_side_map .";
 }
 
-#ts3 {
+#block_three_title {
   align-self: center;
   justify-content: center;
-  grid-area: ts3;
+  grid-area: block_three_title;
+  font-size: 3vw;
 }
 
-#ps3 {
-  align-self: center;
+#block_three_paragraph {
+  align-items: center;
   justify-content: center;
-  grid-area: ps3;
+  grid-area: block_three_paragraph;
+  font-size: 1.5vw;
 }
 
-#ps3 span {
+#block_three_paragraph span {
   color: #ffbb55;
 }
 
 #r_side_map {
   align-self: center;
   justify-content: center;
-  grid-area: mp3;
+  grid-area: r_side_map;
 }
 
 #r_map {
@@ -239,60 +254,61 @@
   height: 220px;
 }
 
-/* -------------------------------------------Footer-------------------------------------------------*/
-.Footer * {
+/* -------------------------------------------footer-------------------------------------------------*/
+.footer * {
   color: #ffff;
 }
 
-.Footer {
+.footer {
   position: relative;
-  bottom: 0;
+  bottom: -100;
   left: 0;
   background-color: #ffbb55;
   width: 1fr;
-  font-size: 12px;
+  font-size: 1.4vw;
   display: grid;
   height: 136px;
   box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.25);
   padding: 30px;
   grid-area: f;
   flex-direction: row;
-  grid-template-columns: 1fr 1fr 2fr 2.5fr 4fr 0.5fr 5fr 1fr;
-  grid-template-areas: ". flg ftt . fct . fdr .";
+  grid-template-columns: 1fr 1fr 2fr 2.5fr 5fr 0.5fr 5fr 1fr;
+  grid-template-areas: ". flg footer_title . div_footer_content . dfr .";
 }
 
-#dicon {
+#div_footer_logo {
   align-self: center;
   justify-content: center;
   grid-area: flg;
 }
-#flogo {
+#footer_logo {
   width: 72px;
   height: 72px;
   margin-right: 1.8em;
 }
 
-#ftt {
+#footer_title {
   align-self: center;
   justify-content: center;
-  font-size: 15px;
-  grid-area: ftt;
+  font-size: 2vw;
+  grid-area: footer_title;
 }
-#fct {
-  grid-area: fct;
+#div_footer_content {
+  grid-area: div_footer_content;
 }
 
-#dgh {
+#div_github {
   align-self: center;
   flex: center;
 }
 
-#github {
+#github_logo {
   width: 21px;
   height: 21px;
   margin-right: 0.5em;
 }
 
-#fdr {
-  grid-area: fdr;
+#div_footer_rights {
+  grid-area: div_footer_rights;
+  font-size: 1vw;
 }

@@ -11,54 +11,54 @@ import github from "../img/logo_github.png"
 export default function Home() { 
   return ( 
     <div className="grid_home">
-      <div className='Header'>
-        <div id="hlg">
-          <img id="logo" src={logo} alt="Logo" />
+      <div className='header'>
+        <div id="div_header_logo">
+          <img id="header_logo" src={logo} alt="Logo" />
         </div>
-        <h1 id='htt'>Polaris</h1>
-        <div id='bty'>
-          <a href="map.tsx"><button id="bt_yellow">Acessar o mapa</button></a>
+        <h1 id='header_title'>Polaris</h1>
+        <div id='div_header_button'>
+          <a href="map.tsx"><button id="header_button">Acessar o mapa</button></a>
         </div>
       </div>
 
-      <div id='b1'>
-          <h1 id="ts1">Um jeito simples e rápido de <br/>consumir imagens de satélites</h1>
-          <p id="ps1">
+      <div id='block_one'>
+          <h1 id="block_one_title">Um jeito simples e rápido de <br/>consumir imagens de satélites</h1>
+          <p id="block_one_paragraph">
             Com poucos cliques, acesse imagens de diversos satélites 
             <br/>disponíveis, definindo as opções de visualização de acordo 
             <br/>com sua preferência.
           </p>
-          <div id='bs1'>
-            <img id="btmm" src={btmm}  alt="Exemplo de Mapa" />
-            <img id="btms" src={btms}  alt="Exemplo de Mapa" />
+          <div id='div_buttons_block_one'>
+            <img id="button_plus_minus" src={btmm}  alt="Exemplo de Mapa" />
+            <img id="button_map_satellite" src={btms}  alt="Exemplo de Mapa" />
           </div>
         <div id="big_r_side_map">
           <img id="big_r_map" src={bigrmap}  alt="Exemplo de Mapa" />
         </div>
       </div>
 
-      <div id='b2'>
+      <div id='block_two'>
         <div id="l_side_map">
           <img id="l_map" src={lmap}  alt="Exemplo de Mapa" />
         </div>
-          <h1 id="ts2">Satélites disponíveis</h1>
-          <p id="ps2">
+          <h1 id="block_two_title">Satélites disponíveis</h1>
+          <p id="block_two_paragraph">
             Disponibilizamos uma série de satélites para que você 
             <br/>selecione de acordo com sua necessidade no momento. 
             <br/>Veja abaixo as opções:
           </p>
-        <div id='sats'>
-          <button className="bt_whyl">Landsat 8</button>
-          <button className="bt_whyl">Sentinel 1 e 2</button>
-          <button className="bt_whyl">CBERS 4</button>
-          <button className="bt_whyl">CBERS 4A</button>
-          <button className="bt_whyl">Amazônia 1</button>
+        <div id='div_satellites'>
+          <button className="satellite_button">Landsat 8</button>
+          <button className="satellite_button">Sentinel 1 e 2</button>
+          <button className="satellite_button">CBERS 4</button>
+          <button className="satellite_button">CBERS 4A</button>
+          <button className="satellite_button">Amazônia 1</button>
         </div>
       </div>
 
-      <div id="b3">
-          <h1 id="ts3">Download de imagens <br/>selecionadas</h1>
-          <p id="ps3">
+      <div id="block_three">
+          <h1 id="block_three_title">Download de imagens <br/>selecionadas</h1>
+          <p id="block_three_paragraph">
             Selecionando a área de interesse, ainda é possível fazer o 
             <br/>download da imagem da região de duas formas: como 
             <br/><span>imagem bruta</span> ou como <span>imagem processada</span>. Basta clicar 
@@ -71,23 +71,23 @@ export default function Home() {
       </div>
 
 
-      <div className="Footer">
-        <div id="dicon">
-          <img id="flogo" src={logo} alt="Logo" />
+      <div className="footer">
+        <div id="div_footer_logo">
+          <img id="footer_logo" src={logo} alt="Logo" />
         </div>
-        <div id='ftt'>
+        <div id='footer_title'>
           <h1>Polaris</h1>
         </div>
-        <div id='fct'>
+        <div id='div_footer_content'>
           <p>Sobre o projeto</p>
           <p>Acessar o mapa</p>
-          <p id='dgh'>
-            <img id="github" src={github} alt="Github" />
+          <p id='div_github'>
+            <img id="github_logo" src={github} alt="Github" />
             Confira o GitHub do projeto
           </p>
         </div>
-        <div id='fdr'>
-          <p>2021 © TODOS OS DIREITOS RESERVADOS</p>
+        <div>
+          <p id='div_footer_rights'>2021 © TODOS OS DIREITOS RESERVADOS</p>
         </div>
       </div>
     </div>
