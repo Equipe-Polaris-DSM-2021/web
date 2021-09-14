@@ -10,7 +10,7 @@ function ResultsMenu() {
   };
 
   return (
-    <div id="results-menu" hidden={!showResultsMenu}>
+    <div id="results-menu" hidden={showResultsMenu}>
       {/* Conteúdo do componente */}
       <div id="contents">
         <header>
