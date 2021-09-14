@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState, useContext } from "react";
 import { MdClear, MdDehaze } from "react-icons/md";
 import { FaMousePointer } from "react-icons/fa";
+
+import { Context } from "../context/MapFilterContext";
 
 import "../styles/components/sidebar.css";
 import "../styles/components/slider.css";
@@ -10,7 +11,7 @@ import Button from "./Button";
 import Logo from "./Logo";
 
 export default function Sidebar() {
-  const { goBack } = useHistory();
+  const { performFilteredSearch } = useContext(Context);
 
   const [toggleFilter, setToggleFilter] = useState(false);
 
@@ -51,7 +52,7 @@ export default function Sidebar() {
       cloudFilter,
     };
 
-    return console.log(payload);
+    performFilteredSearch(payload);
   };
 
   const handleCloseFilter = () => {

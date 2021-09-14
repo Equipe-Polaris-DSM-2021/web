@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
+
+import { Context } from "../context/MapFilterContext";
 
 import Sidebar from "../components/Sidebar";
 import ResultsMenu from "../components/ResultsMenu";
 
 import "../styles/pages/home.css";
 
+
 export default function Home() {
+  const {
+    showTileList,
+  } = useContext(Context);
+  
   const [pageLoaded, setPageloaded] = useState(false);
+
 
   useEffect(() => {
     setPageloaded(true);
@@ -92,8 +100,12 @@ export default function Home() {
 
   return (
     <div id="page-map">
-      {pageLoaded ? <Sidebar /> : null}
-      {/* <ResultsMenu /> */}
+      {!showTileList ? 
+        pageLoaded ? <Sidebar /> : null
+      :(        
+        <ResultsMenu /> 
+      )}
+
       <div className="map-container">
         <MapContainer
           center={[-23.2683, -45.913486]}
