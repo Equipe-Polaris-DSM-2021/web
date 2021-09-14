@@ -9,7 +9,7 @@
   display: grid;
   width: 1fr;
   height: 100vh;
-  grid-template-rows: 88px 600px 80px 300px 300px 136px;
+  grid-template-rows: 88px 600px 80px 300px 1fr 136px;
   grid-template-areas:
     "h"
     "b1"
@@ -22,10 +22,15 @@
 /* -------------------------------------------Header-------------------------------------------------*/
 
 .Header {
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: rgb(255, 255, 255);
   width: 1fr;
-  height: 88px;
-  font-size: 17px;
+  height: 8vw;
+  min-height: 50px;
+  max-height: 88px;
+  font-size: 1vw;
   display: grid;
   width: 100vw;
   box-shadow: 0px 0px 28px rgba(0, 0, 0, 0.25);
@@ -44,8 +49,12 @@
 }
 
 #logo {
-  max-width: 40px;
-  max-height: 40px;
+  min-width: 30px;
+  min-height: 30px;
+  width: 3.5vw;
+  height: 3.5vw;
+  max-width: 60px;
+  max-height: 60px;
 }
 
 #htt {
@@ -236,6 +245,9 @@
 }
 
 .Footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
   background-color: #ffbb55;
   width: 1fr;
   font-size: 12px;
