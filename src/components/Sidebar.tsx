@@ -66,9 +66,15 @@ export default function Sidebar() {
       <header>
         <Logo />
         {!toggleFilter ? (
-          <MdClear size="1.4rem" cursor="pointer" onClick={handleCloseFilter} />
+          <MdClear
+            className="buttonMD"
+            size="1.4rem"
+            cursor="pointer"
+            onClick={handleCloseFilter}
+          />
         ) : (
           <MdDehaze
+            className="buttonMD"
             size="1.4rem"
             cursor="pointer"
             onClick={handleCloseFilter}
