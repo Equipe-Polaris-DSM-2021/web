@@ -6,11 +6,12 @@ import btmm from "../img/btt_plus_minus.png"
 import btms from "../img/btt_map_sat.png"
 import logo from "../img/logo_polaris.png"
 import github from "../img/logo_github.png"
+import Logo from "../components/Logo"
 
 
 export default function Home() { 
   return ( 
-    <div className="grid_home">
+    <div className="home">
       <div className='header'>
         <div id="div_header_logo">
           <img id="header_logo" src={logo} alt="Logo" />
@@ -20,33 +21,37 @@ export default function Home() {
           <a href="map.tsx"><button id="header_button">Acessar o mapa</button></a>
         </div>
       </div>
-
+    <main>
       <div id='block_one'>
-          <h1 id="block_one_title">Um jeito simples e rápido de <br/>consumir imagens de satélites</h1>
-          <p id="block_one_paragraph">
+        <h1 id="block_one_title">Um jeito simples e rápido de <br/>consumir imagens de satélites</h1>
+        <p id="block_one_paragraph">
             Com poucos cliques, acesse imagens de diversos satélites 
             <br/>disponíveis, definindo as opções de visualização de acordo 
             <br/>com sua preferência.
-          </p>
-          <div id='div_buttons_block_one'>
-            <img id="button_plus_minus" src={btmm}  alt="Exemplo de Mapa" />
-            <img id="button_map_satellite" src={btms}  alt="Exemplo de Mapa" />
-          </div>
+        </p>
+        <div id='div_buttons_block_one'>
+          <img id="button_plus_minus" src={btmm}  alt="Exemplo de Mapa" />
+          <img id="button_map_satellite" src={btms}  alt="Exemplo de Mapa" />
+        </div>
         <div id="big_r_side_map">
           <img id="big_r_map" src={bigrmap}  alt="Exemplo de Mapa" />
         </div>
       </div>
 
       <div id='block_two'>
+        <div id='map_txt2'>
         <div id="l_side_map">
           <img id="l_map" src={lmap}  alt="Exemplo de Mapa" />
         </div>
+         <div>
           <h1 id="block_two_title">Satélites disponíveis</h1>
-          <p id="block_two_paragraph">
-            Disponibilizamos uma série de satélites para que você 
-            <br/>selecione de acordo com sua necessidade no momento. 
-            <br/>Veja abaixo as opções:
-          </p>
+            <p id="block_two_paragraph">
+              Disponibilizamos uma série de satélites para que você 
+              <br/>selecione de acordo com sua necessidade no momento. 
+              <br/>Veja abaixo as opções:
+            </p>
+         </div>
+        </div>
         <div id='div_satellites'>
           <button className="satellite_button">Landsat 8</button>
           <button className="satellite_button">Sentinel 1 e 2</button>
@@ -57,7 +62,8 @@ export default function Home() {
       </div>
 
       <div id="block_three">
-          <h1 id="block_three_title">Download de imagens <br/>selecionadas</h1>
+          <div>
+            <h1 id="block_three_title">Download de imagens <br/>selecionadas</h1>
           <p id="block_three_paragraph">
             Selecionando a área de interesse, ainda é possível fazer o 
             <br/>download da imagem da região de duas formas: como 
@@ -65,18 +71,18 @@ export default function Home() {
             <br/>no ícone da área de interesse, escolher uma das opções e 
             <br/>fazer o download.
           </p>
+          </div>
         <div id="r_side_map">
           <img id="r_map" src={rmap} alt="Exemplo de Mapa" />
         </div>
       </div>
+    </main>
+      
 
 
       <div className="footer">
         <div id="div_footer_logo">
-          <img id="footer_logo" src={logo} alt="Logo" />
-        </div>
-        <div id='footer_title'>
-          <h1>Polaris</h1>
+          <Logo/>
         </div>
         <div id='div_footer_content'>
           <p>Sobre o projeto</p>
