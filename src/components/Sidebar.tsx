@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { MdClear, MdDehaze } from "react-icons/md";
-import { FaMousePointer } from "react-icons/fa";
+import { FaLongArrowAltUp, FaMousePointer } from "react-icons/fa";
 import { CircularProgress } from "@material-ui/core"; // Bolinha de carregamento
 
 import { Context } from "../context/MapFilterContext";
@@ -168,7 +168,10 @@ export default function Sidebar() {
         <section>
           <h2>Área de interesse</h2>
           <div className="area-interest-wrap">
-            <p>Selecione a área de interesse no mapa</p>
+            <p>
+              Selecione a área de interesse no mapa              
+              <p>Ou aperte tecla <b><FaLongArrowAltUp /> SHIFT</b>  e escolha a área desejada</p>   
+            </p>
             <button className="button-select" onClick={() => {}}>
               <FaMousePointer size="1.3rem" className="icon-select" />
             </button>

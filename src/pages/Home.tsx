@@ -1,120 +1,129 @@
-import React, { useContext, useEffect, useState } from "react";
-import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
+import React from "react";
 
-import { Context } from "../context/MapFilterContext";
+import { Link } from "react-router-dom";
+import { FaGithub } from "react-icons/fa";
 
-import Sidebar from "../components/Sidebar";
-import ResultsMenu from "../components/ResultsMenu";
+import bigrmap from "../img/big_r_map.png";
+import lmap from "../img/l_map.png";
+import rmap from "../img/r_map.png";
+import btmm from "../img/btt_plus_minus.png";
+import btms from "../img/btt_map_sat.png";
+import logo from "../img/logo_polaris.png";
+import Logo from "../components/Logo";
 
 import "../styles/pages/home.css";
 
-
 export default function Home() {
-  const {
-    showTileList,
-  } = useContext(Context);
-  
-  const [pageLoaded, setPageloaded] = useState(false);
-
-
-  useEffect(() => {
-    setPageloaded(true);
-    return;
-  }, []);
-
-  function MyComponent() {
-    const map = useMapEvents({
-      // baselayerchange: (event) => {
-      //   console.log(event);
-      // },
-      // overlayadd : (event) => {console.log(event)},
-      // overlayremove : (event) => {console.log(event)},
-
-      // layeradd : (event) => {console.log(event)},
-      // layerremove : (event) => {console.log(event)},
-
-      // zoomlevelschange : (event) => {console.log(event)},
-      unload: (event) => {
-        console.log(event);
-      },
-      // viewreset : (event) => {console.log(event)},
-      // load : (event) => {console.log(event)},
-      // zoomstart : (event) => {console.log(event)},
-      // movestart : (event) => {console.log(event)},
-      // zoom : (event) => {console.log(event)},
-      // move : (event) => {console.log(event)},
-      // zoomend : (event) => {console.log(event)},
-      moveend: (event) => {
-        const teste = map.getBounds();
-        console.log(teste);
-      },
-      // autopanstart : (event) => {console.log(event)},
-      // dragstart : (event) => {console.log(event)},
-      // drag : (event) => {console.log(event)},
-      // add : (event) => {console.log(event)},
-      // remove : (event) => {console.log(event)},
-      // loading : (event) => {console.log(event)},
-      // error : (event) => {console.log(event)},
-      // update : (event) => {console.log(event)},
-      // down : (event) => {console.log(event)},
-      // predrag : (event) => {console.log(event)},
-
-      // resize : (event) => {console.log(event)},
-
-      // popupopen : (event) => {console.log(event)},
-      // popupclose : (event) => {console.log(event)},
-
-      // tooltipopen : (event) => {console.log(event)},
-      // tooltipclose : (event) => {console.log(event)},
-
-      // locationerror : (event) => {console.log(event)},
-
-      // locationfound : (event) => {console.log(event)},
-
-      // click : (event) => {console.log(event)},
-      // dblclick : (event) => {console.log(event)},
-      // mousedown : (event) => {console.log(event)},
-      // mouseup : (event) => {console.log(event)},
-      // mouseover : (event) => {console.log(event)},
-      // mouseout : (event) => {console.log(event)},
-      // mousemove : (event) => {console.log(event)},
-      // contextmenu : (event) => {console.log(event)},
-      // preclick : (event) => {console.log(event)},
-
-      // keypress : (event) => {console.log(event)},
-      // keydown : (event) => {console.log(event)},
-      // keyup : (event) => {console.log(event)},
-
-      // zoomanim : (event) => {console.log(event)},
-
-      // dragend : (event) => {console.log(event)},
-
-      // tileunload : (event) => {console.log(event)},
-      // tileloadstart : (event) => {console.log(event)},
-      // tileload : (event) => {console.log(event)},
-
-      // tileerror : (event) => {console.log(event)},
-    });
-    return null;
-  }
-
   return (
-    <div id="page-map">
-      {!showTileList ? 
-        pageLoaded ? <Sidebar /> : null
-      :(        
-        <ResultsMenu /> 
-      )}
+    <div className="home">
+      <div className="header">
+        <div id="div_header_logo">
+          <img id="header_logo" src={logo} alt="Logo" />
+        </div>
+        <h1 id="header_title">Polaris</h1>
+        <div id="div_header_button">
+          <Link to="map">
+            <button id="header_button">Acessar o mapa</button>
+          </Link>
+        </div>
+      </div>
+      <main>
+        <div id="block_one">
+          <h1 id="block_one_title">
+            Um jeito simples e rápido de <br />
+            consumir imagens de satélites
+          </h1>
+          <p id="block_one_paragraph">
+            Com poucos cliques, acesse imagens de diversos satélites
+            <br />
+            disponíveis, definindo as opções de visualização de acordo
+            <br />
+            com sua preferência.
+          </p>
+          <div id="div_buttons_block_one">
+            <img id="button_plus_minus" src={btmm} alt="Exemplo de Mapa" />
+            <img id="button_map_satellite" src={btms} alt="Exemplo de Mapa" />
+          </div>
+          <div id="big_r_side_map">
+            <img id="big_r_map" src={bigrmap} alt="Exemplo de Mapa" />
+          </div>
+        </div>
 
-      <div className="map-container">
-        <MapContainer
-          center={[-23.2683, -45.913486]}
-          zoom={15}
-          style={{ width: "100%", height: "100%" }}
-        >
-          <MyComponent />
-          <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        </MapContainer>
+        <div id="block_two">
+          <div id="map_txt2">
+            <div id="l_side_map">
+              <img id="l_map" src={lmap} alt="Exemplo de Mapa" />
+            </div>
+            <div>
+              <h1 id="block_two_title">Satélites disponíveis</h1>
+              <p id="block_two_paragraph">
+                Disponibilizamos uma série de satélites para que você
+                <br />
+                selecione de acordo com sua necessidade no momento.
+                <br />
+                Veja abaixo as opções:
+              </p>
+            </div>
+          </div>
+          <div id="div_satellites">
+            <button className="satellite_button">Landsat 8</button>
+            <button className="satellite_button">Sentinel 1 e 2</button>
+            <button className="satellite_button">CBERS 4</button>
+            <button className="satellite_button">CBERS 4A</button>
+            <button className="satellite_button">Amazônia 1</button>
+          </div>
+        </div>
+
+        <div id="block_three">
+          <div>
+            <h1 id="block_three_title">
+              Download de imagens <br />
+              selecionadas
+            </h1>
+            <p id="block_three_paragraph">
+              Selecionando a área de interesse, ainda é possível fazer o
+              <br />
+              download da imagem da região de duas formas: como
+              <br />
+              <span>imagem bruta</span> ou como <span>imagem processada</span>.
+              Basta clicar
+              <br />
+              no ícone da área de interesse, escolher uma das opções e
+              <br />
+              fazer o download.
+            </p>
+          </div>
+          <div id="r_side_map">
+            <img id="r_map" src={rmap} alt="Exemplo de Mapa" />
+          </div>
+        </div>
+      </main>
+
+      <div className="footer">
+        <div id="div_footer_logo">
+          <Logo />
+        </div>
+        <div id="div_footer_content">
+          <p>Sobre o projeto</p>
+          <p>
+            <Link to="map">Acessar o mapa</Link>
+          </p>
+          <p>
+            <Link
+              id="div_github"
+              to={{
+                pathname: "https://github.com/Equipe-Polaris-DSM-2021/web",
+              }}
+              target="_blank"
+            >
+              <FaGithub />
+              &nbsp;Confira o GitHub do projeto
+            </Link>
+          </p>
+        </div>
+        <div>
+          <p id="div_footer_rights">2021 &copy; TODOS OS DIREITOS RESERVADOS</p>
+        </div>
       </div>
     </div>
   );

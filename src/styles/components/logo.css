@@ -3,6 +3,8 @@
   align-items: center;
   gap: 1rem;
   padding: 0.3rem;
+
+  text-decoration: none;
 }
 
 img {
