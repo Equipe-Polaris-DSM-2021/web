@@ -4,62 +4,82 @@
   justify-content: space-between;
   flex-direction: column;
 
-  width: 26vw;
-  max-width: 26vw;
+  width: 25rem;
+  max-width: 25rem;
+  height: 100vh;
+  overflow-y: scroll;
   background-color: var(--app-background-color);
-}
+  box-shadow: 0px 8px 28px -6px rgba (24,  39,  75,  12);
 
-aside.hidden {
-  max-height: 8rem;
-  max-width: 23rem;
+  /* Fixa o menu no topo superior esquerdo */
   position: absolute;
   top: 0;
   left: 0;
   z-index: 999 !important;
 }
 
-aside.hidden main,
-aside.hidden footer {
+.app-sidebar.hidden {
+  max-height: 8rem;
+  max-width: 25rem;
+  border-radius: 4%;
+  box-shadow: 0px 8px 28px -6px rgba (24,  39,  75,  12);
+  overflow: hidden;
+}
+
+.app-sidebar .app-sidebar.hidden main,
+.app-sidebar.hidden footer {
   display: none;
 }
 
-header {
+.app-sidebar.hidden header {
+  border-bottom: none;
+}
+
+.app-sidebar header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-main {
+.app-sidebar header .buttonMD:hover {
+  color: var(--color-primary);
+  transition: 200ms all;
+}
+
+.app-sidebar main {
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 10%;
 }
 
-main h2 {
+.app-sidebar main h2 {
   margin-bottom: 1rem;
 }
 
-main .option-satellites-list {
+.app-sidebar main .option-satellites-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-main .option-satellite {
+.app-sidebar main .option-satellite {
   display: flex;
   align-items: center;
 }
 
-main .option-satellites-list label {
+.app-sidebar main .option-satellites-list label {
   margin-left: 0.5rem;
 }
 
-main .area-interest-wrap {
+.app-sidebar main .area-interest-wrap {
   display: flex;
   justify-content: space-between;
+  gap: 2%;
 }
 
-main .area-interest-wrap p b {
+.app-sidebar main .area-interest-wrap p b {
   color: var(--color-text);
   background-color: #f1f1f1;
   padding: 0 0.2rem;
@@ -77,7 +97,7 @@ main .area-interest-wrap p b {
   -o-user-select: none;
 }
 
-main .area-interest-wrap .button-select {
+.app-sidebar main .area-interest-wrap .button-select {
   position: relative;
   width: 2.3rem;
   height: 2.3rem;
@@ -87,7 +107,7 @@ main .area-interest-wrap .button-select {
   cursor: pointer;
 }
 
-main .area-interest-wrap .button-select .icon-select {
+.app-sidebar main .area-interest-wrap .button-select .icon-select {
   position: absolute;
   bottom: -30%;
   right: -40%;
@@ -95,18 +115,18 @@ main .area-interest-wrap .button-select .icon-select {
   background-color: var(--app-background-color);
 }
 
-main .area-interest-wrap .button-select:hover {
+.app-sidebar main .area-interest-wrap .button-select:hover {
   opacity: 0.4;
   transition: all 200ms;
 }
 
-main .period-range {
+.app-sidebar main .period-range {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-main .period-range input {
+.app-sidebar main .period-range input {
   width: 9rem;
   height: 2.3rem;
   border: none;
@@ -117,24 +137,24 @@ main .period-range input {
   padding: 0.3rem;
 }
 
-main .period-range input::-webkit-calendar-picker-indicator,
-main .period-range input::-webkit-inner-spin-button {
+.app-sidebar main .period-range input::-webkit-calendar-picker-indicator,
+.app-sidebar main .period-range input::-webkit-inner-spin-button {
   /* display: none; */
 }
 
-main .cloud-range input {
+.app-sidebar main .cloud-range input {
   width: 100%;
   margin-top: 1rem;
 }
 
-main .cloud-range .percent-cloud-range {
+.app-sidebar main .cloud-range .percent-cloud-range {
   text-align: end;
 }
 
-main p {
+.app-sidebar main p {
   color: var(--color-tertiary-text);
 }
 
-main label {
+.app-sidebar main label {
   color: var(--color-secondary-text);
 }

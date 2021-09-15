@@ -1,17 +1,23 @@
 #results-menu {
-  width: 30%;
+  width: 25rem;
+  max-width: 25rem;
   height: 100vh;
+  padding: 2rem;
+
   background-color: #fff;
   color: #112233;
-  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 12);
+  box-shadow: 0px 8px 28px -6px rgba (24,  39,  75,  12);
+  overflow-y: scroll;
+
+  /* Fixa o menu no topo superior esquerdo */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999 !important;
 }
 
 #results-menu h1 {
   font-size: 1.5rem;
-}
-
-#contents {
-  margin: 10% 8% 10% 8%;
 }
 
 /* ESTILIZAÇÃO DA HEADER */
@@ -19,22 +25,15 @@
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
   padding-bottom: 10%;
   border-bottom: 1px solid #eef3f3;
 }
 
-header button {
-  border: none;
-  background: transparent;
-  padding: 0;
-  align-self: center;
-  width: 16px;
-  height: 12.5px;
-}
-
-header button:hover {
-  opacity: 55%;
-  cursor: pointer;
+header .buttonMD:hover {
+  color: var(--color-primary);
+  transition: 200ms all;
 }
 
 /* ESTILIZAÇÃO DOS RESULTADOS */
@@ -45,7 +44,7 @@ header button:hover {
   font-size: 0.87rem;
 }
 
-.image {
+.satelite-image-list {
   padding-top: 1.5rem;
 }
 
@@ -72,4 +71,5 @@ header button:hover {
   color: #ffffff;
   background: #ffbb55;
   cursor: pointer;
+  transition: 200ms all;
 }

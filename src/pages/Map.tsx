@@ -1,5 +1,7 @@
-import React, {useEffect, useState, } from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {MapContainer, TileLayer, useMapEvents, LayersControl } from 'react-leaflet';
+
+import { Context } from "../context/MapFilterContext";
 
 import Sidebar from '../components/Sidebar';
 import ResultsMenu from "../components/ResultsMenu";
@@ -7,7 +9,12 @@ import ResultsMenu from "../components/ResultsMenu";
 import "../styles/pages/map.css";
 
 export default function Map() {
-  const [pageLoaded, setPageloaded] = useState(false)
+  const {
+    showTileList,
+  } = useContext(Context);
+
+  const [pageLoaded, setPageloaded] = useState(false);
+
 
   useEffect(() => {
     setPageloaded(true);
@@ -92,10 +99,11 @@ export default function Map() {
 
   return (
     <div id="page-map">
-      {pageLoaded ? <Sidebar /> : null}
-
-      {/* Resultados da Busca*/}
-      {/* <ResultsMenu /> */}
+      {!showTileList ? 
+        pageLoaded ? <Sidebar /> : null
+      :(        
+        <ResultsMenu /> 
+      )}
       <div className="map-container">
         <MapContainer 
           center={[-23.2683,-45.913486]}
@@ -104,21 +112,21 @@ export default function Map() {
         >
           <MyComponent />
           <LayersControl position="topright">
-          <LayersControl.BaseLayer checked name="Street View">
-            <TileLayer
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-          </LayersControl.BaseLayer>
-          <LayersControl.BaseLayer name="Satellite View">
-            <TileLayer
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-            />
-          </LayersControl.BaseLayer>
-        </LayersControl>         
+            <LayersControl.BaseLayer checked name="Street View">
+              <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="Satellite View">
+              <TileLayer
+                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+              />
+            </LayersControl.BaseLayer>
+          </LayersControl>         
         </MapContainer>
       </div>
     </div>
   );
-}
+}   
