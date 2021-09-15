@@ -1,7 +1,6 @@
-import React from	 'react';
+import React from "react";
 
-import '../styles/components/button.css';
-
+import "../styles/components/button.css";
 
 interface Props {
   backgroundColor?: string;
@@ -15,18 +14,17 @@ interface Props {
 }
 
 const Button: React.FC<Props> = ({
-  border = 'none',
-  backgroundColor = '#FFBB55',
-  color = '#FFFFFF',
+  border = "none",
+  backgroundColor = "#FFBB55",
+  color = "#FFFFFF",
   children,
-  height = '42px',
+  height = "42px",
   onClick,
-  radius = '0.5rem',
-  width = '17rem',
+  radius = "0.5rem",
+  width = "17rem",
 }) => {
-
   return (
-    <button 
+    <button
       onClick={onClick}
       style={{
         backgroundColor: backgroundColor,
@@ -34,13 +32,13 @@ const Button: React.FC<Props> = ({
         border,
         borderRadius: radius,
         height,
-        width
-     }}
-     className="button-primary"
+        width,
+      }}
+      className="button-primary"
     >
       {children}
     </button>
   );
-}
+};
 
 export default Button;

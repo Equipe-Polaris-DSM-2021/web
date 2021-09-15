@@ -82,15 +82,10 @@ export default function Home() {
             </h1>
             <p id="block_three_paragraph">
               Selecionando a área de interesse, ainda é possível fazer o
-              <br />
-              download da imagem da região de duas formas: como
-              <br />
+              download da imagem da região de duas formas: como{" "}
               <span>imagem bruta</span> ou como <span>imagem processada</span>.
-              Basta clicar
-              <br />
-              no ícone da área de interesse, escolher uma das opções e
-              <br />
-              fazer o download.
+              Basta clicar no ícone da área de interesse, escolher uma das
+              opções e fazer o download.
             </p>
           </div>
           <div id="r_side_map">
@@ -106,7 +101,9 @@ export default function Home() {
         <div id="div_footer_content">
           <p>Sobre o projeto</p>
           <p>
-            <Link to="map">Acessar o mapa</Link>
+            <Link id="div_map" to="map">
+              Acessar o mapa
+            </Link>
           </p>
           <p>
             <Link

@@ -61,14 +61,20 @@
 #header_button {
   background-color: #ffbb55;
   color: white;
-  border-color: #ffbb55;
-  border-radius: 4px;
-  border-style: solid;
+  border: 2px solid #ffbb55;
+  border-radius: 0.5rem;
   width: 22.57vw;
   height: 3.65vw;
   max-width: 402px;
   max-height: 65px;
   font-size: 1.2vw;
+}
+
+#header_button:hover {
+  background-color: white;
+  color: #ffbb55;
+  transition: 200ms all;
+  cursor: pointer;
 }
 
 /* -------------------------------------------Block 01-------------------------------------------------*/
@@ -241,6 +247,10 @@
   font-size: 2vw;
 }
 
+#div_footer_logo .container:hover {
+  cursor: default !important;
+}
+
 #div_footer_content {
   font-size: 1.4vw;
 }
@@ -258,4 +268,10 @@
 
 #div_footer_rights {
   font-size: 1.3vw;
+}
+
+#div_github:hover,
+#div_map:hover {
+  color: #2288cc;
+  transition: 200ms all;
 }
