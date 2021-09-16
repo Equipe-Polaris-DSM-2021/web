@@ -11,8 +11,29 @@
   height: 100%;
 }
 
+.map-container
+  .leaflet-control-container
+  .leaflet-control-zoom.leaflet-bar.leaflet-control {
+  /* left: 25rem; */
+
+  left: 96vw;
+  top: 85vh;
+}
+
+@media (max-width: 1024px) {
+  .map-container
+    .leaflet-control-container
+    .leaflet-control-zoom.leaflet-bar.leaflet-control {
+    /* left: 25rem; */
+
+    left: 94vw;
+    top: 85vh;
+  }
+}
+/*
 .map-container .leaflet-control-container {
   bottom: 12%;
   right: 5%;
   position: absolute;
 }
+*/
