@@ -1,0 +1,160 @@
+.app-sidebar {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  width: 25rem;
+  max-width: 25rem;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: var(--app-background-color);
+  box-shadow: 0px 8px 28px -6px rgba (24,  39,  75,  12);
+
+  /* Fixa o menu no topo superior esquerdo */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999 !important;
+}
+
+.app-sidebar.hidden {
+  max-height: 8rem;
+  max-width: 25rem;
+  border-radius: 4%;
+  box-shadow: 0px 8px 28px -6px rgba (24,  39,  75,  12);
+  overflow: hidden;
+}
+
+.app-sidebar .app-sidebar.hidden main,
+.app-sidebar.hidden footer {
+  display: none;
+}
+
+.app-sidebar.hidden header {
+  border-bottom: none;
+}
+
+.app-sidebar header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-sidebar header .buttonMD:hover {
+  color: var(--color-primary);
+  transition: 200ms all;
+}
+
+.app-sidebar main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 10%;
+}
+
+.app-sidebar main h2 {
+  margin-bottom: 1rem;
+}
+
+.app-sidebar main .option-satellites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.app-sidebar main .option-satellite {
+  display: flex;
+  align-items: center;
+}
+
+.app-sidebar main .option-satellites-list label {
+  margin-left: 0.5rem;
+}
+
+.app-sidebar main .area-interest-wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 2%;
+}
+
+.app-sidebar main .area-interest-wrap p b {
+  color: var(--color-text);
+  background-color: #f1f1f1;
+  padding: 0 0.2rem;
+  border: 1px solid black;
+  border-radius: 0.2rem;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+
+.app-sidebar main .area-interest-wrap .button-select {
+  position: relative;
+  width: 2.3rem;
+  height: 2.3rem;
+
+  border: 3px dashed black;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.app-sidebar main .area-interest-wrap .button-select .icon-select {
+  position: absolute;
+  bottom: -30%;
+  right: -40%;
+
+  background-color: var(--app-background-color);
+}
+
+.app-sidebar main .area-interest-wrap .button-select:hover {
+  opacity: 0.4;
+  transition: all 200ms;
+}
+
+.app-sidebar main .period-range {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-sidebar main .period-range input {
+  width: 9rem;
+  height: 2.3rem;
+  border: none;
+
+  background-color: var(--app-background-container);
+  color: var(--color-tertiary-text);
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+}
+
+.app-sidebar main .period-range input::-webkit-calendar-picker-indicator,
+.app-sidebar main .period-range input::-webkit-inner-spin-button {
+  /* display: none; */
+}
+
+.app-sidebar main .cloud-range input {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.app-sidebar main .cloud-range .percent-cloud-range {
+  text-align: end;
+}
+
+.app-sidebar main p {
+  color: var(--color-tertiary-text);
+}
+
+.app-sidebar main label {
+  color: var(--color-secondary-text);
+}

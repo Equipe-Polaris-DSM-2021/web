@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material/progress-indicator": "^12.0.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -14,7 +16,8 @@
     "leaflet": "^1.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-leaflet": "^2.7.0",
+    "react-icons": "^4.2.0",
+    "react-leaflet": "^3.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "typescript": "^4.1.2",
@@ -32,19 +35,13 @@
       "react-app/jest"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
   "devDependencies": {
+    "@types/leaflet": "^1.7.5",
     "@types/react-leaflet": "^2.5.2",
     "@types/react-router-dom": "^5.1.8"
   }
