@@ -1,15 +1,14 @@
 import { useContext } from "react";
 import "../styles/components/ResultsMenu.css";
 import { MdKeyboardBackspace } from "react-icons/md";
-
 import { Context } from "../context/MapFilterContext";
 
 function ResultsMenu() {
   const {
     tilesDynamicList,
-
     showTileList,
     setShowTileList,
+    // setDataFeaturesColections,
   } = useContext(Context);
 
   // Controle para verificar se o menu está aberto ou fechado
