@@ -11,7 +11,6 @@ import Sidebar from "../components/Sidebar";
 import ResultsMenu from "../components/ResultsMenu";
 import "../styles/pages/map.css";
 import dataSateliteImages from "../services/featuresColections";
-import { LatLngBoundsExpression } from "leaflet";
 
 export default function Map() {
   const { showTileList } = useContext(Context);
@@ -146,20 +145,6 @@ export default function Map() {
             url={url}
             //opacity={1}
           />
-          ;
-          {/*
-          {dataSateliteImages.features.map((feature) => {
-            console.log(feature);
-            <ImageOverlay
-              bounds={[
-                [feature.bbox[1], feature.bbox[0]],
-                [feature.bbox[3], feature.bbox[2]],
-              ]}
-              url={feature.assets.thumbnail.href}
-              //opacity={1}
-            />;
-          })}
-        */}
         </MapContainer>
       </div>
     </div>

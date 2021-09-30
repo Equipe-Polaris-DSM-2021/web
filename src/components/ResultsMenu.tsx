@@ -1,7 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import "../styles/components/ResultsMenu.css";
 import { MdKeyboardBackspace } from "react-icons/md";
 import { Context } from "../context/MapFilterContext";
+
+interface InterfaceFeature {
+  id: string;
+}
 
 function ResultsMenu() {
   const {
@@ -32,9 +36,9 @@ function ResultsMenu() {
 
         {/* Resultados da busca */}
         <div id="results">
-          {tilesDynamicList.map((tile: any, index: number) => (
+          {tilesDynamicList.map((feature: any, index: number) => (
             <div className="satelite-image-list" key={index}>
-              Nome da imagem {index}
+              {feature.id}
               <div className="buttons">
                 <button>Vizualizar</button>
                 <button>Baixar</button>
