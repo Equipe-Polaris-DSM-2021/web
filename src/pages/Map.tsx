@@ -11,6 +11,7 @@ import Sidebar from "../components/Sidebar";
 import ResultsMenu from "../components/ResultsMenu";
 import "../styles/pages/map.css";
 import dataSateliteImages from "../services/featuresColections";
+import { LatLngBoundsExpression } from "leaflet";
 
 export default function Map() {
   const { showTileList } = useContext(Context);
@@ -22,20 +23,22 @@ export default function Map() {
   }, []);
 
   // CONFIGURAÇÕES DO OVERLAY
-  const url = dataSateliteImages.features[0].assets.thumbnail.href;
-  console.log(url);
+  const feature = 2; //
+
+  const url = dataSateliteImages.features[feature].assets.thumbnail.href;
+  //console.log(url);
 
   const bounds: [number, number][] = [
     [
-      dataSateliteImages.features[0].bbox[0],
-      dataSateliteImages.features[0].bbox[1],
+      dataSateliteImages.features[feature].bbox[1],
+      dataSateliteImages.features[feature].bbox[0],
     ],
     [
-      dataSateliteImages.features[0].bbox[2],
-      dataSateliteImages.features[0].bbox[3],
+      dataSateliteImages.features[feature].bbox[3],
+      dataSateliteImages.features[feature].bbox[2],
     ],
   ];
-  console.log(bounds);
+  //console.log(bounds);
 
   function MyComponent() {
     const map = useMapEvents({
@@ -137,13 +140,26 @@ export default function Map() {
               />
             </LayersControl.BaseLayer>
           </LayersControl>
-
           {/* IMAGE OVERLAY */}
           <ImageOverlay
             bounds={bounds}
             url={url}
             //opacity={1}
           />
+          ;
+          {/*
+          {dataSateliteImages.features.map((feature) => {
+            console.log(feature);
+            <ImageOverlay
+              bounds={[
+                [feature.bbox[1], feature.bbox[0]],
+                [feature.bbox[3], feature.bbox[2]],
+              ]}
+              url={feature.assets.thumbnail.href}
+              //opacity={1}
+            />;
+          })}
+        */}
         </MapContainer>
       </div>
     </div>

@@ -8,7 +8,7 @@ function ResultsMenu() {
     tilesDynamicList,
     showTileList,
     setShowTileList,
-    // setDataFeaturesColections,
+    // dataFeaturesColections,
   } = useContext(Context);
 
   // Controle para verificar se o menu está aberto ou fechado

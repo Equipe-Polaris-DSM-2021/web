@@ -10,7 +10,7 @@ function MapFilterProvider({ children }) {
     showTileList,
     setShowTileList,
     tilesDynamicList,
-    // setDataFeaturesColections,
+    // dataFeaturesColections,
   } = useFilter();
 
   return (
@@ -20,7 +20,7 @@ function MapFilterProvider({ children }) {
         showTileList,
         setShowTileList,
         tilesDynamicList,
-        // setDataFeaturesColections,
+        // dataFeaturesColections,
       }}
     >
       {children}

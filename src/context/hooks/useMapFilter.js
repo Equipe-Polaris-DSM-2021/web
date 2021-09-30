@@ -10,11 +10,7 @@ export default function useFilter() {
   const performFilteredSearch = async (form) => {
     setShowTileList(false);
 
-    /* async function loadDataFeaturesColections() {
-        const response = await fetch();
-        const data = await response.json();
-        setDataFeaturesColections(data);
-    } */
+    // setDataFeaturesColections(FeaturesColections)
 
     setTilesDynamicList([1, 2, 3, 4, 5]);
 
@@ -28,7 +24,7 @@ export default function useFilter() {
     tilesDynamicList,
     showTileList,
     setShowTileList,
-    // setDataFeaturesColections,
+    // dataFeaturesColections,
   };
   // dados e funções que são utilizados em
   // outros componentes e paginas por exemplo
