@@ -9,6 +9,10 @@ function MapFilterProvider({ children }) {
     setShowTileList,
     tilesDynamicList,
     //dataFeaturesColections,
+    setImageUrl,
+    imageUrl,
+    setImageBounds,
+    imageBounds,
   } = useFilter();
 
   return (
@@ -19,6 +23,10 @@ function MapFilterProvider({ children }) {
         setShowTileList,
         tilesDynamicList,
         //dataFeaturesColections,
+        setImageUrl,
+        imageUrl,
+        setImageBounds,
+        imageBounds,
       }}
     >
       {children}

@@ -13,8 +13,11 @@ import "../styles/pages/map.css";
 import dataSateliteImages from "../services/featuresColections";
 
 export default function Map() {
-  const { showTileList } = useContext(Context);
+  const { showTileList, imageUrl, imageBounds } = useContext(Context);
   const [pageLoaded, setPageloaded] = useState(false);
+
+  console.log(imageUrl);
+  console.log(imageBounds);
 
   useEffect(() => {
     setPageloaded(true);
@@ -141,8 +144,8 @@ export default function Map() {
           </LayersControl>
           {/* IMAGE OVERLAY */}
           <ImageOverlay
-            bounds={bounds}
-            url={url}
+            bounds={imageBounds}
+            url={imageUrl}
             //opacity={1}
           />
         </MapContainer>

@@ -5,6 +5,11 @@ import api from "../../services/api";
 export default function useFilter() {
   const [tilesDynamicList, setTilesDynamicList] = useState([]);
   const [showTileList, setShowTileList] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
+  const [imageBounds, setImageBounds] = useState([
+    [-76.26368, 122.99418],
+    [-73.1584, 134.71451],
+  ]);
   //const [dataFeaturesColections, setDataFeaturesColections] = useState();
 
   const performFilteredSearch = async (form) => {
@@ -23,6 +28,10 @@ export default function useFilter() {
     showTileList,
     setShowTileList,
     //dataFeaturesColections,
+    setImageUrl,
+    imageUrl,
+    setImageBounds,
+    imageBounds,
   };
 
   // dados e funções que são utilizados em

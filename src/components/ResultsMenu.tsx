@@ -13,11 +13,22 @@ function ResultsMenu() {
     showTileList,
     setShowTileList,
     // dataFeaturesColections,
+    setImageUrl,
+    setImageBounds,
   } = useContext(Context);
 
   // Controle para verificar se o menu está aberto ou fechado
   const handleResultsMenu = () => {
     setShowTileList(!showTileList);
+  };
+
+  const handleImageOverlay = (url: string, bbox: number[]) => {
+    const organizedBbox = [
+      [bbox[1], bbox[0]],
+      [bbox[3], bbox[2]],
+    ];
+    setImageUrl(url);
+    setImageBounds(organizedBbox);
   };
 
   return (
@@ -40,7 +51,16 @@ function ResultsMenu() {
             <div className="satelite-image-list" key={index}>
               {feature.id}
               <div className="buttons">
-                <button>Vizualizar</button>
+                <button
+                  onClick={() =>
+                    handleImageOverlay(
+                      feature.assets.thumbnail.href as string,
+                      feature.bbox as number[]
+                    )
+                  }
+                >
+                  Vizualizar
+                </button>
                 <button>Baixar</button>
               </div>
             </div>
