@@ -15,20 +15,23 @@ function ResultsMenu() {
     // dataFeaturesColections,
     setImageUrl,
     setImageBounds,
+    setImageOpacity,
   } = useContext(Context);
 
   // Controle para verificar se o menu está aberto ou fechado
   const handleResultsMenu = () => {
     setShowTileList(!showTileList);
+    setImageOpacity(0);
   };
 
-  const handleImageOverlay = (url: string, bbox: number[]) => {
+  const handleImageOverlay = (url: string, bbox: number[], opacity: number) => {
     const organizedBbox = [
       [bbox[1], bbox[0]],
       [bbox[3], bbox[2]],
     ];
     setImageUrl(url);
     setImageBounds(organizedBbox);
+    setImageOpacity(opacity);
   };
 
   return (
@@ -55,7 +58,8 @@ function ResultsMenu() {
                   onClick={() =>
                     handleImageOverlay(
                       feature.assets.thumbnail.href as string,
-                      feature.bbox as number[]
+                      feature.bbox as number[],
+                      1 as number
                     )
                   }
                 >

@@ -13,6 +13,8 @@ function MapFilterProvider({ children }) {
     imageUrl,
     setImageBounds,
     imageBounds,
+    imageOpacity,
+    setImageOpacity,
   } = useFilter();
 
   return (
@@ -27,6 +29,8 @@ function MapFilterProvider({ children }) {
         imageUrl,
         setImageBounds,
         imageBounds,
+        imageOpacity,
+        setImageOpacity,
       }}
     >
       {children}

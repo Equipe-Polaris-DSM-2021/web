@@ -10,6 +10,7 @@ export default function useFilter() {
     [-76.26368, 122.99418],
     [-73.1584, 134.71451],
   ]);
+  const [imageOpacity, setImageOpacity] = useState(0);
   //const [dataFeaturesColections, setDataFeaturesColections] = useState();
 
   const performFilteredSearch = async (form) => {
@@ -32,6 +33,8 @@ export default function useFilter() {
     imageUrl,
     setImageBounds,
     imageBounds,
+    imageOpacity,
+    setImageOpacity,
   };
 
   // dados e funções que são utilizados em

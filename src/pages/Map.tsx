@@ -10,37 +10,16 @@ import { Context } from "../context/MapFilterContext";
 import Sidebar from "../components/Sidebar";
 import ResultsMenu from "../components/ResultsMenu";
 import "../styles/pages/map.css";
-import dataSateliteImages from "../services/featuresColections";
 
 export default function Map() {
-  const { showTileList, imageUrl, imageBounds } = useContext(Context);
+  const { showTileList, imageUrl, imageBounds, imageOpacity } =
+    useContext(Context);
   const [pageLoaded, setPageloaded] = useState(false);
-
-  console.log(imageUrl);
-  console.log(imageBounds);
 
   useEffect(() => {
     setPageloaded(true);
     return;
   }, []);
-
-  // CONFIGURAÇÕES DO OVERLAY
-  const feature = 2; //
-
-  const url = dataSateliteImages.features[feature].assets.thumbnail.href;
-  //console.log(url);
-
-  const bounds: [number, number][] = [
-    [
-      dataSateliteImages.features[feature].bbox[1],
-      dataSateliteImages.features[feature].bbox[0],
-    ],
-    [
-      dataSateliteImages.features[feature].bbox[3],
-      dataSateliteImages.features[feature].bbox[2],
-    ],
-  ];
-  //console.log(bounds);
 
   function MyComponent() {
     const map = useMapEvents({
@@ -146,7 +125,7 @@ export default function Map() {
           <ImageOverlay
             bounds={imageBounds}
             url={imageUrl}
-            //opacity={1}
+            opacity={imageOpacity}
           />
         </MapContainer>
       </div>
