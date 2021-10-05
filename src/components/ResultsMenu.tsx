@@ -5,6 +5,8 @@ import { Context } from "../context/MapFilterContext";
 
 interface InterfaceFeature {
   id: string;
+  bbox: number[];
+  assets: { thumbnail: { href: string } };
 }
 
 function ResultsMenu() {
@@ -50,7 +52,7 @@ function ResultsMenu() {
 
         {/* Resultados da busca */}
         <div id="results">
-          {tilesDynamicList.map((feature: any, index: number) => (
+          {tilesDynamicList.map((feature: InterfaceFeature, index: number) => (
             <div className="satelite-image-list" key={index}>
               {feature.id}
               <div className="buttons">
