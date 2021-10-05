@@ -7,6 +7,7 @@ interface InterfaceFeature {
   id: string;
   bbox: number[];
   assets: { thumbnail: { href: string } };
+  properties: { collection: string };
 }
 
 function ResultsMenu() {
@@ -54,7 +55,9 @@ function ResultsMenu() {
         <div id="results">
           {tilesDynamicList.map((feature: InterfaceFeature, index: number) => (
             <div className="satelite-image-list" key={index}>
-              {feature.id}
+              <p>
+                {feature.properties.collection}: {feature.id}
+              </p>
               <div className="buttons">
                 <button
                   onClick={() =>

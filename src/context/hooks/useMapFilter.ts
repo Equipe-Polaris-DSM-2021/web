@@ -7,6 +7,7 @@ interface TilesDynamicList {
   id: string;
   bbox: number[];
   assets: { thumbnail: { href: string } };
+  properties: { collection: string };
 }
 
 export default function useFilter() {
