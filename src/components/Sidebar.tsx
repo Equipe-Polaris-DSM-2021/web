@@ -41,9 +41,12 @@ export default function Sidebar() {
       "amazônia 1": amazoniaOneChecked,
     };
 
+    const dateInitial = new Date(initialPeriodDate);
+    const dateFinal = new Date(endPeriodDate);
+
     const periodFilter = {
-      "date-initial": initialPeriodDate,
-      "date-final": endPeriodDate,
+      "date-initial": dateInitial.toISOString(),
+      "date-final": dateFinal.toISOString(),
     };
 
     const cloudFilter = {
@@ -55,6 +58,8 @@ export default function Sidebar() {
       periodFilter,
       cloudFilter,
     };
+
+    console.log(payload);
 
     performFilteredSearch(payload);
 
@@ -170,13 +175,14 @@ export default function Sidebar() {
           <div className="area-interest-wrap">
             <p>
               Selecione a área de interesse no mapa
-              <p>
+              <br />
+              <span>
                 Ou aperte tecla{" "}
                 <b>
                   <FaLongArrowAltUp /> SHIFT
                 </b>{" "}
                 e escolha a área desejada
-              </p>
+              </span>
             </p>
             <button className="button-select" onClick={() => {}}>
               <FaMousePointer size="1.3rem" className="icon-select" />

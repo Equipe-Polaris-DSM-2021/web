@@ -10,6 +10,7 @@ function MapFilterProvider({ children }) {
     showTileList,
     setShowTileList,
     tilesDynamicList,
+    setBoundingBox,
   } = useFilter();
 
   return (
@@ -19,6 +20,7 @@ function MapFilterProvider({ children }) {
         showTileList,
         setShowTileList,
         tilesDynamicList,
+        setBoundingBox,
       }}
     >
       {children}
