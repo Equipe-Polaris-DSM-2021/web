@@ -1,7 +1,5 @@
 import React, { createContext } from "react";
-
 import useFilter from "./hooks/useMapFilter";
-
 const Context = createContext();
 
 function MapFilterProvider({ children }) {
@@ -10,6 +8,12 @@ function MapFilterProvider({ children }) {
     showTileList,
     setShowTileList,
     tilesDynamicList,
+    setImageUrl,
+    imageUrl,
+    setImageBounds,
+    imageBounds,
+    imageOpacity,
+    setImageOpacity,
   } = useFilter();
 
   return (
@@ -19,6 +23,12 @@ function MapFilterProvider({ children }) {
         showTileList,
         setShowTileList,
         tilesDynamicList,
+        setImageUrl,
+        imageUrl,
+        setImageBounds,
+        imageBounds,
+        imageOpacity,
+        setImageOpacity,
       }}
     >
       {children}
