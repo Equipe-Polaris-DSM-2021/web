@@ -1,15 +1,16 @@
 import { Component } from "react";
+
 import { MdClear, MdDehaze } from "react-icons/md";
-import { FaLongArrowAltUp, FaMousePointer } from "react-icons/fa";
+import { FaMousePointer } from "react-icons/fa";
 import { CircularProgress } from "@material-ui/core"; // Bolinha de carregamento
+
+import Button from "./Button";
+import Logo from "./Logo";
 
 import { Context } from "../context/MapFilterContext";
 
 import "../styles/components/sidebar.css";
 import "../styles/components/slider.css";
-
-import Button from "./Button";
-import Logo from "./Logo";
 
 export default class Sidebar extends Component {
   state = {

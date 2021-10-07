@@ -1,10 +1,11 @@
-import React, { Component, useContext } from "react";
+import { Component } from "react";
 
 import {
   MapContainer,
   TileLayer,
   LayersControl,
   FeatureGroup,
+  ImageOverlay,
 } from "react-leaflet";
 
 import { EditControl } from "react-leaflet-draw";
@@ -38,7 +39,6 @@ export default class Explore extends Component {
     } else {
       newBbox.push(getNorthEast, getSouthWest);
     }
-    console.log(newBbox);
 
     this.context.setBoundingBox(newBbox);
   }
@@ -88,6 +88,12 @@ export default class Explore extends Component {
                 />
               </LayersControl.BaseLayer>
             </LayersControl>
+            {/* IMAGE OVERLAY */}
+            <ImageOverlay
+              bounds={this.context.imageBounds}
+              url={this.context.imageUrl}
+              opacity={this.context.imageOpacity}
+            />
           </MapContainer>
         </div>
       </div>

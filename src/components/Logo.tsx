@@ -1,9 +1,10 @@
 import { Component } from "react";
 
-import "../styles/components/logo.css";
+import { Link } from "react-router-dom";
 
 import LogoImage from "../assets/images/logo_polaris.svg";
-import { Link } from "react-router-dom";
+
+import "../styles/components/logo.css";
 
 export default class Logo extends Component {
   render() {

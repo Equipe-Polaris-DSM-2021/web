@@ -1,6 +1,17 @@
 import { createContext, Component } from "react";
 
-// import api from "../services/api";
+import FeaturesColections from "../services/featuresColections.js";
+
+// import api from "../../services/api";
+
+// Tipagem da Lista de Features
+
+// interface TilesDynamicList {
+//   id: string;
+//   bbox: number[];
+//   assets: { thumbnail: { href: string } };
+//   properties: { collection: string };
+// }
 
 const Context = createContext();
 
@@ -9,6 +20,13 @@ class MapFilterProvider extends Component {
     tilesDynamicList: [],
     showTileList: false,
     boundingBox: [],
+
+    imageUrl: "",
+    imageOpacity: 0,
+    imageBounds: [
+      [-76.26368, 122.99418],
+      [-73.1584, 134.71451],
+    ],
   };
 
   setBoundingBox = (bbox) => {
@@ -25,11 +43,20 @@ class MapFilterProvider extends Component {
     });
   };
 
+  handleImageOverlay = (url, organizedBbox, opacity) => {
+    this.setState({
+      ...this.state,
+      imageUrl: url,
+      imageBounds: organizedBbox,
+      imageOpacity: opacity,
+    });
+  };
+
   performFilteredSearch = async (form) => {
     this.setState({
       ...this.state,
       showTileList: false,
-      tilesDynamicList: [1, 2, 4, 5],
+      tilesDynamicList: FeaturesColections.features,
     });
 
     if (this.state.boundingBox.length === 0)
@@ -52,8 +79,6 @@ class MapFilterProvider extends Component {
       cloudCover: form.cloudFilter["cloud-range"],
       satelliteOptions: form.satelliteOptions,
     };
-
-    console.log(inputBody);
 
     try {
       const headers = {
@@ -79,6 +104,11 @@ class MapFilterProvider extends Component {
           setShowTileList: this.setShowTileList,
           showTileList: this.state.showTileList,
           tilesDynamicList: this.state.tilesDynamicList,
+
+          imageUrl: this.state.imageUrl,
+          imageBounds: this.state.imageBounds,
+          imageOpacity: this.state.imageOpacity,
+          handleImageOverlay: this.handleImageOverlay,
         }}
       >
         {this.props.children}
