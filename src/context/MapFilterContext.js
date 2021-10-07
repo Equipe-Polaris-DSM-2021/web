@@ -18,6 +18,13 @@ class MapFilterProvider extends Component {
     });
   };
 
+  setShowTileList = (showTileList) => {
+    this.setState({
+      ...this.state,
+      showTileList: !showTileList,
+    });
+  };
+
   performFilteredSearch = async (form) => {
     this.setState({
       ...this.state,
@@ -69,6 +76,7 @@ class MapFilterProvider extends Component {
           ...this.state,
           performFilteredSearch: this.performFilteredSearch,
           setBoundingBox: this.setBoundingBox,
+          setShowTileList: this.setShowTileList,
           showTileList: this.state.showTileList,
           tilesDynamicList: this.state.tilesDynamicList,
         }}

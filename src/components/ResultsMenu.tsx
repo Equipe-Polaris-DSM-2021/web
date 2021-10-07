@@ -8,7 +8,7 @@ import "../styles/components/ResultsMenu.css";
 export default class ResultsMenu extends Component {
   // Controle para verificar se o menu está aberto ou fechado
   handleResultsMenu() {
-    this.context.setShowTileList(!this.context.showTileList);
+    this.context.setShowTileList(this.context.showTileList);
   }
 
   render() {

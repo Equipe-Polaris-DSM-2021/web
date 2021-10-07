@@ -214,17 +214,7 @@ export default class Sidebar extends Component {
           <section>
             <h2>Área de interesse</h2>
             <div className="area-interest-wrap">
-              <p>
-                Selecione a área de interesse no mapa
-                <br />
-                <span>
-                  Ou aperte tecla{" "}
-                  <b>
-                    <FaLongArrowAltUp /> SHIFT
-                  </b>{" "}
-                  e escolha a área desejada
-                </span>
-              </p>
+              <p>Selecione a área de interesse no mapa</p>
               <div
                 className="button-select"
                 onClick={() => {
