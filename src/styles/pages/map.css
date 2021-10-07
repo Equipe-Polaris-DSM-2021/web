@@ -20,6 +20,10 @@
   top: 85vh;
 }
 
+.map-container .leaflet-draw.leaflet-control .leaflet-draw-draw-rectangle {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .map-container
     .leaflet-control-container

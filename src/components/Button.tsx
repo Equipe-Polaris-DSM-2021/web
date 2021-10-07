@@ -8,9 +8,10 @@ interface Props {
   color?: string;
   children?: React.ReactNode;
   height?: string;
-  onClick: () => void;
+  onClick?: () => void;
   radius?: string;
   width?: string;
+  type?: any;
 }
 
 const Button: React.FC<Props> = ({
@@ -22,6 +23,7 @@ const Button: React.FC<Props> = ({
   onClick,
   radius = "0.5rem",
   width = "17rem",
+  type = "button",
 }) => {
   return (
     <button
@@ -35,6 +37,7 @@ const Button: React.FC<Props> = ({
         width,
       }}
       className="button-primary"
+      type={type}
     >
       {children}
     </button>

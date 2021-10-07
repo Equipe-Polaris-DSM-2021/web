@@ -26,7 +26,7 @@
   overflow: hidden;
 }
 
-.app-sidebar .app-sidebar.hidden main,
+.app-sidebar .app-sidebar.hidden form,
 .app-sidebar.hidden footer {
   display: none;
 }
@@ -46,7 +46,7 @@
   transition: 200ms all;
 }
 
-.app-sidebar main {
+.app-sidebar form {
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -54,32 +54,32 @@
   margin-bottom: 10%;
 }
 
-.app-sidebar main h2 {
+.app-sidebar form h2 {
   margin-bottom: 1rem;
 }
 
-.app-sidebar main .option-satellites-list {
+.app-sidebar form .option-satellites-list {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.app-sidebar main .option-satellite {
+.app-sidebar form .option-satellite {
   display: flex;
   align-items: center;
 }
 
-.app-sidebar main .option-satellites-list label {
+.app-sidebar form .option-satellites-list label {
   margin-left: 0.5rem;
 }
 
-.app-sidebar main .area-interest-wrap {
+.app-sidebar form .area-interest-wrap {
   display: flex;
   justify-content: space-between;
   gap: 2%;
 }
 
-.app-sidebar main .area-interest-wrap p b {
+.app-sidebar form .area-interest-wrap p b {
   color: var(--color-text);
   background-color: #f1f1f1;
   padding: 0 0.2rem;
@@ -97,7 +97,7 @@
   -o-user-select: none;
 }
 
-.app-sidebar main .area-interest-wrap .button-select {
+.app-sidebar form .area-interest-wrap .button-select {
   position: relative;
   width: 2.3rem;
   height: 2.3rem;
@@ -107,7 +107,7 @@
   cursor: pointer;
 }
 
-.app-sidebar main .area-interest-wrap .button-select .icon-select {
+.app-sidebar form .area-interest-wrap .button-select .icon-select {
   position: absolute;
   bottom: -30%;
   right: -40%;
@@ -115,18 +115,18 @@
   background-color: var(--app-background-color);
 }
 
-.app-sidebar main .area-interest-wrap .button-select:hover {
+.app-sidebar form .area-interest-wrap .button-select:hover {
   opacity: 0.4;
   transition: all 200ms;
 }
 
-.app-sidebar main .period-range {
+.app-sidebar form .period-range {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.app-sidebar main .period-range input {
+.app-sidebar form .period-range input {
   width: 9rem;
   height: 2.3rem;
   border: none;
@@ -137,24 +137,24 @@
   padding: 0.3rem;
 }
 
-.app-sidebar main .period-range input::-webkit-calendar-picker-indicator,
-.app-sidebar main .period-range input::-webkit-inner-spin-button {
+.app-sidebar form .period-range input::-webkit-calendar-picker-indicator,
+.app-sidebar form .period-range input::-webkit-inner-spin-button {
   /* display: none; */
 }
 
-.app-sidebar main .cloud-range input {
+.app-sidebar form .cloud-range input {
   width: 100%;
   margin-top: 1rem;
 }
 
-.app-sidebar main .cloud-range .percent-cloud-range {
+.app-sidebar form .cloud-range .percent-cloud-range {
   text-align: end;
 }
 
-.app-sidebar main p {
+.app-sidebar form p {
   color: var(--color-tertiary-text);
 }
 
-.app-sidebar main label {
+.app-sidebar form label {
   color: var(--color-secondary-text);
 }
