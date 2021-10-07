@@ -1,7 +1,13 @@
-import React from "react";
-import { MapContainer, TileLayer, LayersControl } from "react-leaflet";
+import React, { Component, useContext } from "react";
 
-import { Map } from "leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  LayersControl,
+  FeatureGroup,
+} from "react-leaflet";
+
+import { EditControl } from "react-leaflet-draw";
 
 import { Context } from "../context/MapFilterContext";
 
@@ -10,13 +16,31 @@ import ResultsMenu from "../components/ResultsMenu";
 
 import "../styles/pages/map.css";
 
-export default class Explore extends React.Component {
+export default class Explore extends Component {
   state = {
     pageLoaded: false,
   };
 
   componentDidMount() {
     this.setState({ ...this.state, pageLoaded: true });
+  }
+
+  onCreated(e: any) {
+    let { _northEast, _southWest } = e.layer._bounds;
+
+    let newBbox = [];
+
+    const getNorthEast = _northEast;
+    const getSouthWest = _southWest;
+
+    if (getSouthWest.lat < getNorthEast.lat) {
+      newBbox.push(getSouthWest, getNorthEast);
+    } else {
+      newBbox.push(getNorthEast, getSouthWest);
+    }
+    console.log(newBbox);
+
+    this.context.setBoundingBox(newBbox);
   }
 
   render() {
@@ -36,6 +60,20 @@ export default class Explore extends React.Component {
             zoom={15}
             style={{ width: "100%", height: "100%" }}
           >
+            <FeatureGroup>
+              <EditControl
+                position="topright"
+                onCreated={this.onCreated.bind(this)}
+                draw={{
+                  rectangle: true,
+                  polyline: false,
+                  polygon: false,
+                  circle: false,
+                  marker: false,
+                  circlemarker: false,
+                }}
+              />
+            </FeatureGroup>
             <LayersControl position="topright">
               <LayersControl.BaseLayer checked name="Street View">
                 <TileLayer

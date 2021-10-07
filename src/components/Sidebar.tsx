@@ -27,18 +27,43 @@ export default class Sidebar extends Component {
     inSearch: false,
   };
 
-  handleFilter() {
+  handleFilter(event: any) {
+    event.preventDefault();
+
+    const {
+      landsatChecked,
+      sentinelOneChecked,
+      sentinelTwoChecked,
+      cbers4Checked,
+      cbers4AChecked,
+      amazoniaOneChecked,
+
+      initialPeriodDate,
+      endPeriodDate,
+      cloudRange,
+    } = this.state;
+
+    if (
+      !landsatChecked &&
+      !sentinelOneChecked &&
+      !sentinelTwoChecked &&
+      !cbers4Checked &&
+      !cbers4AChecked &&
+      !amazoniaOneChecked
+    )
+      return alert("Escolha um satélite");
+
     const satelliteOptions = {
-      "landsat 8": this.state.landsatChecked,
-      "sentinel 1": this.state.sentinelOneChecked,
-      "sentinel 2": this.state.sentinelTwoChecked,
-      "CBERS 4": this.state.cbers4Checked,
-      "CBERS 4A": this.state.cbers4AChecked,
-      "amazônia 1": this.state.amazoniaOneChecked,
+      "landsat 8": landsatChecked,
+      "sentinel 1": sentinelOneChecked,
+      "sentinel 2": sentinelTwoChecked,
+      "CBERS 4": cbers4Checked,
+      "CBERS 4A": cbers4AChecked,
+      "amazônia 1": amazoniaOneChecked,
     };
 
-    const dateInitial = new Date(this.state.initialPeriodDate);
-    const dateFinal = new Date(this.state.endPeriodDate);
+    const dateInitial = new Date(initialPeriodDate);
+    const dateFinal = new Date(endPeriodDate);
 
     const periodFilter = {
       "date-initial": dateInitial.toISOString(),
@@ -46,7 +71,7 @@ export default class Sidebar extends Component {
     };
 
     const cloudFilter = {
-      "cloud-range": this.state.cloudRange,
+      "cloud-range": cloudRange,
     };
 
     const payload = {
@@ -90,7 +115,7 @@ export default class Sidebar extends Component {
             />
           )}
         </header>
-        <main>
+        <form onSubmit={this.handleFilter.bind(this)}>
           <section>
             <h2>Satélite</h2>
             <div className="option-satellites-list">
@@ -200,9 +225,18 @@ export default class Sidebar extends Component {
                   e escolha a área desejada
                 </span>
               </p>
-              <button className="button-select" onClick={() => {}}>
+              <div
+                className="button-select"
+                onClick={() => {
+                  const button: any = document.querySelector(
+                    ".leaflet-draw-draw-rectangle"
+                  );
+
+                  button.click();
+                }}
+              >
                 <FaMousePointer size="1.3rem" className="icon-select" />
-              </button>
+              </div>
             </div>
           </section>
           <section>
@@ -210,6 +244,10 @@ export default class Sidebar extends Component {
             <div className="period-range">
               <input
                 type="date"
+                min="2021-01-01"
+                max="2021-07-10"
+                value={this.state.initialPeriodDate}
+                required
                 onChange={(event) => {
                   this.setState({
                     ...this.state,
@@ -220,6 +258,10 @@ export default class Sidebar extends Component {
               -
               <input
                 type="date"
+                min="2021-01-01"
+                max="2021-07-10"
+                value={this.state.endPeriodDate}
+                required
                 onChange={(event) => {
                   this.setState({
                     ...this.state,
@@ -245,11 +287,9 @@ export default class Sidebar extends Component {
             />
             <p className="percent-cloud-range">{this.state.cloudRange} &#37;</p>
           </section>
-        </main>
-        <footer>
           <Button
+            type="submit"
             width="100%"
-            onClick={this.handleFilter.bind(this)}
             children={
               !this.state.inSearch ? (
                 // Se não for feita a pesquisa...
@@ -260,7 +300,7 @@ export default class Sidebar extends Component {
               )
             }
           />
-        </footer>
+        </form>
       </aside>
     );
   }
