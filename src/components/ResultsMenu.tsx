@@ -28,6 +28,58 @@ export default class ResultsMenu extends Component {
   }
 
   render() {
+    const ResultsFilter = () => {
+      const keys = Object.keys(this.context.tilesDynamicList);
+      const featuresPivot = keys.map((key) => {
+        return this.context.tilesDynamicList[key];
+      });
+
+      // * MELHORIA - ADICIONAR ACCORDION COMPONENT -> https://getbootstrap.com/docs/5.1/components/accordion/
+      return (
+        <div>
+          {featuresPivot.map((satellite, index) => (
+            <div key={index}>
+              <h5>{Object.keys(satellite)}</h5>
+              {Object.values(satellite).map((featureCollection: any, index) => (
+                <FeaturesResult
+                  key={index}
+                  features={featureCollection.features}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      );
+    };
+
+    const FeaturesResult = ({ features }) => {
+      return (
+        <>
+          {features.map((feature, index) => (
+            <div className="satelite-image-list" key={index}>
+              <p>
+                {feature.properties.collection}: {feature.id}
+              </p>
+              <div className="buttons">
+                <button
+                  onClick={() =>
+                    this.handleImageOverlay(
+                      feature.assets.thumbnail.href as string,
+                      feature.bbox as number[],
+                      1 as number
+                    )
+                  }
+                >
+                  Vizualizar
+                </button>
+                <button>Baixar</button>
+              </div>
+            </div>
+          ))}
+        </>
+      );
+    };
+
     return (
       <div id="results-menu" hidden={!this.context.showTileList}>
         {/* Conteúdo do componente */}
@@ -41,32 +93,9 @@ export default class ResultsMenu extends Component {
               onClick={this.handleResultsMenu.bind(this)}
             />
           </header>
-
           {/* Resultados da busca */}
           <div id="results">
-            {this.context.tilesDynamicList.map(
-              (feature: InterfaceFeature, index: number) => (
-                <div className="satelite-image-list" key={index}>
-                  <p>
-                    {feature.properties.collection}: {feature.id}
-                  </p>
-                  <div className="buttons">
-                    <button
-                      onClick={() =>
-                        this.handleImageOverlay(
-                          feature.assets.thumbnail.href as string,
-                          feature.bbox as number[],
-                          1 as number
-                        )
-                      }
-                    >
-                      Vizualizar
-                    </button>
-                    <button>Baixar</button>
-                  </div>
-                </div>
-              )
-            )}
+            <ResultsFilter />
           </div>
         </div>
       </div>
