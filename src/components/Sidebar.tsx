@@ -1,7 +1,7 @@
 import { Component } from "react";
 
 import { MdClear, MdDehaze } from "react-icons/md";
-import { FaMousePointer } from "react-icons/fa";
+import { FaLongArrowAltUp, FaMousePointer } from "react-icons/fa";
 import { CircularProgress } from "@material-ui/core"; // Bolinha de carregamento
 
 import Button from "./Button";
@@ -26,6 +26,7 @@ export default class Sidebar extends Component {
     cloudRange: "50",
     // Para controlar quando ativar a bolinha de carregamento
     inSearch: false,
+    satelliteList: [],
   };
 
   handleFilter(event: any) {
@@ -44,31 +45,15 @@ export default class Sidebar extends Component {
       cloudRange,
     } = this.state;
 
-    if (
-      !landsatChecked &&
-      !sentinelOneChecked &&
-      !sentinelTwoChecked &&
-      !cbers4Checked &&
-      !cbers4AChecked &&
-      !amazoniaOneChecked
-    )
+    if (this.state.satelliteList.length === 0)
       return alert("Escolha um satélite");
-
-    const satelliteOptions = {
-      "landsat 8": landsatChecked,
-      "sentinel 1": sentinelOneChecked,
-      "sentinel 2": sentinelTwoChecked,
-      "CBERS 4": cbers4Checked,
-      "CBERS 4A": cbers4AChecked,
-      "amazônia 1": amazoniaOneChecked,
-    };
 
     const dateInitial = new Date(initialPeriodDate);
     const dateFinal = new Date(endPeriodDate);
 
     const periodFilter = {
-      "date-initial": dateInitial.toISOString(),
-      "date-final": dateFinal.toISOString(),
+      "date-initial": dateInitial,
+      "date-final": dateFinal,
     };
 
     const cloudFilter = {
@@ -76,7 +61,7 @@ export default class Sidebar extends Component {
     };
 
     const payload = {
-      satelliteOptions,
+      satelliteOptions: this.state.satelliteList,
       periodFilter,
       cloudFilter,
     };
@@ -87,6 +72,25 @@ export default class Sidebar extends Component {
       ...this.state,
       inSearch: !this.state.inSearch,
     }); // ativa a bolinha de carregamento quando o botão for clicado
+  }
+
+  handleSatelliteSearch(event: any) {
+    const element = event.target.id;
+
+    if (event.target.checked) {
+      return this.setState({
+        ...this.state,
+        satelliteList: [...this.state.satelliteList, element],
+      });
+    }
+    const removeSatellite = this.state.satelliteList.filter(
+      (satellite) => satellite != element
+    );
+
+    this.setState({
+      ...this.state,
+      satelliteList: removeSatellite,
+    });
   }
 
   handleCloseFilter() {
@@ -124,29 +128,19 @@ export default class Sidebar extends Component {
                 <input
                   type="checkbox"
                   name="landsat-8"
-                  id="landsat-8"
-                  checked={this.state.landsatChecked}
-                  onChange={() => {
-                    this.setState({
-                      ...this.state,
-                      landsatChecked: !this.state.landsatChecked,
-                    });
-                  }}
+                  id="landsat-8-l1"
+                  onChange={(event) => this.handleSatelliteSearch(event)}
                 />
                 <label htmlFor="landsat-8">Landsat 8</label>
               </div>
               <div className="option-satellite">
                 <input
+                  disabled
                   type="checkbox"
                   name="sentinel-1"
-                  id="sentinel-1"
+                  id="sentinel-1-l1c"
                   checked={this.state.sentinelOneChecked}
-                  onChange={() => {
-                    this.setState({
-                      ...this.state,
-                      sentinelOneChecked: !this.state.sentinelOneChecked,
-                    });
-                  }}
+                  onChange={(event) => this.handleSatelliteSearch(event)}
                 />
                 <label htmlFor="sentinel-1">Sentinel 1</label>
               </div>
@@ -154,19 +148,14 @@ export default class Sidebar extends Component {
                 <input
                   type="checkbox"
                   name="sentinel-2"
-                  id="sentinel-2"
-                  checked={this.state.sentinelTwoChecked}
-                  onChange={() => {
-                    this.setState({
-                      ...this.state,
-                      sentinelTwoChecked: !this.state.sentinelTwoChecked,
-                    });
-                  }}
+                  id="sentinel-2-l1c"
+                  onChange={(event) => this.handleSatelliteSearch(event)}
                 />
                 <label htmlFor="sentinel-2">Sentinel 2</label>
               </div>
               <div className="option-satellite">
                 <input
+                  disabled
                   type="checkbox"
                   name="CBERS4"
                   id="CBERS4"
@@ -182,6 +171,7 @@ export default class Sidebar extends Component {
               </div>
               <div className="option-satellite">
                 <input
+                  disabled
                   type="checkbox"
                   name="CBERS4A"
                   id="CBERS4A"
@@ -197,6 +187,7 @@ export default class Sidebar extends Component {
               </div>
               <div className="option-satellite">
                 <input
+                  disabled
                   type="checkbox"
                   name="amazonia-1"
                   id="amazonia-1"
@@ -215,15 +206,23 @@ export default class Sidebar extends Component {
           <section>
             <h2>Área de interesse</h2>
             <div className="area-interest-wrap">
-              <p>Selecione a área de interesse no mapa</p>
+              <p>
+                Selecione a área de interesse no mapa
+                <p>
+                  Ou aperte tecla{" "}
+                  <b>
+                    <FaLongArrowAltUp /> SHIFT
+                  </b>{" "}
+                  e escolha a área desejada
+                </p>
+              </p>
               <div
                 className="button-select"
                 onClick={() => {
-                  const button: any = document.querySelector(
-                    ".leaflet-draw-draw-rectangle"
-                  );
-
-                  button.click();
+                  // const button: any = document.querySelector(
+                  //   ".leaflet-draw-draw-rectangle"
+                  // );
+                  // button.click();
                 }}
               >
                 <FaMousePointer size="1.3rem" className="icon-select" />

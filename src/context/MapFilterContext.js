@@ -1,5 +1,7 @@
 import { createContext, Component } from "react";
 
+import api from "../services/api";
+
 import FeaturesColections from "../services/featuresColections.js";
 
 // import api from "../../services/api";
@@ -23,10 +25,7 @@ class MapFilterProvider extends Component {
 
     imageUrl: "",
     imageOpacity: 0,
-    imageBounds: [
-      [-76.26368, 122.99418],
-      [-73.1584, 134.71451],
-    ],
+    imageBounds: [],
   };
 
   setBoundingBox = (bbox) => {
@@ -53,10 +52,11 @@ class MapFilterProvider extends Component {
   };
 
   performFilteredSearch = async (form) => {
+    console.log(form);
+
     this.setState({
       ...this.state,
       showTileList: false,
-      tilesDynamicList: FeaturesColections.features,
     });
 
     if (this.state.boundingBox.length === 0)
@@ -64,34 +64,33 @@ class MapFilterProvider extends Component {
 
     // SWEET ALERT IMPLEMENTAR
     const bbox = [
-      this.state.boundingBox[0].lat,
       this.state.boundingBox[0].lng,
-      this.state.boundingBox[1].lat,
+      this.state.boundingBox[0].lat,
       this.state.boundingBox[1].lng,
+      this.state.boundingBox[1].lat,
     ];
 
     const inputBody = {
+      satelliteOptions: ["landsat-8-l1", "sentinel-2-l1c"],
       bbox,
-      time: {
-        "date-initial": form.periodFilter["date-initial"],
-        "date-final": form.periodFilter["date-final"],
-      },
+
+      date_initial: form.periodFilter["date-initial"],
+      date_final: form.periodFilter["date-final"],
+
       cloudCover: form.cloudFilter["cloud-range"],
-      satelliteOptions: form.satelliteOptions,
     };
 
     try {
-      const headers = {
-        "Content-Type": "application/json",
-        Accept: "application/geo+json",
-      };
+      const { data } = await api.post("/satSearch", inputBody);
+
+      this.setState({
+        ...this.state,
+        showTileList: true,
+        tilesDynamicList: data,
+      });
     } catch (error) {
       console.log(error);
     }
-
-    setTimeout(() => {
-      this.setState({ ...this.state, showTileList: true });
-    }, 1000);
   };
 
   render() {

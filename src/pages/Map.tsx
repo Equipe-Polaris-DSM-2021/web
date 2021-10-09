@@ -1,14 +1,13 @@
-import { Component } from "react";
+import React, { Component, useEffect } from "react";
 
 import {
   MapContainer,
   TileLayer,
   LayersControl,
   FeatureGroup,
-  ImageOverlay,
 } from "react-leaflet";
 
-import { EditControl } from "react-leaflet-draw";
+import L, { Map as LeafletMap, LayerGroup, LatLng } from "leaflet";
 
 import { Context } from "../context/MapFilterContext";
 
@@ -18,12 +17,107 @@ import ResultsMenu from "../components/ResultsMenu";
 import "../styles/pages/map.css";
 
 export default class Explore extends Component {
+  mapRef: any;
+  mapInstance: L.Map;
+  imageLayer: any;
+
+  constructor(props: any) {
+    super(props);
+
+    this.mapRef = React.createRef();
+  }
+
   state = {
     pageLoaded: false,
+    mapInstance: null,
+    MAP_TILE: L.tileLayer(
+      `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`,
+      {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }
+    ),
+
+    mapParams: {
+      center: L.latLng(-23.2683, -45.913486),
+      zoom: 13,
+      drawControl: true,
+      layers: [
+        L.tileLayer(`https://a.tile.openstreetmap.org/{z}/{x}/{y}.png`, {
+          attribution:
+            '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+        }),
+      ],
+    },
   };
 
   componentDidMount() {
     this.setState({ ...this.state, pageLoaded: true });
+
+    this.mapInstance = L.map("map-container", this.state.mapParams);
+
+    const streets = L.tileLayer(
+      `https://a.tile.openstreetmap.org/{z}/{x}/{y}.png`,
+      {
+        attribution:
+          '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      }
+    );
+
+    const satellite = L.tileLayer(
+      `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}`,
+      {
+        attribution:
+          '&copy;  <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+      }
+    );
+
+    const baseMaps = {
+      "Street View": streets,
+      "Satellite View": satellite,
+    };
+
+    L.control.layers(baseMaps).addTo(this.mapInstance);
+  }
+
+  componentDidUpdate() {
+    if (this.context.imageUrl) {
+      this.handleMap(
+        this.context.imageUrl,
+        this.context.imageBounds,
+        this.context.imageOpacity
+      );
+    }
+
+    this.mapInstance.addEventListener("moveend", this.moveEnd.bind(this));
+  }
+
+  moveEnd(event) {
+    const bbox = this.mapInstance.getBounds();
+
+    let newBbox = [];
+
+    if (bbox.getSouthWest().lat < bbox.getNorthEast().lat) {
+      newBbox.push(bbox.getSouthWest(), bbox.getNorthEast());
+    } else {
+      newBbox.push(bbox.getNorthEast(), bbox.getSouthWest());
+    }
+
+    this.context.setBoundingBox(newBbox);
+  }
+
+  handleChangeBasemap() {
+    // L.tileLayer("basemap");
+  }
+
+  handleMap(url: string, bounds: any, opacity: number) {
+    if (this.imageLayer) {
+      this.mapInstance.removeLayer(this.imageLayer);
+    }
+
+    this.imageLayer = L.imageOverlay(url, bounds, { opacity: opacity }).addTo(
+      this.mapInstance
+    );
   }
 
   onCreated(e: any) {
@@ -54,48 +148,7 @@ export default class Explore extends Component {
           <ResultsMenu />
         )}
 
-        <div className="map-container">
-          <MapContainer
-            center={[-23.2683, -45.913486]}
-            zoom={15}
-            style={{ width: "100%", height: "100%" }}
-          >
-            <FeatureGroup>
-              <EditControl
-                position="topright"
-                onCreated={this.onCreated.bind(this)}
-                draw={{
-                  rectangle: true,
-                  polyline: false,
-                  polygon: false,
-                  circle: false,
-                  marker: false,
-                  circlemarker: false,
-                }}
-              />
-            </FeatureGroup>
-            <LayersControl position="topright">
-              <LayersControl.BaseLayer checked name="Street View">
-                <TileLayer
-                  attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-              </LayersControl.BaseLayer>
-              <LayersControl.BaseLayer name="Satellite View">
-                <TileLayer
-                  attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-                />
-              </LayersControl.BaseLayer>
-            </LayersControl>
-            {/* IMAGE OVERLAY */}
-            <ImageOverlay
-              bounds={this.context.imageBounds}
-              url={this.context.imageUrl}
-              opacity={this.context.imageOpacity}
-            />
-          </MapContainer>
-        </div>
+        <div className="map-container" id="map-container"></div>
       </div>
     );
   }
