@@ -52,8 +52,6 @@ class MapFilterProvider extends Component {
   };
 
   performFilteredSearch = async (form) => {
-    console.log(form);
-
     this.setState({
       ...this.state,
       showTileList: false,
@@ -71,7 +69,7 @@ class MapFilterProvider extends Component {
     ];
 
     const inputBody = {
-      satelliteOptions: ["landsat-8-l1", "sentinel-2-l1c"],
+      satelliteOptions: form.satelliteOptions,
       bbox,
 
       date_initial: form.periodFilter["date-initial"],
@@ -79,6 +77,8 @@ class MapFilterProvider extends Component {
 
       cloudCover: form.cloudFilter["cloud-range"],
     };
+
+    console.log(inputBody);
 
     try {
       const { data } = await api.post("/satSearch", inputBody);

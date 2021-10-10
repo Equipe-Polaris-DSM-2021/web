@@ -1,13 +1,6 @@
-import React, { Component, useEffect } from "react";
+import React, { Component } from "react";
 
-import {
-  MapContainer,
-  TileLayer,
-  LayersControl,
-  FeatureGroup,
-} from "react-leaflet";
-
-import L, { Map as LeafletMap, LayerGroup, LatLng } from "leaflet";
+import L from "leaflet";
 
 import { Context } from "../context/MapFilterContext";
 
@@ -78,6 +71,8 @@ export default class Explore extends Component {
     };
 
     L.control.layers(baseMaps).addTo(this.mapInstance);
+
+    this.mapInstance.addEventListener("moveend", this.moveEnd.bind(this));
   }
 
   componentDidUpdate() {
@@ -88,8 +83,6 @@ export default class Explore extends Component {
         this.context.imageOpacity
       );
     }
-
-    this.mapInstance.addEventListener("moveend", this.moveEnd.bind(this));
   }
 
   moveEnd(event) {
