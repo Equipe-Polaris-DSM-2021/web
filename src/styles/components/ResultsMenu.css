@@ -44,6 +44,10 @@ header .buttonMD:hover {
   font-size: 0.87rem;
 }
 
+#results p {
+  line-height: 1.3;
+}
+
 .satelite-image-list {
   padding-top: 1.5rem;
 }

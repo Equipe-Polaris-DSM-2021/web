@@ -8,7 +8,8 @@
 
 .map-container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  overflow: "hidden";
 }
 
 .map-container
@@ -18,6 +19,10 @@
 
   left: 96vw;
   top: 85vh;
+}
+
+.map-container .leaflet-draw.leaflet-control .leaflet-draw-draw-rectangle {
+  display: none;
 }
 
 @media (max-width: 1024px) {

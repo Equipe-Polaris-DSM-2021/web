@@ -1,10 +1,13 @@
 .home main {
   display: flex;
-  gap: 5rem;
   flex-direction: column;
   position: relative;
-  padding: 0 10vw;
+  padding: 10vw 10vw 0;
   margin-bottom: 5vw;
+}
+
+* {
+  scroll-behavior: smooth;
 }
 
 /* -------------------------------------------header-------------------------------------------------*/
@@ -82,12 +85,14 @@
 #block_one {
   display: flex;
   flex-direction: column;
-  margin-top: 216px;
-  margin-bottom: 216px;
+  margin-top: 10vw;
+  margin-bottom: 16vw;
 }
 
 #block_one_title {
   font-size: 3vw;
+  line-height: 4vw;
+  margin-bottom: 1.4rem;
 }
 
 #block_one_paragraph {
@@ -114,18 +119,16 @@
 
 #big_r_side_map {
   position: absolute;
-  top: 88px;
+  top: 7.5vw;
   right: 0;
-  max-height: 570px;
 }
 
 #big_r_map {
   display: block;
   margin-left: auto;
   margin-right: 0;
-  width: 100%;
-  height: 50vw;
-  max-height: 900px;
+  width: 34.7vw;
+  height: 49.5vw;
 }
 
 /* -------------------------------------------Block 02-------------------------------------------------*/
@@ -142,7 +145,7 @@
 }
 
 #l_map {
-  border-radius: 30px;
+  border-radius: 3vw;
   width: 33.25vw;
   height: 14vw;
 }
@@ -151,6 +154,8 @@
   align-self: center;
   justify-content: center;
   font-size: 3vw;
+  line-height: 4vw;
+  margin-bottom: 1.4rem;
 }
 
 #block_two_paragraph {
@@ -167,16 +172,21 @@
   gap: 1vw;
 }
 
+.satellite_button:hover {
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
 .satellite_button {
   background-color: rgb(255, 255, 255);
   color: #ffbb55;
   border-color: #ffbb55;
   height: 6.26vw;
   width: 14.94vw;
-  margin-bottom: 40px;
+  margin-bottom: 4vw;
   font-size: 1.75vw;
-  border-radius: 8px;
-  border-width: 3px;
+  border-radius: 0.8vw;
+  border-width: 0.3vw;
   border-style: solid;
   display: inline-block;
   justify-content: center;
@@ -191,7 +201,9 @@
 #block_three_title {
   align-self: center;
   justify-content: center;
+  line-height: 4vw;
   font-size: 3vw;
+  margin-bottom: 1.4rem;
 }
 
 #block_three_paragraph {
@@ -210,7 +222,7 @@
 }
 
 #r_map {
-  border-radius: 30px;
+  border-radius: 3vw;
   width: 33.25vw;
   height: 19.33vw;
 }
@@ -274,4 +286,48 @@
 #div_map:hover {
   color: #2288cc;
   transition: 200ms all;
+}
+
+#sb_proj a:hover {
+  color: #2288cc;
+  transition: 200ms all;
+}
+
+/* -------------------------------------------MediaQuery-------------------------------------------------*/
+
+@media (min-width: 1300px) {
+  .home main {
+    padding: 5vw 10vw 0;
+  }
+
+  #big_r_side_map {
+    position: absolute;
+    top: 3vw;
+    right: 0;
+  }
+
+  #big_r_map {
+    display: block;
+    margin-right: 0;
+    height: 50vw;
+    width: 35.21vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .home main {
+    padding: 20vw 10vw 0;
+  }
+
+  #block_one {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vw;
+  }
+
+  #big_r_side_map {
+    position: absolute;
+    top: 15vw;
+    right: 0;
+  }
 }

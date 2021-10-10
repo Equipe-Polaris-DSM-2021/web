@@ -15,7 +15,7 @@ import "../styles/pages/home.css";
 
 export default function Home() {
   return (
-    <div className="home">
+    <div className="home" id="home">
       <div className="header">
         <div id="div_header_logo">
           <img id="header_logo" src={logo} alt="Logo" />
@@ -99,7 +99,7 @@ export default function Home() {
           <Logo />
         </div>
         <div id="div_footer_content">
-          <p>Sobre o projeto</p>
+          <p id="sb_proj"><a href="#home">Sobre o projeto</a></p>
           <p>
             <Link id="div_map" to="map">
               Acessar o mapa
