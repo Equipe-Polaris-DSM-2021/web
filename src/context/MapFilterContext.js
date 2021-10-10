@@ -52,8 +52,6 @@ class MapFilterProvider extends Component {
   };
 
   performFilteredSearch = async (form) => {
-    console.log(form);
-
     this.setState({
       ...this.state,
       showTileList: false,
