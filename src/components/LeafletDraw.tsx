@@ -6,7 +6,7 @@ import { EditControl } from "react-leaflet-draw";
 import { Context } from "../context/MapFilterContext";
 
 export const LeafletDraw = () => {
-  const { setBoundingBox } = useContext(Context);
+  const { setBoundingBox, setDrawAreaCreated } = useContext(Context);
 
   function onCreated(e: any) {
     let { _northEast, _southWest } = e.layer._bounds;
@@ -23,6 +23,7 @@ export const LeafletDraw = () => {
     }
 
     setBoundingBox(newBbox);
+    setDrawAreaCreated(true);
   }
 
   return (
@@ -31,7 +32,17 @@ export const LeafletDraw = () => {
         position="topright"
         onCreated={(e) => onCreated(e)}
         draw={{
-          rectangle: true,
+          rectangle: {
+            shapeOptions: {
+              stroke: true,
+              color: "var(--color-secondary)",
+              weight: 4,
+              // opacity: 0.5,
+              fill: false,
+              showArea: false,
+              clickable: true,
+            },
+          },
           polyline: false,
           polygon: false,
           circle: false,

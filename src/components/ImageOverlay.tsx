@@ -6,27 +6,38 @@ import { ImageOverlay } from "react-leaflet";
 import { Context } from "../context/MapFilterContext";
 
 export const LeafletImageOverlay = () => {
-  const { imageUrl, imageBounds, imageOpacity } = useContext(Context);
+  const { imageUrl, imageBounds, imageOpacity, setImageLayerUpdating } =
+    useContext(Context);
 
   const [imageLayerUpdated, setImageLayerUpdated] = useState(false);
   const [bounds, setBounds] = useState<any>();
+  const [url, setUrl] = useState<string>("");
+  const [opacity, setOpacity] = useState<number>();
 
   useEffect(() => {
-    if (imageBounds.length > 0) {
+    if (imageUrl !== url) {
       const newBounds = new LatLngBounds(imageBounds);
-      setBounds(newBounds);
-      setImageLayerUpdated(true);
+
+      setTimeout(() => {
+        setBounds(newBounds);
+        setUrl(imageUrl);
+        setOpacity(imageOpacity);
+        setImageLayerUpdated(true);
+
+        setImageLayerUpdating(false);
+      }, 2000);
     }
 
     return () => {
       setImageLayerUpdated(false);
     };
-  }, [imageBounds]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [imageBounds, imageUrl, imageOpacity]);
 
   return (
     <>
       {imageLayerUpdated ? (
-        <ImageOverlay bounds={bounds} url={imageUrl} opacity={imageOpacity} />
+        <ImageOverlay bounds={bounds} url={url} opacity={opacity} />
       ) : null}
     </>
   );

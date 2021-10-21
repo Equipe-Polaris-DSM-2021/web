@@ -9,37 +9,15 @@ import "../styles/pages/map.css";
 import { LeafletDraw } from "../components/LeafletDraw";
 import { LayersControl, MapContainer, TileLayer } from "react-leaflet";
 import { LeafletImageOverlay } from "../components/ImageOverlay";
+import { Loading } from "../components/Loading";
 
 export default class Explore extends Component {
-  imageLayer: any;
-
-  constructor(props: any) {
-    super(props);
-  }
-
   state = {
     pageLoaded: false,
   };
 
   componentDidMount() {
     this.setState({ ...this.state, pageLoaded: true });
-  }
-
-  onCreated(e: any) {
-    let { _northEast, _southWest } = e.layer._bounds;
-
-    let newBbox = [];
-
-    const getNorthEast = _northEast;
-    const getSouthWest = _southWest;
-
-    if (getSouthWest.lat < getNorthEast.lat) {
-      newBbox.push(getSouthWest, getNorthEast);
-    } else {
-      newBbox.push(getNorthEast, getSouthWest);
-    }
-
-    this.context.setBoundingBox(newBbox);
   }
 
   render() {
@@ -53,6 +31,7 @@ export default class Explore extends Component {
           <ResultsMenu />
         )}
 
+        <Loading />
         <div className="map-container">
           <MapContainer
             center={[-23.2683, -45.913486]}
