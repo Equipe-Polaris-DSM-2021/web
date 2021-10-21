@@ -2,8 +2,6 @@ import { createContext, Component } from "react";
 
 import api from "../services/api";
 
-import FeaturesColections from "../services/featuresColections.js";
-
 // import api from "../../services/api";
 
 // Tipagem da Lista de Features

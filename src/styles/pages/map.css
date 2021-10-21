@@ -25,6 +25,10 @@
   display: none;
 }
 
+.sr-only {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .map-container
     .leaflet-control-container
