@@ -1,16 +1,28 @@
 import { Component } from "react";
 import { MdClear } from "react-icons/md";
 import Button from "./Button";
+import { Context } from "../context/MapFilterContext";
 import "../styles/components/modalDownload.css";
 
 export default class ModalDownload extends Component {
+  handleCloseModal() {
+    this.setState({ ...this.state, toggleModal: !this.context.toggleModal });
+    const modalOverlay = document.querySelector(".modal-overlay");
+    modalOverlay?.classList.toggle("active");
+  }
+
   render() {
     return (
       <div className="modal-overlay">
         <div className="modal-container">
           <div className="modal-header">
             <h1>Download de imagens</h1>
-            <MdClear id="modal-header-btn" size="1.5rem" cursor="pointer" />
+            <MdClear
+              id="modal-header-btn"
+              size="1.5rem"
+              cursor="pointer"
+              onClick={this.handleCloseModal.bind(this)}
+            />
           </div>
           <div className="modal-body">
             <p>

@@ -18,6 +18,12 @@ export default class ResultsMenu extends Component {
     this.context.setShowTileList(this.context.showTileList);
   }
 
+  handleShowModal() {
+    this.setState({ ...this.state, toggleModal: this.context.toggleModal });
+    const modalOverlay = document.querySelector(".modal-overlay");
+    modalOverlay?.classList.toggle("active");
+  }
+
   handleImageOverlay(url: string, bbox: number[], opacity: number) {
     const organizedBbox = [
       [bbox[1], bbox[0]],
@@ -72,7 +78,9 @@ export default class ResultsMenu extends Component {
                 >
                   Vizualizar
                 </button>
-                <button>Baixar</button>
+                <button onClick={this.handleShowModal.bind(this)}>
+                  Baixar
+                </button>
               </div>
             </div>
           ))}

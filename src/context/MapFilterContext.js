@@ -26,6 +26,8 @@ class MapFilterProvider extends Component {
     imageUrl: "",
     imageOpacity: 0,
     imageBounds: [],
+
+    toggleModal: false,
   };
 
   setBoundingBox = (bbox) => {
@@ -39,6 +41,13 @@ class MapFilterProvider extends Component {
     this.setState({
       ...this.state,
       showTileList: !showTileList,
+    });
+  };
+
+  setToggleModal = (toggleModal) => {
+    this.setState({
+      ...this.state,
+      toggleModal: !toggleModal,
     });
   };
 
@@ -108,6 +117,9 @@ class MapFilterProvider extends Component {
           imageBounds: this.state.imageBounds,
           imageOpacity: this.state.imageOpacity,
           handleImageOverlay: this.handleImageOverlay,
+
+          toggleModal: this.toggleModal,
+          setToggleModal: this.setToggleModal,
         }}
       >
         {this.props.children}

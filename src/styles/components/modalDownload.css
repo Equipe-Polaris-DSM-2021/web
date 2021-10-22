@@ -3,8 +3,8 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
 
-  opacity: 1;
-  visibility: visible;
+  opacity: 0;
+  visibility: hidden;
 
   position: fixed;
   top: 0;
@@ -14,9 +14,9 @@
   z-index: 2000 !important;
 }
 
-.modal-overlay.hidden {
-  opacity: 0;
-  visibility: hidden;
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal-container {
