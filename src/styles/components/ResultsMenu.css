@@ -42,6 +42,8 @@ header .buttonMD:hover {
   color: #72787a;
   line-height: 0;
   font-size: 0.87rem;
+
+  margin-top: 1.5rem;
 }
 
 #results p {
@@ -99,4 +101,33 @@ header .buttonMD:hover {
   background: #ffbb55;
   cursor: pointer;
   transition: 200ms all;
+}
+
+/* ACCORDION STYLE */
+.satellite-result .satellite-name {
+  cursor: pointer;
+}
+
+.satellite-result .satellite-name:hover {
+  filter: brightness(50%);
+}
+
+.satellite-result .satellite-name:after {
+  content: "▼"; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.satellite-name.active:after {
+  content: "▲";
+}
+
+.features-list {
+  display: none;
+}
+
+.features-list.block {
+  display: block;
 }

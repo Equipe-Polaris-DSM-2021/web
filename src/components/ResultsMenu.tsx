@@ -35,18 +35,34 @@ export default class ResultsMenu extends Component {
         return this.context.tilesDynamicList[key];
       });
 
+      const handleAccordion = (event: any) => {
+        const satelliteEl = document.querySelector(`#${event.target.id}`);
+        satelliteEl.classList.toggle("active");
+        const panel = satelliteEl.nextElementSibling;
+        panel.classList.toggle("block");
+      };
       // * MELHORIA - ADICIONAR ACCORDION COMPONENT -> https://getbootstrap.com/docs/5.1/components/accordion/
       return (
         <div className="satellite-list">
           {featuresPivot.map((satellite, index) => (
             <div key={index} className="satellite-result">
-              <h5>{Object.keys(satellite)}</h5>
-              {Object.values(satellite).map((featureCollection: any, index) => (
-                <FeaturesResult
-                  key={index}
-                  features={featureCollection.features}
-                />
-              ))}
+              <h5
+                id={`${Object.keys(satellite)}`}
+                className="satellite-name"
+                onClick={(event) => handleAccordion(event)}
+              >
+                {Object.keys(satellite)}
+              </h5>
+              <div className="features-list">
+                {Object.values(satellite).map(
+                  (featureCollection: any, index) => (
+                    <FeaturesResult
+                      key={index}
+                      features={featureCollection.features}
+                    />
+                  )
+                )}
+              </div>
             </div>
           ))}
         </div>
@@ -59,7 +75,7 @@ export default class ResultsMenu extends Component {
           {features?.map((feature, index) => (
             <div className="satellite-image-list" key={index}>
               <p className="satellite-header">
-                <span>
+                <span title={`${feature.properties.collection}: ${feature.id}`}>
                   {feature.properties.collection}: {feature.id}
                 </span>
                 <span className="cloud-cover">
