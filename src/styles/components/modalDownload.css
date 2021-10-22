@@ -20,7 +20,7 @@
 }
 
 .modal-container {
-  width: 50%;
+  width: 40%;
   height: 50%;
   min-height: 360px;
   background-color: var(--app-background-color);
@@ -36,7 +36,7 @@
 #modal-header-btn {
   position: absolute;
   top: 27.5%;
-  left: 70%;
+  left: 67%;
 }
 
 #modal-header-btn:hover {
@@ -93,5 +93,14 @@ form {
 @media (max-width: 1496px) {
   #modal-header-btn {
     top: 26.5%;
+  }
+}
+@media (max-width: 1300px) {
+  .modal-container {
+    width: 50%;
+  }
+
+  #modal-header-btn {
+    left: 70%;
   }
 }
