@@ -93,13 +93,14 @@ export default function Home() {
           </div>
         </div>
       </main>
-
       <div className="footer">
         <div id="div_footer_logo">
           <Logo />
         </div>
         <div id="div_footer_content">
-          <p id="sb_proj"><a href="#home">Sobre o projeto</a></p>
+          <p id="sb_proj">
+            <a href="#home">Sobre o projeto</a>
+          </p>
           <p>
             <Link id="div_map" to="map">
               Acessar o mapa

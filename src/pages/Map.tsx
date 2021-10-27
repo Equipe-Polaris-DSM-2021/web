@@ -6,6 +6,7 @@ import { Context } from "../context/MapFilterContext";
 
 import Sidebar from "../components/Sidebar";
 import ResultsMenu from "../components/ResultsMenu";
+import ModalDownload from "../components/ModalDownload";
 
 import "../styles/pages/map.css";
 
@@ -133,6 +134,7 @@ export default class Explore extends Component {
   render() {
     return (
       <div id="page-map">
+        <ModalDownload />
         {!this.context.showTileList ? (
           this.state.pageLoaded ? (
             <Sidebar />
