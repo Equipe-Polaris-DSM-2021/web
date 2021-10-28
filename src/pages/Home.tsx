@@ -93,7 +93,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-
       <div className="footer">
         <div id="div_footer_logo">
           <Logo />

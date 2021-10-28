@@ -24,6 +24,8 @@ class MapFilterProvider extends Component {
     imageBounds: [],
     drawAreaCreated: false,
     imageOverlayUpdating: false,
+
+    toggleModal: false,
   };
 
   setBoundingBox = (bbox) => {
@@ -51,6 +53,13 @@ class MapFilterProvider extends Component {
     this.setState({
       ...this.state,
       imageOverlayUpdating: !this.state.imageOverlayUpdating,
+    });
+  };
+
+  setToggleModal = (toggleModal) => {
+    this.setState({
+      ...this.state,
+      toggleModal: !toggleModal,
     });
   };
 
@@ -124,6 +133,9 @@ class MapFilterProvider extends Component {
 
           imageOverlayUpdating: this.state.imageOverlayUpdating,
           setImageLayerUpdating: this.setImageLayerUpdating,
+
+          toggleModal: this.toggleModal,
+          setToggleModal: this.setToggleModal,
         }}
       >
         {this.props.children}
