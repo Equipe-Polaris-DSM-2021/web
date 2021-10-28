@@ -1,16 +1,16 @@
 import { Component } from "react";
-import { MdKeyboardBackspace } from "react-icons/md";
+import { MdKeyboardBackspace, MdCloudQueue } from "react-icons/md";
 
 import { Context } from "../context/MapFilterContext";
 
 import "../styles/components/ResultsMenu.css";
 
-interface InterfaceFeature {
-  id: string;
-  bbox: number[];
-  assets: { thumbnail: { href: string } };
-  properties: { collection: string };
-}
+// interface InterfaceFeature {
+//   id: string;
+//   bbox: number[];
+//   assets: { thumbnail: { href: string } };
+//   properties: { collection: string };
+// }
 
 export default class ResultsMenu extends Component {
   // Controle para verificar se o menu está aberto ou fechado
@@ -30,6 +30,7 @@ export default class ResultsMenu extends Component {
       [bbox[3], bbox[2]],
     ];
 
+    this.context.setImageLayerUpdating(true);
     this.context.handleImageOverlay(url, organizedBbox, opacity);
   }
 
@@ -40,18 +41,34 @@ export default class ResultsMenu extends Component {
         return this.context.tilesDynamicList[key];
       });
 
+      const handleAccordion = (event: any) => {
+        const satelliteEl = document.querySelector(`#${event.target.id}`);
+        satelliteEl.classList.toggle("active");
+        const panel = satelliteEl.nextElementSibling;
+        panel.classList.toggle("block");
+      };
       // * MELHORIA - ADICIONAR ACCORDION COMPONENT -> https://getbootstrap.com/docs/5.1/components/accordion/
       return (
-        <div>
+        <div className="satellite-list">
           {featuresPivot.map((satellite, index) => (
-            <div key={index}>
-              <h5>{Object.keys(satellite)}</h5>
-              {Object.values(satellite).map((featureCollection: any, index) => (
-                <FeaturesResult
-                  key={index}
-                  features={featureCollection.features}
-                />
-              ))}
+            <div key={index} className="satellite-result">
+              <h5
+                id={`${Object.keys(satellite)}`}
+                className="satellite-name"
+                onClick={(event) => handleAccordion(event)}
+              >
+                {Object.keys(satellite)}
+              </h5>
+              <div className="features-list">
+                {Object.values(satellite).map(
+                  (featureCollection: any, index) => (
+                    <FeaturesResult
+                      key={index}
+                      features={featureCollection.features}
+                    />
+                  )
+                )}
+              </div>
             </div>
           ))}
         </div>
@@ -61,10 +78,18 @@ export default class ResultsMenu extends Component {
     const FeaturesResult = ({ features }) => {
       return (
         <>
-          {features.map((feature, index) => (
-            <div className="satelite-image-list" key={index}>
-              <p>
-                {feature.properties.collection}: {feature.id}
+          {features?.map((feature, index) => (
+            <div className="satellite-image-list" key={index}>
+              <p className="satellite-header">
+                <span title={`${feature.properties.collection}: ${feature.id}`}>
+                  {feature.properties.collection}: {feature.id}
+                </span>
+                <span className="cloud-cover">
+                  <MdCloudQueue size={18} color="var(--color-secondary)" />
+                  {Number(
+                    feature.properties["eo:cloud_cover"]
+                  ).toFixed()}&#37;{" "}
+                </span>
               </p>
               <div className="buttons">
                 <button
@@ -76,7 +101,7 @@ export default class ResultsMenu extends Component {
                     )
                   }
                 >
-                  Vizualizar
+                  Visualizar
                 </button>
                 <button onClick={this.handleShowModal.bind(this)}>
                   Baixar
@@ -84,6 +109,7 @@ export default class ResultsMenu extends Component {
               </div>
             </div>
           ))}
+          {!features ? <span>Sem resultado</span> : null}
         </>
       );
     };

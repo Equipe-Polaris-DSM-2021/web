@@ -2,9 +2,7 @@ import { createContext, Component } from "react";
 
 import api from "../services/api";
 
-import FeaturesColections from "../services/featuresColections.js";
-
-// import api from "../../services/api";
+const Context = createContext();
 
 // Tipagem da Lista de Features
 
@@ -15,8 +13,6 @@ import FeaturesColections from "../services/featuresColections.js";
 //   properties: { collection: string };
 // }
 
-const Context = createContext();
-
 class MapFilterProvider extends Component {
   state = {
     tilesDynamicList: [],
@@ -26,6 +22,8 @@ class MapFilterProvider extends Component {
     imageUrl: "",
     imageOpacity: 0,
     imageBounds: [],
+    drawAreaCreated: false,
+    imageOverlayUpdating: false,
 
     toggleModal: false,
   };
@@ -41,6 +39,20 @@ class MapFilterProvider extends Component {
     this.setState({
       ...this.state,
       showTileList: !showTileList,
+    });
+  };
+
+  setDrawAreaCreated = (created) => {
+    this.setState({
+      ...this.state,
+      drawAreaCreated: created,
+    });
+  };
+
+  setImageLayerUpdating = (updating) => {
+    this.setState({
+      ...this.state,
+      imageOverlayUpdating: !this.state.imageOverlayUpdating,
     });
   };
 
@@ -87,8 +99,6 @@ class MapFilterProvider extends Component {
       cloudCover: form.cloudFilter["cloud-range"],
     };
 
-    console.log(inputBody);
-
     try {
       const { data } = await api.post("/satSearch", inputBody);
 
@@ -117,6 +127,12 @@ class MapFilterProvider extends Component {
           imageBounds: this.state.imageBounds,
           imageOpacity: this.state.imageOpacity,
           handleImageOverlay: this.handleImageOverlay,
+
+          drawAreaCreated: this.state.drawAreaCreated,
+          setDrawAreaCreated: this.setDrawAreaCreated,
+
+          imageOverlayUpdating: this.state.imageOverlayUpdating,
+          setImageLayerUpdating: this.setImageLayerUpdating,
 
           toggleModal: this.toggleModal,
           setToggleModal: this.setToggleModal,

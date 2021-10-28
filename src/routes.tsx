@@ -2,7 +2,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { MapFilterProvider } from "./context/MapFilterContext";
 
 import Home from "./pages/Home";
-import Explore from "./pages/Map";
+import Explore from "./pages/Explore";
 import Login from "./pages/Login";
 
 function Routes() {
@@ -10,7 +10,7 @@ function Routes() {
     <BrowserRouter>
       <Switch>
         <Route
-          path="/map"
+          path="/explore"
           exact
           render={() => (
             <MapFilterProvider>

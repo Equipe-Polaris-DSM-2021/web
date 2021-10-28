@@ -22,7 +22,7 @@ export default function Home() {
         </div>
         <h1 id="header_title">Polaris</h1>
         <div id="div_header_button">
-          <Link to="map">
+          <Link to="explore">
             <button id="header_button">Acessar o mapa</button>
           </Link>
         </div>
@@ -102,7 +102,7 @@ export default function Home() {
             <a href="#home">Sobre o projeto</a>
           </p>
           <p>
-            <Link id="div_map" to="map">
+            <Link id="div_map" to="explore">
               Acessar o mapa
             </Link>
           </p>
