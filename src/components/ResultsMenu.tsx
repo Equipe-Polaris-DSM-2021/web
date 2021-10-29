@@ -18,10 +18,14 @@ export default class ResultsMenu extends Component {
     this.context.setShowTileList(this.context.showTileList);
   }
 
-  handleShowModal() {
+  handleShowModal(processed, raw) {
+    // Ativa o modal
     this.setState({ ...this.state, toggleModal: this.context.toggleModal });
     const modalOverlay = document.querySelector(".modal-overlay");
     modalOverlay?.classList.toggle("active");
+
+    // Passa os arquivos que podem ser baixados
+    this.context.updateDownloadImages(processed, raw);
   }
 
   handleImageOverlay(url: string, bbox: number[], opacity: number) {
@@ -103,7 +107,21 @@ export default class ResultsMenu extends Component {
                 >
                   Visualizar
                 </button>
-                <button onClick={this.handleShowModal.bind(this)}>
+                <button
+                  onClick={() =>
+                    this.handleShowModal(
+                      /* Passando o link da imagem bruta (no caso a banda 1 - coastal) */
+                      feature.assets.B1.href as string,
+
+                      /* Passando um array com as bandas que devem ser zipadas (respectivamente RGB) */
+                      [
+                        feature.assets.B4.href,
+                        feature.assets.B3.href,
+                        feature.assets.B2.href,
+                      ] as string[]
+                    )
+                  }
+                >
                   Baixar
                 </button>
               </div>

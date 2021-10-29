@@ -22,11 +22,17 @@ export default class ModalDownload extends Component {
     // Se a opção de download da imagem processada estiver marcada
     if (processedImageChecked) {
       console.log("Imagem processada: " + this.state.processedImageChecked);
+
+      // imprimindo o que precisa ser baixado, que está sendo passado para o contexto no ResultsMenu
+      console.log(this.context.processedImage);
     }
 
     // Se a opção de download da imagem bruta estiver marcada
     if (rawImageChecked) {
       console.log("Imagem bruta: " + this.state.rawImageChecked);
+
+      // imprimindo o que precisa ser baixado, que está sendo passado para o contexto no ResultsMenu
+      console.log(this.context.rawImage);
     }
   }
 
@@ -100,3 +106,4 @@ export default class ModalDownload extends Component {
     );
   }
 }
+ModalDownload.contextType = Context;
