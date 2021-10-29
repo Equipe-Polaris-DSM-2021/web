@@ -5,10 +5,29 @@ import { Context } from "../context/MapFilterContext";
 import "../styles/components/modalDownload.css";
 
 export default class ModalDownload extends Component {
+  state = {
+    processedImageChecked: false,
+    rawImageChecked: false,
+  };
+
   handleCloseModal() {
     this.setState({ ...this.state, toggleModal: !this.context.toggleModal });
     const modalOverlay = document.querySelector(".modal-overlay");
     modalOverlay?.classList.toggle("active");
+  }
+
+  downloadImage() {
+    const { processedImageChecked, rawImageChecked } = this.state;
+
+    // Se a opção de download da imagem processada estiver marcada
+    if (processedImageChecked) {
+      console.log("Imagem processada: " + this.state.processedImageChecked);
+    }
+
+    // Se a opção de download da imagem bruta estiver marcada
+    if (rawImageChecked) {
+      console.log("Imagem bruta: " + this.state.rawImageChecked);
+    }
   }
 
   render() {
@@ -36,6 +55,13 @@ export default class ModalDownload extends Component {
                     type="checkbox"
                     name="img-processada"
                     id="img-processada"
+                    onChange={() => {
+                      this.setState({
+                        ...this.state,
+                        processedImageChecked:
+                          !this.state.processedImageChecked,
+                      });
+                    }}
                   />
                   <label htmlFor="img-processada">Imagem Processada</label>
                   <section className="option-description">
@@ -45,14 +71,28 @@ export default class ModalDownload extends Component {
 
                 {/* IMAGEM BRUTA */}
                 <div className="option-download">
-                  <input type="checkbox" name="img-bruta" id="img-bruta" />
+                  <input
+                    type="checkbox"
+                    name="img-bruta"
+                    id="img-bruta"
+                    onChange={() => {
+                      this.setState({
+                        ...this.state,
+                        rawImageChecked: !this.state.rawImageChecked,
+                      });
+                    }}
+                  />
                   <label htmlFor="img-bruta">Imagem Bruta</label>
                   <section className="option-description">
                     Todas as bandas da imagem compactadas
                   </section>
                 </div>
               </div>
-              <Button type="submit" width="40%" children={"Baixar"} />
+              <Button
+                width="40%"
+                children={"Baixar"}
+                onClick={this.downloadImage.bind(this)}
+              />
             </form>
           </div>
         </div>
