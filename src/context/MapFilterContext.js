@@ -26,6 +26,19 @@ class MapFilterProvider extends Component {
     imageOverlayUpdating: false,
 
     toggleModal: false,
+
+    // Informações do download
+    rawImage: "",
+    processedImage: [],
+  };
+
+  // Função que atualiza as imagens que serão baixadas
+  updateDownloadImages = (processed, raw) => {
+    this.setState({
+      ...this.state,
+      rawImage: raw,
+      processedImage: processed,
+    });
   };
 
   setBoundingBox = (bbox) => {
@@ -136,6 +149,10 @@ class MapFilterProvider extends Component {
 
           toggleModal: this.toggleModal,
           setToggleModal: this.setToggleModal,
+
+          updateDownloadImages: this.updateDownloadImages,
+          rawImage: this.state.rawImage,
+          processedImage: this.state.processedImage,
         }}
       >
         {this.props.children}
