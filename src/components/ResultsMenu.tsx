@@ -45,24 +45,18 @@ export default class ResultsMenu extends Component {
         return this.context.tilesDynamicList[key];
       });
 
-      const handleAccordion = (event: any) => {
-        const satelliteEl = document.querySelector(`#${event.target.id}`);
-        satelliteEl.classList.toggle("active");
-        const panel = satelliteEl.nextElementSibling;
-        panel.classList.toggle("block");
-      };
+      // const handleAccordion = (event: any) => {
+      //   const satelliteEl = document.querySelector(`#${event.target.id}`);
+      //   satelliteEl.classList.toggle("active");
+      //   const panel = satelliteEl.nextElementSibling;
+      //   panel.classList.toggle("block");
+      // };
       // * MELHORIA - ADICIONAR ACCORDION COMPONENT -> https://getbootstrap.com/docs/5.1/components/accordion/
       return (
         <div className="satellite-list">
           {featuresPivot.map((satellite, index) => (
             <div key={index} className="satellite-result">
-              <h5
-                id={`${Object.keys(satellite)}`}
-                className="satellite-name"
-                onClick={(event) => handleAccordion(event)}
-              >
-                {Object.keys(satellite)}
-              </h5>
+              <h5 className="satellite-name">{Object.keys(satellite)}</h5>
               <div className="features-list">
                 {Object.values(satellite).map(
                   (featureCollection: any, index) => (
@@ -111,13 +105,13 @@ export default class ResultsMenu extends Component {
                   onClick={() =>
                     this.handleShowModal(
                       /* Passando o link da imagem bruta (no caso a banda 1 - coastal) */
-                      feature.assets.B1.href as string,
+                      feature.assets?.B1?.href as string,
 
                       /* Passando um array com as bandas que devem ser zipadas (respectivamente RGB) */
                       [
-                        feature.assets.B4.href,
-                        feature.assets.B3.href,
-                        feature.assets.B2.href,
+                        feature.assets?.B4?.href,
+                        feature.assets?.B3?.href,
+                        feature.assets?.B2?.href,
                       ] as string[]
                     )
                   }

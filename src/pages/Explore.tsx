@@ -2,15 +2,17 @@ import React, { Component } from "react";
 
 import { Context } from "../context/MapFilterContext";
 
-import Sidebar from "../components/Sidebar";
-import ResultsMenu from "../components/ResultsMenu";
-import ModalDownload from "../components/ModalDownload";
+import {
+  Sidebar,
+  ResultsMenu,
+  ModalDownload,
+  LeafletDraw,
+  LeafletImageOverlay,
+} from "../components";
+
+import { LayersControl, MapContainer, TileLayer } from "react-leaflet";
 
 import "../styles/pages/map.css";
-import { LeafletDraw } from "../components/LeafletDraw";
-import { LayersControl, MapContainer, TileLayer } from "react-leaflet";
-import { LeafletImageOverlay } from "../components/ImageOverlay";
-import { Loading } from "../components/Loading";
 
 export default class Explore extends Component {
   state = {
@@ -33,7 +35,6 @@ export default class Explore extends Component {
           <ResultsMenu />
         )}
 
-        <Loading />
         <div className="map-container">
           <MapContainer
             center={[-23.2683, -45.913486]}
