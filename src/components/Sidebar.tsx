@@ -219,10 +219,11 @@ export default class Sidebar extends Component {
               <div
                 className="button-select"
                 onClick={() => {
-                  // const button: any = document.querySelector(
-                  //   ".leaflet-draw-draw-rectangle"
-                  // );
-                  // button.click();
+                  const button: any = document.querySelector(
+                    ".leaflet-draw-draw-rectangle"
+                  );
+
+                  if (!this.context.drawAreaCreated) button.click();
                 }}
               >
                 <FaMousePointer size="1.3rem" className="icon-select" />
