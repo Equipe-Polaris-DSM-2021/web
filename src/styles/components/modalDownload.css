@@ -20,23 +20,18 @@
 }
 
 .modal-container {
-  width: 40%;
-  height: 50%;
-  min-height: 360px;
+  width: 47%;
+  /* height: 50%; */
+  /* min-height: 360px; */
   background-color: var(--app-background-color);
   border-radius: 15px;
+  padding: 4rem;
 }
 
 .modal-header {
   display: flex;
-  justify-content: center;
-  margin-top: 1.6rem;
-}
-
-#modal-header-btn {
-  position: absolute;
-  top: 27.5%;
-  left: 67%;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
 #modal-header-btn:hover {
@@ -44,63 +39,78 @@
   transition: 200ms all;
 }
 
-.modal-body {
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
-  margin-top: 1.5rem;
-  text-align: center;
+.modal-body p {
+  margin-bottom: 2rem;
 }
 
-.modal-options-list {
+#container-download {
   display: flex;
-  max-width: 26rem;
-  gap: 10%;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  text-align: start;
-
-  margin-top: 1.5rem;
-  margin-bottom: 2.5rem;
+  justify-content: space-between;
 }
 
-.option-download {
-  flex-grow: 1;
+#container-download select {
+  width: 45%;
+  border: none;
+  color: var(--color-tertiary-text);
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  /* box-shadow: 0px 8px 28px -6px rgba (24,  39,  75,  12); */
+  filter: drop-shadow(0px 8px 28px -6px rgba (24,  39,  75,  12));
+
+  background: url("../../assets/images/arrow_select.png") no-repeat right
+    var(--app-background-container);
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
-.modal-options-list label {
-  margin-left: 1rem;
-  color: var(--color-primary);
-  display: inline-block;
+#container-download option {
+  color: #72787a;
 }
 
-.option-description {
-  margin-left: 1.8rem;
-  margin-top: 0.3rem;
+#container-download button {
+  background: #ffbb55;
+  width: 45%;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  height: 42px;
 }
 
-form {
-  margin-bottom: 1.5rem;
+#container-download button:hover {
+  border: 2px solid var(--color-primary) !important;
+  color: var(--color-primary) !important;
+  background-color: var(--app-background-color) !important;
+
+  transition: 200ms all;
 }
 
-@media (max-width: 892px) {
-  .modal-options-list {
-    margin-bottom: 1.5rem;
+@media (max-width: 1024px) {
+  #container-download {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #container-download select {
+    width: 100%;
+    margin-bottom: 1rem;
+    height: 42px;
+  }
+
+  #container-download Button {
+    width: 100%;
   }
 }
 
-@media (max-width: 1496px) {
-  #modal-header-btn {
-    top: 26.5%;
+@media (max-width: 906px) {
+  .modal-header h1 {
+    font-size: 1.3rem;
   }
 }
-@media (max-width: 1300px) {
-  .modal-container {
-    width: 50%;
-  }
 
-  #modal-header-btn {
-    left: 70%;
+@media (max-width: 832px) {
+  .modal-header h1 {
+    font-size: 1.1rem;
   }
 }

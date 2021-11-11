@@ -18,14 +18,14 @@ export default class ResultsMenu extends Component {
     this.context.setShowTileList(this.context.showTileList);
   }
 
-  handleShowModal(processed, raw) {
+  handleShowModal(bands) {
     // Ativa o modal
     this.setState({ ...this.state, toggleModal: this.context.toggleModal });
     const modalOverlay = document.querySelector(".modal-overlay");
     modalOverlay?.classList.toggle("active");
 
     // Passa os arquivos que podem ser baixados
-    this.context.updateDownloadImages(processed, raw);
+    this.context.updateDownloadImages(bands);
   }
 
   handleImageOverlay(url: string, bbox: number[], opacity: number) {
@@ -103,17 +103,82 @@ export default class ResultsMenu extends Component {
                 </button>
                 <button
                   onClick={() =>
-                    this.handleShowModal(
-                      /* Passando o link da imagem bruta (no caso a banda 1 - coastal) */
-                      feature.assets?.B1?.href as string,
-
-                      /* Passando um array com as bandas que devem ser zipadas (respectivamente RGB) */
+                    this.handleShowModal([
                       [
-                        feature.assets?.B4?.href,
-                        feature.assets?.B3?.href,
-                        feature.assets?.B2?.href,
-                      ] as string[]
-                    )
+                        feature.assets?.B1?.href
+                          ? feature.assets?.B1?.href
+                          : feature.assets?.B01?.href,
+                        feature.assets?.B1?.title
+                          ? feature.assets?.B1?.title
+                          : feature.assets?.B01?.title,
+                      ],
+                      [
+                        feature.assets?.B2?.href
+                          ? feature.assets?.B2?.href
+                          : feature.assets?.B02?.href,
+                        feature.assets?.B2?.title
+                          ? feature.assets?.B2?.title
+                          : feature.assets?.B02?.title,
+                      ],
+                      [
+                        feature.assets?.B3?.href
+                          ? feature.assets?.B3?.href
+                          : feature.assets?.B03?.href,
+                        feature.assets?.B3?.title
+                          ? feature.assets?.B3?.title
+                          : feature.assets?.B03?.title,
+                      ],
+                      [
+                        feature.assets?.B4?.href
+                          ? feature.assets?.B4?.href
+                          : feature.assets?.B04?.href,
+                        feature.assets?.B4?.title
+                          ? feature.assets?.B4?.title
+                          : feature.assets?.B04?.title,
+                      ],
+                      [
+                        feature.assets?.B5?.href
+                          ? feature.assets?.B5?.href
+                          : feature.assets?.B05?.href,
+                        feature.assets?.B5?.title
+                          ? feature.assets?.B5?.title
+                          : feature.assets?.B05?.title,
+                      ],
+                      [
+                        feature.assets?.B6?.href
+                          ? feature.assets?.B6?.href
+                          : feature.assets?.B06?.href,
+                        feature.assets?.B6?.title
+                          ? feature.assets?.B6?.title
+                          : feature.assets?.B06?.title,
+                      ],
+                      [
+                        feature.assets?.B7?.href
+                          ? feature.assets?.B7?.href
+                          : feature.assets?.B07?.href,
+                        feature.assets?.B7?.title
+                          ? feature.assets?.B7?.title
+                          : feature.assets?.B07?.title,
+                      ],
+                      [
+                        feature.assets?.B8?.href
+                          ? feature.assets?.B8?.href
+                          : feature.assets?.B08?.href,
+                        feature.assets?.B8?.title
+                          ? feature.assets?.B8?.title
+                          : feature.assets?.B08?.title,
+                      ],
+                      [
+                        feature.assets?.B9?.href
+                          ? feature.assets?.B9?.href
+                          : feature.assets?.B09?.href,
+                        feature.assets?.B9?.title
+                          ? feature.assets?.B9?.title
+                          : feature.assets?.B09?.title,
+                      ],
+                      [feature.assets?.B10?.href, feature.assets?.B10?.title],
+                      [feature.assets?.B11?.href, feature.assets?.B11?.title],
+                    ])
                   }
                 >
                   Baixar

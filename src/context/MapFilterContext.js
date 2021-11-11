@@ -28,16 +28,14 @@ class MapFilterProvider extends Component {
     toggleModal: false,
 
     // Informações do download
-    rawImage: "",
-    processedImage: [],
+    bands: [],
   };
 
   // Função que atualiza as imagens que serão baixadas
-  updateDownloadImages = (processed, raw) => {
+  updateDownloadImages = (bands) => {
     this.setState({
       ...this.state,
-      rawImage: raw,
-      processedImage: processed,
+      bands: bands,
     });
   };
 
@@ -151,8 +149,7 @@ class MapFilterProvider extends Component {
           setToggleModal: this.setToggleModal,
 
           updateDownloadImages: this.updateDownloadImages,
-          rawImage: this.state.rawImage,
-          processedImage: this.state.processedImage,
+          bands: this.state.bands,
         }}
       >
         {this.props.children}
