@@ -78,12 +78,24 @@
   height: 42px;
 }
 
-#container-download button:hover {
+#container-download button:not(:disabled):hover {
   border: 2px solid var(--color-primary) !important;
   color: var(--color-primary) !important;
   background-color: var(--app-background-color) !important;
 
   transition: 200ms all;
+}
+
+#container-download button:disabled {
+  background: #ced4da;
+  border: none;
+  color: #ffff;
+  border-radius: 0.5rem;
+  cursor: not-allowed;
+}
+
+#alert-sentinel {
+  color: var(--color-primary);
 }
 
 @media (max-width: 1024px) {

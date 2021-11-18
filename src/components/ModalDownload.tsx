@@ -24,7 +24,6 @@ export default class ModalDownload extends Component {
     } else {
       downloadService.downloadBandAndSave(this.state.valueSelect);
     }
-
     // this.context.bands.forEach((url) =>
     //   downloadService.downloadBandAndSave(url)
     // );
@@ -44,7 +43,16 @@ export default class ModalDownload extends Component {
             />
           </div>
           <div className="modal-body">
-            <p>Escolha qual banda da imagem você deseja baixar:</p>
+            {this.context.sateliteName == "sentinel-2-l1c" ? (
+              <p>
+                <span id="alert-sentinel">Atenção:</span> Não é possível baixar
+                as bandas da imagem do satélite {this.context.sateliteName} pois
+                não há permissão para acessar o repositório.
+              </p>
+            ) : (
+              <p>Escolha qual banda da imagem você deseja baixar:</p>
+            )}
+
             <div id="container-download">
               <select
                 value={this.state.valueSelect}
@@ -61,7 +69,12 @@ export default class ModalDownload extends Component {
                 ))}
               </select>
 
-              <button onClick={this.downloadImage.bind(this)}>Baixar</button>
+              <button
+                onClick={this.downloadImage.bind(this)}
+                disabled={this.context.sateliteName == "sentinel-2-l1c"}
+              >
+                Baixar
+              </button>
             </div>
           </div>
         </div>

@@ -18,14 +18,14 @@ export default class ResultsMenu extends Component {
     this.context.setShowTileList(this.context.showTileList);
   }
 
-  handleShowModal(bands) {
+  handleShowModal(sateliteName, bands) {
     // Ativa o modal
     this.setState({ ...this.state, toggleModal: this.context.toggleModal });
     const modalOverlay = document.querySelector(".modal-overlay");
     modalOverlay?.classList.toggle("active");
 
     // Passa os arquivos que podem ser baixados
-    this.context.updateDownloadImages(bands);
+    this.context.updateDownloadImages(sateliteName, bands);
   }
 
   handleImageOverlay(url: string, bbox: number[], opacity: number) {
@@ -103,7 +103,7 @@ export default class ResultsMenu extends Component {
                 </button>
                 <button
                   onClick={() =>
-                    this.handleShowModal([
+                    this.handleShowModal(feature.properties.collection, [
                       [
                         feature.assets?.B1?.href
                           ? feature.assets?.B1?.href

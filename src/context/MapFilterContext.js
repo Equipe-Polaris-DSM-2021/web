@@ -29,13 +29,15 @@ class MapFilterProvider extends Component {
 
     // Informações do download
     bands: [],
+    sateliteName: "",
   };
 
   // Função que atualiza as imagens que serão baixadas
-  updateDownloadImages = (bands) => {
+  updateDownloadImages = (sateliteName, bands) => {
     this.setState({
       ...this.state,
       bands: bands,
+      sateliteName: sateliteName,
     });
   };
 
@@ -150,6 +152,7 @@ class MapFilterProvider extends Component {
 
           updateDownloadImages: this.updateDownloadImages,
           bands: this.state.bands,
+          sateliteName: this.state.sateliteName,
         }}
       >
         {this.props.children}
