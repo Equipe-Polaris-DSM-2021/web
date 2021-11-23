@@ -27,8 +27,8 @@
   align-self: center;
   justify-content: center;
   z-index: 1;
-  grid-template-columns: 2fr 1fr 2fr 6fr 4fr 1.5fr;
-  grid-template-areas: ". div_header_logo header_title . div_header_button .";
+  grid-template-columns: 2fr 1fr 2fr 6fr 4fr 2fr 3fr 1fr;
+  grid-template-areas: ". div_header_logo header_title . div_header_button . login_header_button .";
 }
 
 #div_header_logo {
@@ -73,7 +73,13 @@
   font-size: 1.2vw;
 }
 
-#header_button:hover {
+#login_header_button {
+  grid-area: login_header_button;
+  align-self: center;
+  justify-content: center;
+}
+
+button:hover {
   background-color: white;
   color: #ffbb55;
   transition: 200ms all;
