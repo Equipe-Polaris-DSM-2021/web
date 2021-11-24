@@ -100,7 +100,8 @@
 /* --------------------------------------------Main--------------------------------------------------*/
 #login_container {
    margin: auto;
-   margin-top: 2vh;
+   margin-top: 5vh;
+   margin-bottom: 10vh;
    background-color:#FFFAED;
    width: 46.7vw;
    height: 32.6vw;
@@ -112,9 +113,26 @@
    box-shadow: 0px 1px 4px 0px #00000040;
 }
 
+#edit_login_container {
+   margin: auto;
+   margin-top: 5vh;
+   margin-bottom: 10vh;
+   background-color:#FFFAED;
+   width: 46.7vw;
+   height: 38.6vw;
+   padding: 3vw 4.5vw;
+   font-size: 1.2vw;
+   border-radius: 0.5rem;
+   text-align: left;
+   color: #112233;
+   box-shadow: 0px 1px 4px 0px #00000040;
+}
+
 #login_title {
    font-size: 3vw;
    font-weight: bold;
+   display: flex; 
+   justify-content: center
 }
 
 
