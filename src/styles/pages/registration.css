@@ -165,13 +165,38 @@
   justify-content: space-between;
 }
 
-#registration_page main button {
+#registration_page main #already_registered_container {
   background: #ffbb55;
   width: 35%;
   color: #ffffff;
   border: none;
   border-radius: 0.5rem;
   height: 42px;
+}
+
+#registration_page main #already_registered {
+  background: #ffbb55;
+  width: 100%;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  height: 42px;
+}
+
+#registration_page main #register {
+  background: #ffbb55;
+  width: 35%;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  height: 42px;
+}
+
+#registration_page main button:hover {
+  border: 2px solid var(--color-primary) !important;
+  color: var(--color-primary) !important;
+  background-color: #fffaed !important;
+  transition: 200ms all;
 }
 
 /* FOOTER --------------------------------------------------- */

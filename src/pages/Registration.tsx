@@ -87,7 +87,12 @@ export default class Registration extends Component {
                 </label>
               </div>
               <div className="options">
-                <button id="already_registered">Já tenho cadastro</button>
+                <div id="already_registered_container">
+                  <Link to="login">
+                    <button id="already_registered">Já tenho cadastro</button>
+                  </Link>
+                </div>
+
                 <button type="submit" id="register">
                   Cadastrar
                 </button>
