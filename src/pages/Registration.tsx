@@ -7,6 +7,12 @@ import Logo from "../components/Logo";
 import "../styles/pages/registration.css";
 
 export default class Registration extends Component {
+  state = {
+    name: "",
+    email: "",
+    password: "",
+  };
+
   render() {
     return (
       <div id="registration_page">
@@ -41,6 +47,12 @@ export default class Registration extends Component {
                     placeholder="Digite seu nome"
                     name="name"
                     id="name"
+                    onChange={(event) => {
+                      this.setState({
+                        ...this.state,
+                        name: event.target.value,
+                      });
+                    }}
                   />
                 </label>
                 <label>
@@ -50,6 +62,12 @@ export default class Registration extends Component {
                     placeholder="Digite seu e-mail"
                     name="email"
                     id="email"
+                    onChange={(event) => {
+                      this.setState({
+                        ...this.state,
+                        email: event.target.value,
+                      });
+                    }}
                   />
                 </label>
                 <label>
@@ -59,6 +77,12 @@ export default class Registration extends Component {
                     placeholder="Digite sua senha"
                     name="password"
                     id="password"
+                    onChange={(event) => {
+                      this.setState({
+                        ...this.state,
+                        password: event.target.value,
+                      });
+                    }}
                   />
                 </label>
               </div>
