@@ -53,6 +53,7 @@ export default class Registration extends Component {
                         name: event.target.value,
                       });
                     }}
+                    required
                   />
                 </label>
                 <label>
@@ -68,13 +69,14 @@ export default class Registration extends Component {
                         email: event.target.value,
                       });
                     }}
+                    required
                   />
                 </label>
                 <label>
                   Senha:
                   <input
                     type="text"
-                    placeholder="Digite sua senha"
+                    placeholder="Digite uma senha"
                     name="password"
                     id="password"
                     onChange={(event) => {
@@ -83,6 +85,7 @@ export default class Registration extends Component {
                         password: event.target.value,
                       });
                     }}
+                    required
                   />
                 </label>
               </div>
