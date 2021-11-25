@@ -50,8 +50,6 @@ export default class Login extends Component {
       const { user, token } = response.data;
       localStorage.setItem("token", token);
       localStorage.setItem("id", user.id);
-      localStorage.setItem("name", user.name);
-      localStorage.setItem("email", user.email);
       history.push("/");
     } catch (error) {
       console.log(error);

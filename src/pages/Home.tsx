@@ -14,6 +14,9 @@ import Logo from "../components/Logo";
 import "../styles/pages/home.css";
 
 export default function Home() {
+  const token = localStorage.getItem("token");
+  const name = localStorage.getItem("name");
+
   return (
     <div className="home" id="home">
       <div className="header">
@@ -26,11 +29,26 @@ export default function Home() {
             <button id="header_button">Acessar o mapa</button>
           </Link>
         </div>
-        <div id="login_header_button">
-          <Link to="login">
-            <button id="header_button_login">Login</button>
-          </Link>
-        </div>
+        {token === null ? (
+          <div id="login_header_button">
+            <Link to="login">
+              <button id="header_button_login">Login</button>
+            </Link>
+          </div>
+        ) : (
+          <div id="login_true_options">
+            <p>
+              {" "}
+              <Link to="editlogin" id="editLogin">
+                {" "}
+                Editar Perfil{" "}
+              </Link>{" "}
+              &nbsp; &nbsp;|&nbsp; &nbsp;<button id="logout">
+                Logout
+              </button>{" "}
+            </p>
+          </div>
+        )}
       </div>
       <main>
         <div id="block_one">
