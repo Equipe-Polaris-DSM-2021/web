@@ -75,7 +75,7 @@ export default class Registration extends Component {
                 <label>
                   Senha:
                   <input
-                    type="text"
+                    type="password"
                     placeholder="Digite uma senha"
                     name="password"
                     id="password"
