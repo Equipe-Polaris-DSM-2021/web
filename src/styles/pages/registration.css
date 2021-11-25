@@ -142,18 +142,22 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  font-weight: bold;
 }
 
 #registration_page main input {
+  color: #b3c3cb;
+  font-size: 1vw;
   width: 100%;
-  height: 2.3rem;
+  padding: 1vw;
+  border-radius: 0.5rem;
+  margin-bottom: 2vw;
+  background-color: #dbffff;
   border: none;
   background-color: var(--app-background-container);
   color: #112233;
-  border-radius: 0.5rem;
-  padding: 0.3rem;
   filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
-  margin-top: 0.6rem;
+  margin-top: 0.5rem;
 }
 
 #registration_page main input::placeholder {

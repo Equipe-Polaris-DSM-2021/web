@@ -1,11 +1,10 @@
-import { useHistory, Link } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 
 import logo from "../img/logo_polaris.png";
 import Logo from "../components/Logo";
 
 import "../styles/pages/login.css";
-
 
 export default function Login() {
   return (
@@ -34,19 +33,30 @@ export default function Login() {
           <h1 id="login_title">Login</h1>
           <form action="">
             <label htmlFor="email">E-mail:</label>
-            <input type="email" name="email" id="email" placeholder="Digite seu e-mail" autoComplete="off"></input>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Digite seu e-mail"
+              autoComplete="off"
+            ></input>
             <label htmlFor="password">Senha:</label>
-            <input type="password" name="password" id="password" placeholder="Digite sua senha"></input>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Digite sua senha"
+            ></input>
             <div id="div_login_buttons">
-              <div id="div_login_buttons">
-                <Link to="#">
+              <div className="div_login_buttons">
+                <Link to="Registration">
                   <button id="signin_button">Criar Cadastro</button>
                 </Link>
               </div>
-              <div id="div_login_buttons">
-                <Link to="#">
-                  <button id="login_button">Entrar</button>
-                </Link>
+              <div className="div_login_buttons">
+                <button type="submit" id="login_button">
+                  Entrar
+                </button>
               </div>
             </div>
           </form>
