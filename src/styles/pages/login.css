@@ -1,4 +1,4 @@
-.login main {
+#login main {
    display: flex;
    flex-direction: column;
    position: relative;
@@ -12,7 +12,7 @@
 
 /* -------------------------------------------header-------------------------------------------------*/
 
-.header {
+#login .header {
    position: fixed;
    top: 0;
    left: 0;
@@ -31,14 +31,14 @@
    grid-template-areas: ". div_header_logo header_title . div_header_button . login_header_button .";
 }
 
-#div_header_logo {
+#login #div_header_logo {
    grid-area: div_header_logo;
    align-self: center;
    justify-content: center;
    margin-right: 0;
 }
 
-#header_logo {
+#login #header_logo {
    min-width: 30px;
    min-height: 30px;
    width: 3.5vw;
@@ -47,7 +47,7 @@
    max-height: 60px;
 }
 
-#header_title {
+#login #header_title {
    grid-area: header_title;
    align-self: center;
    justify-content: center;
@@ -55,18 +55,18 @@
    margin-left: 0.2vw;
 }
 
-#div_header_button {
+#login #div_header_button {
    grid-area: div_header_button;
    align-self: center;
    justify-content: center;
 }
-#login_header_button {
+#login #login_header_button {
    grid-area: login_header_button;
    align-self: center;
    justify-content: center;
 }
 
-#header_button {
+#login #header_button {
    background-color: #ffbb55;
    color: white;
    border: 2px solid #ffbb55;
@@ -78,7 +78,7 @@
    font-size: 1.2vw;
 }
 
-#header_button_login {
+#login #header_button_login {
    background-color: #ffbb55;
    color: white;
    border: 2px solid #ffbb55;
@@ -90,15 +90,15 @@
    font-size: 1.2vw;
 }
 
-.header.button :hover {
-   background-color: white;
-   color: #ffbb55;
-   transition: 200ms all;
+#login button:hover {
+   background-color: white !important;
+   color: #ffbb55 !important;
+   transition: 200ms all !important;
    cursor: pointer;
 }
 
 /* --------------------------------------------Main--------------------------------------------------*/
-#login_container {
+#login #login_container {
    margin: auto;
    margin-top: 5vh;
    margin-bottom: 10vh;
@@ -113,7 +113,7 @@
    box-shadow: 0px 1px 4px 0px #00000040;
 }
 
-#edit_login_container {
+#login #edit_login_container {
    margin: auto;
    margin-top: 5vh;
    margin-bottom: 10vh;
@@ -128,7 +128,7 @@
    box-shadow: 0px 1px 4px 0px #00000040;
 }
 
-#login_title {
+#login #login_title {
    font-size: 3vw;
    font-weight: bold;
    display: flex; 
@@ -136,32 +136,35 @@
 }
 
 
-form {
+#login form {
    margin-top: 2vw;
    margin-bottom: 3vw;
 }
 
-label, input {
+#login label, input {
    display: block;
 }
 
-label {
+#login label {
    font-weight: bold;
    font-size: 1.6vw;
 }
 
-input {
+#login input {
    color: #B3C3CB;
    font-size: 1vw;
    width: 100%;
    padding: 1vw;
    border-radius: 0.5rem;
-   box-shadow: 0px 1px 4px 0px #00000040;
    margin-bottom: 2vw;
    background-color: #dbffff;
+   border: none;
+   background-color: var(--app-background-container);
+   color: #112233;
+   filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
 }
 
-#signin_button {
+#login #signin_button {
    background-color: #ffbb55;
    color: white;
    border: 2px solid #ffbb55;
@@ -173,7 +176,7 @@ input {
    font-size: 1.22vw;
 }
 
-#login_button {
+#login #login_button {
    background-color: #ffbb55;
    color: white;
    border: 2px solid #ffbb55;
@@ -186,7 +189,7 @@ input {
    border-spacing: 10vw;
 }
 
-#div_login_buttons {
+#login #div_login_buttons {
    display: flex;
    justify-content: space-between;
    padding-left: 0.7vw;
@@ -196,11 +199,11 @@ input {
 
 
 /* -------------------------------------------footer-------------------------------------------------*/
- .footer * {
+#login .footer * {
    color: #ffff;
 }
 
-.footer {
+#login .footer {
    width: 100vw;
    height: 12vw;
    background-color: #ffbb55;
@@ -212,64 +215,64 @@ input {
    padding: 30px;
 }
 
-#div_footer_logo {
+#login #div_footer_logo {
    align-self: center;
    justify-content: center;
 }
 
-#div_footer_logo .container img {
+#login #div_footer_logo .container img {
    width: 6.3vw;
    height: 100%;
    margin-right: 1.8em;
 }
 
-#div_footer_logo .container h1 {
+#login #div_footer_logo .container h1 {
    font-size: 2vw;
 }
 
-#div_footer_logo .container:hover {
+#login #div_footer_logo .container:hover {
    cursor: default !important;
 }
 
-#div_footer_content {
+#login #div_footer_content {
    font-size: 1.4vw;
 }
 
-#div_github {
+#login #div_github {
    align-self: center;
    flex: center;
 }
 
-#github_logo {
+#login #github_logo {
    width: 21px;
    height: 21px;
    margin-right: 0.5em;
 }
 
-#div_footer_rights {
+#login #div_footer_rights {
    font-size: 1.3vw;
 }
 
-#div_github:hover,
-#div_map:hover {
+#login #div_github:hover,
+#login #div_map:hover {
    color: #2288cc;
    transition: 200ms all;
 }
 
-#sb_proj a:hover {
+#login #sb_proj a:hover {
    color: #2288cc;
    transition: 200ms all;
 }
 
 /* -------------------------------------------MediaQuery-------------------------------------------------*/
 @media (min-width: 1300px) {
-.home main {
+#login .home main {
    padding: 5vw 10vw 0;
 }
 }
 
 @media (max-width: 500px) {
-.login main {
+#login .login main {
    padding: 20vw 10vw 0;
 }
 }

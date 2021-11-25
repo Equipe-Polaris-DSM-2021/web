@@ -73,19 +73,30 @@
   font-size: 1.2vw;
 }
 
+#home #header_button_login {
+  background-color: #ffbb55;
+  color: white;
+  border: 2px solid #ffbb55;
+  border-radius: 0.5rem;
+  width: 6.51vw;
+  height: 3.65vw;
+  max-width: 122px;
+  max-height: 65px;
+  font-size: 1.2vw;
+}
+
 #login_header_button {
   grid-area: login_header_button;
   align-self: center;
   justify-content: center;
 }
 
-button:hover {
-  background-color: white;
-  color: #ffbb55;
-  transition: 200ms all;
+#home button:hover {
+  background-color: white !important;
+  color: #ffbb55 !important;
+  transition: 200ms all !important;
   cursor: pointer;
 }
-
 /* -------------------------------------------Block 01-------------------------------------------------*/
 
 #block_one {
