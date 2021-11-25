@@ -5,12 +5,44 @@ import { FaGithub } from "react-icons/fa";
 import logo from "../img/logo_polaris.png";
 import Logo from "../components/Logo";
 import "../styles/pages/registration.css";
+import api from "../services/api";
+import createBrowserHistory from "history/createBrowserHistory";
+const history = createBrowserHistory({ forceRefresh: true });
 
 export default class Registration extends Component {
   state = {
     name: "",
     email: "",
     password: "",
+  };
+
+  insertUser = async (e) => {
+    e.preventDefault();
+
+    const email = this.state.email;
+    const password = this.state.password;
+    const name = this.state.name;
+    const id = localStorage.getItem("id");
+    const token = localStorage.getItem("token");
+
+    const data = {
+      name,
+      email,
+      password,
+    };
+
+    if (name === "" || password === "" || email === "") {
+      alert("Preencha todos os campos.");
+    } else {
+      try {
+        await api.post("http://localhost:3333/users", data);
+        alert("Cadastrado com sucesso!");
+        history.push("/login");
+      } catch (error) {
+        console.log(error);
+        alert("Não foi possível realizar cadastro.");
+      }
+    }
   };
 
   render() {
@@ -33,7 +65,10 @@ export default class Registration extends Component {
         <main>
           <div className="register_user_container">
             <h1 className="title">Cadastro de Usuário</h1>
-            <form className="register_user_form">
+            <form
+              className="register_user_form"
+              onSubmit={this.insertUser.bind(this)}
+            >
               <div className="user_data">
                 <label>
                   Nome:
