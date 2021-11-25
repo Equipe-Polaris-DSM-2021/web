@@ -4,21 +4,21 @@ import { FaGithub } from "react-icons/fa";
 import logo from "../img/logo_polaris.png";
 import Logo from "../components/Logo";
 import { isAuthenticated } from "../services/auth.js";
-import { createBrowserHistory } from "history";
+import createBrowserHistory from "history/createBrowserHistory";
 
 import "../styles/pages/login.css";
 import { Component } from "react";
 import api from "../services/api";
 
-import PropTypes from "prop-types";
+const history = createBrowserHistory({ forceRefresh: true });
 
 export default class Login extends Component {
-  history: any;
+  // history: any;
   authenticated: boolean;
 
   constructor(props) {
     super(props);
-    this.history = createBrowserHistory();
+    // this.history = createBrowserHistory();
     this.authenticated = isAuthenticated();
   }
 
@@ -30,7 +30,7 @@ export default class Login extends Component {
   componentDidMount() {
     if (this.authenticated) {
       console.log("Authenticated");
-      this.history.push("/");
+      history.push("/");
     }
   }
 
@@ -49,7 +49,7 @@ export default class Login extends Component {
       const response = await api.post("/auth", data);
       const { token } = response.data;
       localStorage.setItem("token", token);
-      this.history.push("/");
+      history.push("/");
     } catch (error) {
       console.log(error);
     }
