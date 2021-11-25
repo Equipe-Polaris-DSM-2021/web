@@ -1,16 +1,58 @@
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 
 import logo from "../img/logo_polaris.png";
 import Logo from "../components/Logo";
+import { isAuthenticated } from "../services/auth.js";
+import { createBrowserHistory } from "history";
 
 import "../styles/pages/login.css";
 import { Component } from "react";
+import api from "../services/api";
+
+import PropTypes from "prop-types";
 
 export default class Login extends Component {
+  history: any;
+  authenticated: boolean;
+
+  constructor(props) {
+    super(props);
+    this.history = createBrowserHistory();
+    this.authenticated = isAuthenticated();
+  }
+
   state = {
     email: "",
     password: "",
+  };
+
+  componentDidMount() {
+    if (this.authenticated) {
+      console.log("Authenticated");
+      this.history.push("/");
+    }
+  }
+
+  handleLogin = async (e) => {
+    e.preventDefault();
+
+    const email = this.state.email;
+    const password = this.state.password;
+
+    const data = {
+      email,
+      password,
+    };
+
+    try {
+      const response = await api.post("/auth", data);
+      const { token } = response.data;
+      localStorage.setItem("token", token);
+      this.history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
@@ -38,7 +80,7 @@ export default class Login extends Component {
         <main>
           <div id="login_container">
             <h1 id="login_title">Login</h1>
-            <form action="">
+            <form action="" onSubmit={this.handleLogin.bind(this)}>
               <label htmlFor="email">E-mail:</label>
               <input
                 type="email"
