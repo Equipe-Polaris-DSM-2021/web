@@ -79,14 +79,7 @@
   font-size: 1.2vw;
 }
 
-#registration_page .header #div_header_button #header_button:hover {
-  background-color: white;
-  color: #ffbb55;
-  transition: 200ms all;
-  cursor: pointer;
-}
-
-#registration_page .header #login_header_button #header_button_login:hover {
+#registration_page .header #login_header_button #header_button:hover {
   background-color: white;
   color: #ffbb55;
   transition: 200ms all;

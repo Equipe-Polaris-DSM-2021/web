@@ -22,14 +22,9 @@ export default class Registration extends Component {
             <img id="header_logo" src={logo} alt="Logo" />
           </div>
           <h1 id="header_title">Polaris</h1>
-          <div id="div_header_button">
+          <div id="login_header_button">
             <Link to="explore">
               <button id="header_button">Acessar o mapa</button>
-            </Link>
-          </div>
-          <div id="login_header_button">
-            <Link to="login">
-              <button id="header_button_login">Login</button>
             </Link>
           </div>
         </div>

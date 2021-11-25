@@ -68,14 +68,9 @@ export default class Login extends Component {
             <h1 id="header_title">Polaris</h1>
           </Link>
 
-          <div id="div_header_button">
+          <div id="login_header_button">
             <Link to="explore">
               <button id="header_button">Acessar o mapa</button>
-            </Link>
-          </div>
-          <div id="login_header_button">
-            <Link to="Editlogin">
-              <button id="header_button_login">Perfil</button>
             </Link>
           </div>
         </div>
