@@ -53,6 +53,7 @@ export default class Login extends Component {
       history.push("/");
     } catch (error) {
       console.log(error);
+      alert("Email ou senha incorretos.");
     }
   };
 

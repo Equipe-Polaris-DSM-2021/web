@@ -6,12 +6,43 @@ import Logo from "../components/Logo";
 
 import "../styles/pages/login.css";
 import { Component } from "react";
+import api from "../services/api";
 
 export default class EditLogin extends Component {
   state = {
     name: "",
     email: "",
     password: "",
+  };
+
+  handleUpdate = async (e) => {
+    e.preventDefault();
+
+    const email = this.state.email;
+    const password = this.state.password;
+    const name = this.state.name;
+    const id = localStorage.getItem("id");
+    const token = localStorage.getItem("token");
+
+    const data = {
+      name,
+      email,
+      password,
+    };
+
+    if (name === "" || password === "" || email === "") {
+      alert("Preencha todos os campos.");
+    } else {
+      try {
+        await api.put(`http://localhost:3333/users/${id}`, data, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        alert("Informações alteradas com sucesso!");
+      } catch (error) {
+        console.log(error);
+        alert("Não foi possível alterar informações");
+      }
+    }
   };
 
   render() {
@@ -24,17 +55,6 @@ export default class EditLogin extends Component {
           <Link to="/" id="header_title">
             <h1 id="header_title">Polaris</h1>
           </Link>
-
-          <div id="div_header_button">
-            <Link to="explore">
-              <button id="header_button">Acessar o mapa</button>
-            </Link>
-          </div>
-          <div id="login_header_button">
-            <Link to="login">
-              <button id="header_button_login">Login</button>
-            </Link>
-          </div>
         </div>
         <main>
           <div id="edit_login_container">
@@ -91,7 +111,11 @@ export default class EditLogin extends Component {
                   </Link>
                 </div>
                 <div className="div_login_buttons">
-                  <button type="submit" id="login_button">
+                  <button
+                    type="submit"
+                    id="login_button"
+                    onClick={this.handleUpdate.bind(this)}
+                  >
                     Salvar
                   </button>
                 </div>
