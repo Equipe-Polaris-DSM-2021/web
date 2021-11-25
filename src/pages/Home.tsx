@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
+import { logout } from "../services/auth.js";
 
 import bigrmap from "../img/big_r_map.png";
 import lmap from "../img/l_map.png";
@@ -10,12 +11,17 @@ import btmm from "../img/btt_plus_minus.png";
 import btms from "../img/btt_map_sat.png";
 import logo from "../img/logo_polaris.png";
 import Logo from "../components/Logo";
-
+import createBrowserHistory from "history/createBrowserHistory";
 import "../styles/pages/home.css";
+const history = createBrowserHistory({ forceRefresh: true });
 
 export default function Home() {
   const token = localStorage.getItem("token");
-  const name = localStorage.getItem("name");
+
+  const logoutUser = () => {
+    logout();
+    history.push("/");
+  };
 
   return (
     <div className="home" id="home">
@@ -43,7 +49,8 @@ export default function Home() {
                 {" "}
                 Editar Perfil{" "}
               </Link>{" "}
-              &nbsp; &nbsp;|&nbsp; &nbsp;<button id="logout">
+              &nbsp; &nbsp;|&nbsp; &nbsp;
+              <button id="logout" onClick={logoutUser}>
                 Logout
               </button>{" "}
             </p>
@@ -148,4 +155,7 @@ export default function Home() {
       </div>
     </div>
   );
+}
+function logoutUser() {
+  throw new Error("Function not implemented.");
 }
