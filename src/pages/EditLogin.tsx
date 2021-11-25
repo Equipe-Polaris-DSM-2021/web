@@ -7,7 +7,7 @@ import Logo from "../components/Logo";
 import "../styles/pages/login.css";
 
 
-export default function Login() {
+export default function EditLogin() {
   return (
     <div className="login" id="login">
       <div className="header">
@@ -24,28 +24,30 @@ export default function Login() {
           </Link>
         </div>
         <div id="login_header_button">
-          <Link to="Editlogin">
-            <button id="header_button_login">Perfil</button>
+          <Link to="login">
+            <button id="header_button_login">Login</button>
           </Link>
         </div>
       </div>
       <main>
-        <div id="login_container">
-          <h1 id="login_title">Login</h1>
+        <div id="edit_login_container">
+          <h1 id="login_title">Alteração de Usuário</h1>
           <form action="">
+            <label htmlFor="email">Nome:</label>
+            <input type="email" name="email" id="email" placeholder="Digite seu novo nome" autoComplete="off"></input>
             <label htmlFor="email">E-mail:</label>
-            <input type="email" name="email" id="email" placeholder="Digite seu e-mail" autoComplete="off"></input>
+            <input type="email" name="email" id="email" placeholder="Digite seu novo e-mail" autoComplete="off"></input>
             <label htmlFor="password">Senha:</label>
-            <input type="password" name="password" id="password" placeholder="Digite sua senha"></input>
+            <input type="password" name="password" id="password" placeholder="Digite sua nova senha"></input>
             <div id="div_login_buttons">
               <div id="div_login_buttons">
                 <Link to="#">
-                  <button id="signin_button">Criar Cadastro</button>
+                  <button id="signin_button">Logout</button>
                 </Link>
               </div>
               <div id="div_login_buttons">
                 <Link to="#">
-                  <button id="login_button">Entrar</button>
+                  <button id="login_button">Salvar</button>
                 </Link>
               </div>
             </div>

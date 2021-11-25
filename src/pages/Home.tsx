@@ -26,6 +26,11 @@ export default function Home() {
             <button id="header_button">Acessar o mapa</button>
           </Link>
         </div>
+        <div id="login_header_button">
+          <Link to="login">
+            <button id="header_button_login">Login</button>
+          </Link>
+        </div>
       </div>
       <main>
         <div id="block_one">
