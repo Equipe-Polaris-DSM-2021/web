@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Select from "react-select";
 import { MdClear } from "react-icons/md";
 import Button from "./Button";
 import { Context } from "../context/MapFilterContext";
@@ -8,8 +9,7 @@ import downloadService from "../services/download";
 
 export default class ModalDownload extends Component {
   state = {
-    processedImageChecked: false,
-    rawImageChecked: false,
+    valueSelect: "default",
   };
 
   handleCloseModal() {
@@ -19,21 +19,14 @@ export default class ModalDownload extends Component {
   }
 
   downloadImage() {
-    const { processedImageChecked, rawImageChecked } = this.state;
-
-    // Se a opção de download da imagem processada estiver marcada
-    if (processedImageChecked) {
-      // baixando o que precisa ser baixado, que está sendo passado para o contexto no ResultsMenu
-      downloadService.downloadBandAndSave(this.context.processedImage);
+    if (this.state.valueSelect == "default" || this.state.valueSelect == "") {
+      alert("Selecione uma banda");
+    } else {
+      downloadService.downloadBandAndSave(this.state.valueSelect);
     }
-
-    // Se a opção de download da imagem bruta estiver marcada
-    if (rawImageChecked) {
-      // baixando o que precisa ser baixado, que está sendo passado para o contexto no ResultsMenu
-      this.context.rawImage.forEach((url) =>
-        downloadService.downloadBandAndSave(url)
-      );
-    }
+    // this.context.bands.forEach((url) =>
+    //   downloadService.downloadBandAndSave(url)
+    // );
   }
 
   render() {
@@ -50,56 +43,39 @@ export default class ModalDownload extends Component {
             />
           </div>
           <div className="modal-body">
-            <p>
-              Para o download, é possível escolher entre os seguintes formatos:
-            </p>
-            <form>
-              <div className="modal-options-list">
-                {/* IMAGEM PROCESSADA */}
-                <div className="option-download">
-                  <input
-                    type="checkbox"
-                    name="img-processada"
-                    id="img-processada"
-                    onChange={() => {
-                      this.setState({
-                        ...this.state,
-                        processedImageChecked:
-                          !this.state.processedImageChecked,
-                      });
-                    }}
-                  />
-                  <label htmlFor="img-processada">Imagem Processada</label>
-                  <section className="option-description">
-                    Imagem com cores naturais e realçadas no formato GeoTIFF
-                  </section>
-                </div>
+            {this.context.sateliteName == "sentinel-2-l1c" ? (
+              <p>
+                <span id="alert-sentinel">Atenção:</span> Não é possível baixar
+                as bandas da imagem do satélite {this.context.sateliteName} pois
+                não há permissão para acessar o repositório.
+              </p>
+            ) : (
+              <p>Escolha qual banda da imagem você deseja baixar:</p>
+            )}
 
-                {/* IMAGEM BRUTA */}
-                <div className="option-download">
-                  <input
-                    type="checkbox"
-                    name="img-bruta"
-                    id="img-bruta"
-                    onChange={() => {
-                      this.setState({
-                        ...this.state,
-                        rawImageChecked: !this.state.rawImageChecked,
-                      });
-                    }}
-                  />
-                  <label htmlFor="img-bruta">Imagem Bruta</label>
-                  <section className="option-description">
-                    Todas as bandas da imagem compactadas
-                  </section>
-                </div>
-              </div>
-              <Button
-                width="40%"
-                children={"Baixar"}
+            <div id="container-download">
+              <select
+                value={this.state.valueSelect}
+                onChange={(event) => {
+                  this.setState({
+                    ...this.state,
+                    valueSelect: event.target.value,
+                  });
+                }}
+              >
+                <option value="default">Selecione uma banda</option>
+                {this.context.bands.map((band) => (
+                  <option value={band[0]}>{band[1]}</option>
+                ))}
+              </select>
+
+              <button
                 onClick={this.downloadImage.bind(this)}
-              />
-            </form>
+                disabled={this.context.sateliteName == "sentinel-2-l1c"}
+              >
+                Baixar
+              </button>
+            </div>
           </div>
         </div>
       </div>
