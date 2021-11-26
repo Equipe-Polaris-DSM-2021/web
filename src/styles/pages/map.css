@@ -29,10 +29,6 @@
   display: none;
 }
 
-.teste {
-  border-style: dashed;
-}
-
 @media (max-width: 1024px) {
   .map-container
     .leaflet-control-container
