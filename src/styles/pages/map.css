@@ -46,3 +46,13 @@
   position: absolute;
 }
 */
+
+.map-container .leaflet-control-layers-base div {
+  display: flex;
+  gap: 5px;
+}
+
+.map-container .leaflet-control-layers-overlays div {
+  display: flex;
+  gap: 5px;
+}

@@ -24,24 +24,24 @@ export default class Explore extends Component {
     this.setState({ ...this.state, pageLoaded: true });
   }
 
-  handleMap() {
-    const { mapInstance } = this.state;
+  // handleMap() {
+  //   const { mapInstance } = this.state;
 
-    const lyr = L.tileLayer(`${process.env.PUBLIC_URL}/temp/{z}/{x}/{y}.png`, {
-      tms: true,
-      opacity: 0.7,
-      attribution: "dasdsadsadsadadasd",
-    });
+  //   const lyr = L.tileLayer(`${process.env.PUBLIC_URL}/temp/{z}/{x}/{y}.png`, {
+  //     tms: true,
+  //     opacity: 0.7,
+  //     attribution: "dasdsadsadsadadasd",
+  //   });
 
-    L.control
-      .layers({}, { overlays: lyr }, { collapsed: false })
-      .addTo(mapInstance);
+  //   L.control
+  //     .layers({}, { overlays: lyr }, { collapsed: false })
+  //     .addTo(mapInstance);
 
-    mapInstance.fitBounds([
-      [-5.3924177991646145, -45.91698007246761],
-      [-3.29042674669571, -47.97389281097399],
-    ]);
-  }
+  //   mapInstance.fitBounds([
+  //     [-5.3924177991646145, -45.91698007246761],
+  //     [-3.29042674669571, -47.97389281097399],
+  //   ]);
+  // }
 
   componentDidUpdate() {
     console.log(this.state.mapInstance);
@@ -81,6 +81,14 @@ export default class Explore extends Component {
                   url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
                 />
               </LayersControl.BaseLayer>
+              <LayersControl.Overlay name="Tile Mocked">
+                <TileLayer
+                  attribution="&copy; GdalToTiles"
+                  url={`${process.env.PUBLIC_URL}/temp/{z}/{x}/{y}.png`}
+                  tms={true}
+                  opacity={0.7}
+                />
+              </LayersControl.Overlay>
             </LayersControl>
             <LeafletDraw />
             <LeafletImageOverlay />
