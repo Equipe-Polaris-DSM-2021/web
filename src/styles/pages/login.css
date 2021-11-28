@@ -113,7 +113,7 @@
   margin-bottom: 10vh;
   background-color: #fffaed;
   width: 46.7vw;
-  height: 38.6vw;
+  height: 40vw;
   padding: 3vw 4.5vw;
   font-size: 1.2vw;
   border-radius: 0.5rem;
@@ -185,10 +185,23 @@ input {
 #login #div_login_buttons {
   display: flex;
   justify-content: space-between;
+  margin-top: 1rem;
+}
+
+#login #div_login_buttons_login {
+  display: flex;
+  justify-content: space-between;
   margin-top: 3rem;
 }
 
 #login #div_login_buttons button:hover {
+  border: 2px solid var(--color-primary) !important;
+  color: var(--color-primary) !important;
+  background-color: #fffaed !important;
+  transition: 200ms all;
+}
+
+#login #div_login_buttons_login button:hover {
   border: 2px solid var(--color-primary) !important;
   color: var(--color-primary) !important;
   background-color: #fffaed !important;
@@ -201,6 +214,20 @@ input {
   color: var(--color-primary) !important;
   background-color: #fff !important;
   transition: 200ms all;
+}
+
+#login #delete {
+  background-color: transparent;
+  padding: none;
+  margin: none;
+  border: none;
+  font-size: 1.2vw;
+}
+
+#login #delete:hover {
+  color: var(--color-primary) !important;
+  transition: 200ms all;
+  cursor: pointer;
 }
 
 /* -------------------------------------------footer-------------------------------------------------*/
@@ -284,7 +311,7 @@ input {
 
 @media (max-width: 1200px) {
   #login #div_login_buttons {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   #login .div_login_buttons {
@@ -299,7 +326,7 @@ input {
 
 @media (max-width: 1066px) {
   #login #div_login_buttons {
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 
   #login .div_login_buttons {
@@ -316,7 +343,7 @@ input {
   }
 
   #login #edit_login_container {
-    height: 40vw;
+    height: 44vw;
   }
 }
 
