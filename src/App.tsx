@@ -6,8 +6,16 @@ import "leaflet/dist/leaflet.css";
 
 import Routes from "./routes";
 
+import createHistory from "history/createBrowserHistory";
+import { Router } from "react-router";
+const history = createHistory();
+
 const App: React.FC = () => {
-  return <Routes />;
+  return (
+    <Router history={history}>
+      <Routes />
+    </Router>
+  );
 };
 
 export default App;

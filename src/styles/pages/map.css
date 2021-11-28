@@ -29,10 +29,6 @@
   display: none;
 }
 
-.teste {
-  border-style: dashed;
-}
-
 @media (max-width: 1024px) {
   .map-container
     .leaflet-control-container
@@ -50,3 +46,13 @@
   position: absolute;
 }
 */
+
+.map-container .leaflet-control-layers-base div {
+  display: flex;
+  gap: 5px;
+}
+
+.map-container .leaflet-control-layers-overlays div {
+  display: flex;
+  gap: 5px;
+}
