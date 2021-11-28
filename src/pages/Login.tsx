@@ -107,7 +107,7 @@ export default class Login extends Component {
                 }}
                 required
               ></input>
-              <div id="div_login_buttons">
+              <div id="div_login_buttons_login">
                 <div className="div_login_buttons">
                   <Link to="Registration">
                     <button id="signin_button">Criar Cadastro</button>

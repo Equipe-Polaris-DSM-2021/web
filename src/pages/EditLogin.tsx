@@ -8,11 +8,35 @@ import "../styles/pages/login.css";
 import { Component } from "react";
 import api from "../services/api";
 
+import { logout } from "../services/auth.js";
+import createBrowserHistory from "history/createBrowserHistory";
+const history = createBrowserHistory({ forceRefresh: true });
+
 export default class EditLogin extends Component {
   state = {
     name: "",
     email: "",
     password: "",
+  };
+
+  deleteRegistration = async (e) => {
+    e.preventDefault();
+
+    const id = localStorage.getItem("id");
+    const token = localStorage.getItem("token");
+
+    try {
+      await api.delete(`http://localhost:3333/users/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      alert("Cadastro deletado com sucesso");
+    } catch (error) {
+      console.log(error);
+      alert("Não foi possível deletar cadastro");
+    }
+
+    logout();
+    history.push("/");
   };
 
   handleUpdate = async (e) => {
@@ -104,6 +128,15 @@ export default class EditLogin extends Component {
                 }}
                 required
               ></input>
+              <p>
+                Deseja deletar seu cadastro? Se sim,{" "}
+                <button
+                  id="delete"
+                  onClick={this.deleteRegistration.bind(this)}
+                >
+                  clique aqui
+                </button>
+              </p>
               <div id="div_login_buttons">
                 <div className="div_login_buttons">
                   <Link to="/">
